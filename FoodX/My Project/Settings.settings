@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="dbUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">innovnli_admin</Value>
+    </Setting>
+    <Setting Name="dbPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">namecheap</Value>
+    </Setting>
+    <Setting Name="pfBoundHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="pfBoundPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="pfRemotePort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="SSHAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">198.54.126.75</Value>
+    </Setting>
+    <Setting Name="SSHPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">21098</Value>
+    </Setting>
+    <Setting Name="SSHUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">innovnli</Value>
+    </Setting>
+    <Setting Name="SSHPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">No:211626a!</Value>
+    </Setting>
+    <Setting Name="pfRemoteHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="mysqlAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="mysqlPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="scannerPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM4</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
