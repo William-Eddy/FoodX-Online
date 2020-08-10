@@ -44,6 +44,7 @@
     Public Sub calculateIngredientsRequired()
 
         Dim meals As Meals = New Meals
+        Dim ingredients As ingredients = New ingredients
 
         Dim serves As Integer
         Dim stock As Integer
@@ -54,6 +55,7 @@
         Dim mealID As String
 
         meals.setContents()
+        ingredients.setContents()
 
         mealsRequired.setRowColumnIndexToZero()
 
@@ -68,8 +70,7 @@
 
             If servingsRequired > 0 Then
 
-
-
+                batchesRequired = calculateBactchesRequired(servingsRequired, serves)
 
 
 
@@ -81,10 +82,15 @@
 
     End Sub
 
-
     Function calculateServingsRequired(servingsRequired, stock)
 
         Return servingsRequired - stock
+
+    End Function
+
+    Function calculateBactchesRequired(servingsRequired, serves)
+
+        Return Math.Round(servingsRequired / serves, 0)
 
     End Function
 
