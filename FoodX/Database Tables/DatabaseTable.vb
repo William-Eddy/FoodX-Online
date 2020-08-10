@@ -81,15 +81,15 @@
 
     End Sub
 
-    Function search(searchColumn As String, searchValue As String, returnColumn As String)
+    Function getDataRow(searchColumn As String, searchValue As String, returnColumn As String)
 
-        Dim rows() As DataRow = getDataRow(searchColumn, searchValue)
+        Dim rows() As DataRow = getTableSelect(searchColumn, searchValue)
 
         Return rows(0).Item(returnColumn)
 
     End Function
 
-    Function getDataRow(searchField As String, searchValue As String)
+    Function getTableSelect(searchField As String, searchValue As String)
 
         Return table.Select(searchField + "= " + searchValue)
 

@@ -9,13 +9,13 @@
 
     Function getServing(mealID)
 
-        Return Int(search("mealID", mealID, "serves"))
+        Return Int(getDataRow("mealID", mealID, "serves"))
 
     End Function
 
     Function getStock(mealID)
 
-        Return Int(search("mealID", mealID, "stock"))
+        Return Int(getDataRow("mealID", mealID, "stock"))
 
     End Function
 

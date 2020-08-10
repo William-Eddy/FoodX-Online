@@ -143,7 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database Tables\Quantity List Tables\MealsRequired.vb" />
-    <Compile Include="Database Tables\Standard Table\ingredients.vb" />
+    <Compile Include="Database Tables\Standard Table\MealIngredients.vb" />
     <Compile Include="Database Tables\Standard Table\MealPlan.vb" />
     <Compile Include="Database Tables\Standard Table\Meals.vb" />
     <Compile Include="Meal Plan\ChangeMealPlan.Designer.vb">

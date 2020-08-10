@@ -6,6 +6,7 @@
     Public Sub generateList()
 
         getMealsFromPlan()
+        calculateIngredientsRequired()
 
     End Sub
 
@@ -44,7 +45,7 @@
     Public Sub calculateIngredientsRequired()
 
         Dim meals As Meals = New Meals
-        Dim ingredients As ingredients = New ingredients
+        Dim mealIngredients As MealIngredients = New MealIngredients
 
         Dim serves As Integer
         Dim stock As Integer
@@ -55,7 +56,10 @@
         Dim mealID As String
 
         meals.setContents()
-        ingredients.setContents()
+        mealIngredients.setContents()
+
+        Dim ingredientsForSelectedMeal As System.Data.DataRow
+
 
         mealsRequired.setRowColumnIndexToZero()
 
@@ -72,13 +76,23 @@
 
                 batchesRequired = calculateBactchesRequired(servingsRequired, serves)
 
+                'ingredientsForSelectedMeal = mealIngredients.getSelectedMealIngredients(mealID)
 
 
+                mealIngredients.printTable()
+                Exit Sub
+
+                For Each mealIngredientsRow As DataRow In mealIngredients.table.Rows
+
+
+                Next
 
             End If
 
         Next
 
+
+        MsgBox("Complete")
 
     End Sub
 
