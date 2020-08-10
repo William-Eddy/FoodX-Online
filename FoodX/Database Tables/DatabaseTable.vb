@@ -89,9 +89,9 @@
 
     End Function
 
-    Function getTableSelect(searchField As String, searchValue As String)
+    Function getTableSelect(searchColumn As String, searchValue As String)
 
-        Return table.Select(searchField + "= " + searchValue)
+        Return table.Select(searchColumn + "= " + searchValue)
 
     End Function
 

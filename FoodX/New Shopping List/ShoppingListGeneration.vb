@@ -16,8 +16,6 @@
 
         '#####clearShoppingList()
 
-        'establish meals required
-
         mealPlan.setContents()
         mealsRequired.setColumns()
 
@@ -58,7 +56,7 @@
         meals.setContents()
         mealIngredients.setContents()
 
-        Dim ingredientsForSelectedMeal As System.Data.DataRow
+        Dim ingredientsForSelectedMeal() As System.Data.DataRow
 
 
         mealsRequired.setRowColumnIndexToZero()
@@ -70,21 +68,18 @@
             serves = meals.getServing(mealID)
             stock = meals.getStock(mealID)
 
-            servingsRequired = calculateServingsRequired(servingsRequired, stock)
+            servingsRequired = calculateServingsRequired(servings, stock)
 
             If servingsRequired > 0 Then
 
                 batchesRequired = calculateBactchesRequired(servingsRequired, serves)
-
-                'ingredientsForSelectedMeal = mealIngredients.getSelectedMealIngredients(mealID)
-
-
-                mealIngredients.printTable()
-                Exit Sub
+                ingredientsForSelectedMeal = mealIngredients.getSelectedMealIngredients(mealID)
 
                 For Each mealIngredientsRow As DataRow In mealIngredients.table.Rows
 
 
+
+                    mealIngredients.increaseRowCount()
                 Next
 
             End If
@@ -96,9 +91,9 @@
 
     End Sub
 
-    Function calculateServingsRequired(servingsRequired, stock)
+    Function calculateServingsRequired(servings, stock)
 
-        Return servingsRequired - stock
+        Return servings - stock
 
     End Function
 

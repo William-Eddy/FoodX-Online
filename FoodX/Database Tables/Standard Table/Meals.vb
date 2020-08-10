@@ -3,7 +3,7 @@
 
     Public Sub setContents()
 
-        setTableContents("SELECT `serves`, `stock` FROM `tblMeal`")
+        setTableContents("SELECT `mealID`, `serves`, `stock` FROM `tblMeal`")
 
     End Sub
 
