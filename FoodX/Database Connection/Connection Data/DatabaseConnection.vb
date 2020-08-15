@@ -10,8 +10,13 @@ Public Class DatabaseConnection
     Dim client As SshClient
 
     Public query As String = String.Empty
-    Public columnsForInsert As New List(Of String)()
-    Public command As MySqlCommand
+    Public mainPartOfQuery As String = String.Empty
+    Public valuesPartOfQuery As String = String.Empty
+    Public criteriaPartOfQuery As String = String.Empty
+    Public columns As New List(Of String)()
+    Public criteria As New List(Of String)()
+    Public updateValues As IngredientsRequired = New IngredientsRequired
+    Public command As MySqlCommand = New MySqlCommand
     Public Sub establishConnection()
 
         establishPortForward()
@@ -87,7 +92,6 @@ Public Class DatabaseConnection
 
     End Sub
 
-
     Function getSQLDataTable(sqlcommand)
 
         Dim adapter As New MySqlDataAdapter(sqlcommand, conn)
@@ -143,30 +147,6 @@ Public Class DatabaseConnection
 
     End Sub
 
-
-    Public Sub addToShoppingList(ingredientID, quantity, name, unit)
-
-        Dim query As String = String.Empty
-        query &= "INSERT INTO tblShoppingList(ingredientID, quantity, name, unit)"
-        query &= "VALUES (@ingredientID, @quantity, @name, @unit)"
-
-        Using command As New MySqlCommand
-            With command
-                .Connection = conn
-                .CommandType = CommandType.Text
-                .CommandText = query
-                .Parameters.AddWithValue("@ingredientID", Int(ingredientID))
-                .Parameters.AddWithValue("@quantity", Int(quantity))
-                .Parameters.AddWithValue("@name", name)
-                .Parameters.AddWithValue("@unit", unit)
-            End With
-            command.ExecuteNonQuery()
-
-        End Using
-
-    End Sub
-
-
     Public Sub updatePendingMeals(mealID, quantity)
 
         Dim query As String = String.Empty
@@ -184,6 +164,78 @@ Public Class DatabaseConnection
         End Using
 
     End Sub
+    Public Sub executeUpdate(tableName)
+
+        setUpdateQuery()
+        setCriteriaQuery()
+        query = "UPDATE " + tableName + " SET " + mainPartOfQuery
+
+        If Len(criteriaPartOfQuery) > 0 Then
+
+            query &= " WHERE " + criteriaPartOfQuery
+
+        End If
+
+        setQueryToConnection()
+        executeCommand()
+
+        reset()
+
+    End Sub
+
+    Public Sub setUpdateQuery()
+
+        Dim columnName As String
+        Dim columnCount As Integer
+
+        columnCount = columns.Count - 1
+
+        For i As Integer = 0 To columnCount
+
+            columnName = columns(i)
+
+            mainPartOfQuery &= columnName + "=@" + columnName
+
+            If i < columnCount Then
+
+                mainPartOfQuery &= ","
+
+            End If
+
+        Next
+
+    End Sub
+
+    Public Sub setCriteriaQuery()
+
+        Dim criteriaName As String
+        Dim criteriaCount As Integer
+
+        criteriaCount = criteria.Count - 1
+
+        For i As Integer = 0 To criteriaCount
+
+            criteriaName = criteria(i)
+
+            criteriaPartOfQuery &= (criteriaName + "=@" + criteriaName)
+
+            If i < criteriaCount Then
+
+                criteriaPartOfQuery &= ","
+
+            End If
+
+        Next
+
+    End Sub
+
+    Public Sub addConditions(columnName, value)
+
+        command.Parameters.AddWithValue("@" + columnName, value)
+        criteria.Add(columnName)
+
+
+    End Sub
 
     Public Sub setQueryToConnection()
 
@@ -198,49 +250,7 @@ Public Class DatabaseConnection
     Public Sub addValues(columnName, value)
 
         command.Parameters.AddWithValue("@" + columnName, value)
-        columnsForInsert.Add(columnName)
-
-    End Sub
-
-    Public Sub initaliseInsertQuery()
-
-        columnsForInsert.Clear()
-        command = New MySqlCommand
-
-    End Sub
-
-    Public Sub setQueryString(tableName)
-
-        Dim insertPartOfQuery As String = String.Empty
-        Dim valuesPartOfQuery As String = String.Empty
-        Dim columnName As String
-        Dim columnCount As Integer
-
-        insertPartOfQuery = "INSERT INTO " + tableName + "("
-        valuesPartOfQuery = "VALUES ("
-
-        columnCount = columnsForInsert.Count - 1
-
-        For i As Integer = 0 To columnCount
-
-            columnName = columnsForInsert(i)
-
-            insertPartOfQuery &= columnName
-            valuesPartOfQuery &= "@" + columnName
-
-            If i < columnCount Then
-
-                insertPartOfQuery &= ","
-                valuesPartOfQuery &= ","
-
-            End If
-
-        Next
-
-        insertPartOfQuery &= ")"
-        valuesPartOfQuery &= ")"
-
-        query = insertPartOfQuery + " " + valuesPartOfQuery
+        columns.Add(columnName)
 
     End Sub
 
@@ -250,4 +260,81 @@ Public Class DatabaseConnection
 
     End Sub
 
+    Public Sub executeInsert(tableName)
+
+        setInsertQuery()
+        setInsertValueQuery()
+
+        query = "INSERT INTO " + tableName + mainPartOfQuery + " VALUES " + valuesPartOfQuery
+        setQueryToConnection()
+        executeCommand()
+
+        reset()
+
+    End Sub
+
+    Public Sub reset()
+
+        columns.Clear()
+        criteria.Clear()
+        command = New MySqlCommand
+        mainPartOfQuery = String.Empty
+        valuesPartOfQuery = String.Empty
+        criteriaPartOfQuery = String.Empty
+
+    End Sub
+
+    Public Sub setInsertQuery()
+
+        Dim columnName As String
+        Dim columnCount As Integer
+
+        mainPartOfQuery &= "("
+
+        columnCount = columns.Count - 1
+
+        For i As Integer = 0 To columnCount
+
+            columnName = columns(i)
+
+            mainPartOfQuery &= columnName
+
+            If i < columnCount Then
+
+                mainPartOfQuery &= ","
+
+            End If
+
+        Next
+
+        mainPartOfQuery &= ")"
+
+    End Sub
+
+    Public Sub setInsertValueQuery()
+
+        Dim columnName As String
+        Dim columnCount As Integer
+
+        columnCount = columns.Count - 1
+
+        valuesPartOfQuery &= "("
+
+        For i As Integer = 0 To columnCount
+
+            columnName = columns(i)
+
+            valuesPartOfQuery &= "@" + columnName
+
+            If i < columnCount Then
+
+                valuesPartOfQuery &= ","
+
+            End If
+
+        Next
+
+        valuesPartOfQuery &= ")"
+
+    End Sub
 End Class

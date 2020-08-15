@@ -1,28 +1,32 @@
 ﻿Public Class ShoppingListDatabaseOperations
 
-
-    Public Sub initialise()
-
-        MainConnectionAccess.conndb.initaliseInsertQuery()
-
-    End Sub
-
     Public Sub addIngredientValue(columnName, value)
 
         MainConnectionAccess.conndb.addValues(columnName, value)
 
     End Sub
 
-    Public Sub setQueryString()
+    Public Sub executeInsertCommand()
 
-        MainConnectionAccess.conndb.setQueryString("tblShoppingList")
+        MainConnectionAccess.conndb.executeInsert("tblShoppingList")
 
     End Sub
+    Public Sub clearShoppingList()
 
-    Public Sub executeCommand()
+        MainConnectionAccess.conndb.getSQLDataTable("DELETE FROM `tblShoppingList`")
 
-        MainConnectionAccess.conndb.setQueryToConnection()
-        MainConnectionAccess.conndb.executeCommand()
+    End Sub
+    Public Sub clearPending()
+
+        MainConnectionAccess.conndb.addValues("pending", 0)
+        MainConnectionAccess.conndb.executeUpdate("tblMeal")
+
+    End Sub
+    Public Sub updatePendingMeals(mealID, quantity)
+
+        MainConnectionAccess.conndb.addValues("pending", quantity)
+        MainConnectionAccess.conndb.addConditions("mealID", mealID)
+        MainConnectionAccess.conndb.executeUpdate("tblMeal")
 
     End Sub
 

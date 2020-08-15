@@ -133,7 +133,6 @@
             realQuantityRequired = quantityRequired - quantity
 
             If realQuantityRequired > 0 Then
-                MainConnectionAccess.conndb.addToShoppingList(ingredientID, realQuantityRequired, name, unit)
                 shoppingList.addNewItem(name, realQuantityRequired)
             End If
 

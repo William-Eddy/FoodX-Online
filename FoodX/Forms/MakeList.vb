@@ -1,17 +1,15 @@
 ﻿Public Class MakeList
     Private Sub MakeList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'BackgroundWorker.RunWorkerAsync()
-
-        Dim shoppingList As ShoppingListGeneration
-        shoppingList = New ShoppingListGeneration
-        shoppingList.generateList()
+        BackgroundWorker.RunWorkerAsync()
 
     End Sub
 
     Private Sub BackgroundWorker_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker.DoWork
 
-
+        Dim shoppingList As ShoppingListGeneration
+        shoppingList = New ShoppingListGeneration
+        shoppingList.generateList()
 
     End Sub
 

@@ -3,8 +3,13 @@
     Public mealPlan As MealPlan = New MealPlan
     Public mealsRequired As MealsRequired = New MealsRequired
     Public ingredientsRequired As IngredientsRequired = New IngredientsRequired
+    Public databaseOperations As ShoppingListDatabaseOperations = New ShoppingListDatabaseOperations
 
     Public Sub generateList()
+
+        databaseOperations.clearShoppingList()
+        databaseOperations.clearPending()
+
 
         getMealsFromPlan()
         calculateIngredientsRequired()
@@ -16,7 +21,7 @@
 
         Dim mealID As String
 
-        '#####clearShoppingList()
+       
 
         mealPlan.setContents()
         mealsRequired.setColumns()
@@ -64,11 +69,14 @@
             Dim serves As Integer = meals.getServing(mealID)
             Dim stock As Integer = meals.getStock(mealID)
 
+
             Dim servingsRequired As Integer = calculateServingsRequired(servings, stock)
 
             If servingsRequired > 0 Then
 
                 batchesRequired = calculateBactchesRequired(servingsRequired, serves)
+
+                databaseOperations.updatePendingMeals(mealID, (batchesRequired * serves))
 
                 For Each selectedRow As DataRow In mealIngredients.table.Rows
 
@@ -98,7 +106,6 @@
     Public Sub checkIngredientAvailabilityAndInsert()
 
         Dim ingredients As Ingredients = New Ingredients
-        Dim insertConnection As ShoppingListDatabaseOperations = New ShoppingListDatabaseOperations
 
         Dim ingredientID As String
         Dim ingredientName As String
@@ -122,19 +129,15 @@
 
             If quantityRequiredToBuy > 0 Then
 
-                insertConnection.initialise()
-                insertConnection.addIngredientValue("ingredientID", ingredientID)
-                insertConnection.addIngredientValue("quantity", quantityRequiredToBuy)
-                insertConnection.addIngredientValue("name", ingredientName)
-                insertConnection.setQueryString()
-                insertConnection.executeCommand()
+                databaseOperations.addIngredientValue("ingredientID", ingredientID)
+                databaseOperations.addIngredientValue("quantity", quantityRequiredToBuy)
+                databaseOperations.addIngredientValue("name", ingredientName)
+                databaseOperations.executeInsertCommand()
 
             End If
 
             ingredientsRequired.increaseRowCount()
         Next
-
-        MsgBox("Done")
 
     End Sub
 
