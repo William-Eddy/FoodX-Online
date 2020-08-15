@@ -8,7 +8,27 @@ Public Class DatabaseConnection
     Dim connIni As Boolean
     Dim portFwld As ForwardedPortLocal
     Dim client As SshClient
-    Public Sub iniConnection()
+    Public query As String = String.Empty
+    Public command As MySqlCommand
+    Public Sub establishConnection()
+
+        establishPortForward()
+        establishMySQLConnection()
+
+    End Sub
+
+    Public Sub establishMySQLConnection()
+
+        conn = New MySqlConnection("server = " + My.Settings.mysqlAddress + "; port = " + My.Settings.mysqlPort + "; uid = '" + My.Settings.dbUsername + "'; password = '" + My.Settings.dbPassword + "'; database='innovnli_dbuniversityfoodtracker'")
+
+        Console.WriteLine(conn.ConnectionString)
+
+        conn.Open()
+
+        connIni = True
+
+    End Sub
+    Public Sub establishPortForward()
 
         Dim connectionInfo As PasswordConnectionInfo
 
@@ -33,19 +53,9 @@ Public Class DatabaseConnection
 
         Console.WriteLine("Port Forward Started")
 
-        'conn = New MySqlConnection("server = localhost; port = 3306; uid = 'innovnli_admin'; password = 'innovnliadmin'; database='innovnli_dbuniversityfoodtracker'")
-
-        conn = New MySqlConnection("server = " + My.Settings.mysqlAddress + "; port = " + My.Settings.mysqlPort + "; uid = '" + My.Settings.dbUsername + "'; password = '" + My.Settings.dbPassword + "'; database='innovnli_dbuniversityfoodtracker'")
-
-        Console.WriteLine(conn.ConnectionString)
-
-        conn.Open()
-
-        connIni = True
-
     End Sub
 
-    Public Function checkConState()
+    Public Function checkConnectionState()
 
         If connIni = True Then
             Return conn.State
@@ -57,13 +67,26 @@ Public Class DatabaseConnection
 
     Public Sub closeConnection()
 
-        conn.Close()
+        closeDatabaseConnection()
+        closePortForward()
+
+    End Sub
+
+    Public Sub closePortForward()
+
         portFwld.Stop()
         client.Disconnect()
 
     End Sub
 
-    Function runAdapter(sqlcommand)
+    Public Sub closeDatabaseConnection()
+
+        conn.Close()
+
+    End Sub
+
+
+    Function getSQLDataTable(sqlcommand)
 
         Dim adapter As New MySqlDataAdapter(sqlcommand, conn)
         Dim table As New DataTable
@@ -73,7 +96,7 @@ Public Class DatabaseConnection
 
     End Function
 
-    Function getString(sqlcommand)
+    Function getStringValueString(sqlcommand)
 
         Dim adapter As New MySqlDataAdapter(sqlcommand, conn)
         Dim table As New DataTable
@@ -159,5 +182,31 @@ Public Class DatabaseConnection
         End Using
 
     End Sub
+
+
+    Public Sub setQueryToConnection(table)
+
+        With command
+            .Connection = conn
+            .CommandType = CommandType.Text
+            .CommandText = query
+        End With
+
+    End Sub
+
+    Public Sub addValues(column)
+
+        command.Parameters.AddWithValue("@" + column, column)
+
+    End Sub
+
+    Public Sub initaliseInsertQuery()
+
+
+
+
+    End Sub
+
+
 
 End Class

@@ -13,7 +13,7 @@
 
     Private Sub NewBarcode_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        ingData = MainConnectionAccess.conndb.runAdapter("SELECT `ingredientID`, `name` FROM `tblIngredients`")
+        ingData = MainConnectionAccess.conndb.getSQLDataTable("SELECT `ingredientID`, `name` FROM `tblIngredients`")
         'cbxIngredientList.DataSource = ingData
 
         With cbxIngredientList
@@ -30,7 +30,7 @@
 
     Private Sub cbxIngredientList_DropDownClosed(sender As Object, e As EventArgs) Handles cbxIngredientList.Leave
 
-        ingData = MainConnectionAccess.conndb.runAdapter("SELECT `measurement` FROM `tblIngredients` WHERE ingredientID= " + Str(Me.cbxIngredientList.SelectedValue))
+        ingData = MainConnectionAccess.conndb.getSQLDataTable("SELECT `measurement` FROM `tblIngredients` WHERE ingredientID= " + Str(Me.cbxIngredientList.SelectedValue))
 
         Me.lblUnit.Text = ingData.Rows(0).Item(0).ToString()
 

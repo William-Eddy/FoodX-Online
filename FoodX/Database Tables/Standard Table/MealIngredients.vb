@@ -8,11 +8,36 @@
 
     End Sub
 
-    Function getSelectedMealIngredients(mealID)
+    Function getTotalIngredientQuantity(batchesRequired)
 
-        Return getTableSelect("mealID", mealID)
+        Return getCurrentIngredientQuantityPerBatch() * batchesRequired
 
     End Function
+    Function getCurrentIngredientQuantityPerBatch()
+
+        Return getCurrentRowValue(2)
+
+    End Function
+    Function getCurrentIngredientID()
+
+        Return getCurrentRowValue(1)
+
+    End Function
+
+    Function getCurrentMealID()
+
+        Return getCurrentRowValue(0)
+
+    End Function
+
+
+
+
+
+
+
+
+
 
 
 End Class

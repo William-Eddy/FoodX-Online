@@ -4,7 +4,7 @@
 
     Public Sub addItem(ID, quantity)
 
-        Dim rows() As DataRow = getTableSelect("id", ID)
+        Dim rows() As DataRow = getDataRow("id", ID)
 
         If rows.Count > 0 Then
             rows(0).Item("quantity") = rows(0).Item("quantity") + 1

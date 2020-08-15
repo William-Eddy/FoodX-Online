@@ -143,11 +143,11 @@
     End Sub
 
     Private Sub clearShoppingList()
-        MainConnectionAccess.conndb.runAdapter("DELETE FROM `tblShoppingList`")
+        MainConnectionAccess.conndb.getSQLDataTable("DELETE FROM `tblShoppingList`")
     End Sub
 
     Private Sub setAvailableStock()
-        MainConnectionAccess.conndb.runAdapter("UPDATE `tblMeal` SET `available` = `stock`")
+        MainConnectionAccess.conndb.getSQLDataTable("UPDATE `tblMeal` SET `available` = `stock`")
     End Sub
 
     Private Sub initialiseMealPlan()

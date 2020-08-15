@@ -9,7 +9,7 @@
 
     Public Sub setMealPlanTableData()
 
-        table = MainConnectionAccess.conndb.runAdapter("SELECT `preWorkout`, `breakfast`, `lunch`, `dinner`, `snack`, `drink1`, `drink2` FROM `tblMealPlan`")
+        table = MainConnectionAccess.conndb.getSQLDataTable("SELECT `preWorkout`, `breakfast`, `lunch`, `dinner`, `snack`, `drink1`, `drink2` FROM `tblMealPlan`")
         setIndexToZero()
 
     End Sub

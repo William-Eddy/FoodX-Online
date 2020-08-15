@@ -11,10 +11,10 @@
         SetCurrentTab(5)
         SetTabTitle()
 
-        lbBreakfast.DataSource = MainConnectionAccess.conndb.runAdapter("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Breakfast'")
-        lbLunchDinner.DataSource = MainConnectionAccess.conndb.runAdapter("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Lunch/Dinner'")
-        lbSnacks.DataSource = MainConnectionAccess.conndb.runAdapter("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Pre-workout/Snack'")
-        lbDrinks.DataSource = MainConnectionAccess.conndb.runAdapter("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Drink'")
+        lbBreakfast.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Breakfast'")
+        lbLunchDinner.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Lunch/Dinner'")
+        lbSnacks.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Pre-workout/Snack'")
+        lbDrinks.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Drink'")
 
     End Sub
 
@@ -100,11 +100,11 @@
 
         My.Settings.Save()
 
-        If MainConnectionAccess.conndb.checkConState = 0 Then
+        If MainConnectionAccess.conndb.checkConnectionState = 0 Then
 
             butConnect.Text = "Connecting..."
             txtOnline.Text = "⬤ Connecting..."
-            MainConnectionAccess.conndb.iniConnection()
+            MainConnectionAccess.conndb.establishConnection()
         Else
             MainConnectionAccess.conndb.closeConnection()
         End If
@@ -113,7 +113,7 @@
 
     Private Sub checkStatus_Tick(sender As Object, e As EventArgs) Handles checkStatus.Tick
 
-        If MainConnectionAccess.conndb.checkConState = 1 Then
+        If MainConnectionAccess.conndb.checkConnectionState = 1 Then
 
             butConnect.BackColor = Color.Green
             butConnect.Text = "Disconnect"
@@ -132,8 +132,8 @@
 
     Private Sub Main_Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        If MainConnectionAccess.conndb.checkConState = 0 Then
-            MainConnectionAccess.conndb.iniConnection()
+        If MainConnectionAccess.conndb.checkConnectionState = 0 Then
+            MainConnectionAccess.conndb.establishConnection()
         End If
 
     End Sub
@@ -176,9 +176,9 @@
 
         Try
 
-            barcodeData = MainConnectionAccess.conndb.runAdapter("SELECT `ingredientID`, `quantity`, `price`  FROM `tblIngredientBarcodes` WHERE barcode='" + barcode + "'")
+            barcodeData = MainConnectionAccess.conndb.getSQLDataTable("SELECT `ingredientID`, `quantity`, `price`  FROM `tblIngredientBarcodes` WHERE barcode='" + barcode + "'")
             ingID = barcodeData.Rows(0).Item(0).ToString()
-            name = (MainConnectionAccess.conndb.runAdapter("SELECT `name` FROM `tblIngredients` WHERE ingredientID=" + Str(ingID))).Rows(0).Item(0).ToString()
+            name = (MainConnectionAccess.conndb.getSQLDataTable("SELECT `name` FROM `tblIngredients` WHERE ingredientID=" + Str(ingID))).Rows(0).Item(0).ToString()
             quantity = barcodeData.Rows(0).Item(1).ToString()
             price = barcodeData.Rows(0).Item(2).ToString()
 
@@ -209,10 +209,10 @@
         Dim insertArray As String()
 
 
-        mealStockData = (MainConnectionAccess.conndb.runAdapter("SELECT `mealID`, `madedate` FROM `tblMealStock` WHERE mealStockBarcode='" + Me.txtScanIn.Text + "'"))
+        mealStockData = (MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `madedate` FROM `tblMealStock` WHERE mealStockBarcode='" + Me.txtScanIn.Text + "'"))
         madeDate = mealStockData.Rows(0)("madedate").ToString
         mealID = mealStockData.Rows(0).Item(0).ToString()
-        mealName = (MainConnectionAccess.conndb.runAdapter("SELECT `name` FROM `tblMeal` WHERE mealID=" + mealID)).Rows(0).Item(0).ToString()
+        mealName = (MainConnectionAccess.conndb.getSQLDataTable("SELECT `name` FROM `tblMeal` WHERE mealID=" + mealID)).Rows(0).Item(0).ToString()
 
         insertArray = {mealID, mealName, madeDate}
 

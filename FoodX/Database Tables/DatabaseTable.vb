@@ -8,7 +8,7 @@
 
     Public Sub setTableContents(query)
 
-        table = MainConnectionAccess.conndb.runAdapter(query)
+        table = MainConnectionAccess.conndb.getSQLDataTable(query)
         setRowColumnIndexToZero()
 
     End Sub
@@ -81,17 +81,37 @@
 
     End Sub
 
-    Function getDataRow(searchColumn As String, searchValue As String, returnColumn As String)
+    Function getSingleSearchValue(searchColumn As String, searchValue As String, returnColumn As String)
 
-        Dim rows() As DataRow = getTableSelect(searchColumn, searchValue)
+        Dim rows() As DataRow = getDataRow(searchColumn, searchValue)
 
         Return rows(0).Item(returnColumn)
 
     End Function
 
-    Function getTableSelect(searchColumn As String, searchValue As String)
+    Function getDataRow(searchColumn As String, searchValue As String)
 
         Return table.Select(searchColumn + "= " + searchValue)
+
+    End Function
+
+    Function convertToDataTable(dataRow)
+
+        Dim outputTable As DataTable = New DataTable
+
+        For Each row As DataRow In dataRow
+
+            outputTable.ImportRow(row)
+
+        Next
+
+        Return outputTable
+
+    End Function
+
+    Function getNewTableWithConditions(searchColumn As String, searchValue As String)
+
+        Return convertToDataTable(getDataRow(searchColumn, searchValue))
 
     End Function
 

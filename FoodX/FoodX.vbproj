@@ -142,6 +142,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database Connection\Commands\Insert.vb" />
+    <Compile Include="Database Connection\Operations\shoppingListAccess.vb" />
+    <Compile Include="Database Tables\Standard Table\Ingredients.vb" />
+    <Compile Include="Database Tables\Quantity List Tables\IngredientsRequired.vb" />
     <Compile Include="Database Tables\Quantity List Tables\MealsRequired.vb" />
     <Compile Include="Database Tables\Standard Table\MealIngredients.vb" />
     <Compile Include="Database Tables\Standard Table\MealPlan.vb" />
@@ -152,14 +156,14 @@
     <Compile Include="Meal Plan\ChangeMealPlan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Database Connection\DatabaseConnection.vb" />
+    <Compile Include="Database Connection\Connection Data\DatabaseConnection.vb" />
     <Compile Include="Forms\Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Database Connection\MainConnectionAccess.vb" />
+    <Compile Include="Database Connection\Data Access\MainConnectionAccess.vb" />
     <Compile Include="Meal Plan\MealPlanOld.vb" />
     <Compile Include="Meal Plan\MealPlanConnection.vb" />
     <Compile Include="Database Tables\DatabaseTable.vb" />

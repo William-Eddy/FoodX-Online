@@ -8,7 +8,7 @@
 
     Public Sub setTableContents(mysqlstatement)
 
-        table = MainConnectionAccess.conndb.runAdapter(mysqlstatement)
+        table = MainConnectionAccess.conndb.getSQLDataTable(mysqlstatement)
         setIndexToZero()
 
     End Sub

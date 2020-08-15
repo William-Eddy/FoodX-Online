@@ -2,6 +2,7 @@
 
     Public mealPlan As MealPlan = New MealPlan
     Public mealsRequired As MealsRequired = New MealsRequired
+    Public ingredientsRequired As IngredientsRequired = New IngredientsRequired
 
     Public Sub generateList()
 
@@ -36,7 +37,6 @@
             mealPlan.increaseRowCount()
         Next
 
-        mealsRequired.printTable()
 
     End Sub
 
@@ -45,49 +45,83 @@
         Dim meals As Meals = New Meals
         Dim mealIngredients As MealIngredients = New MealIngredients
 
-        Dim serves As Integer
-        Dim stock As Integer
-        Dim servings As Integer
-        Dim servingsRequired As Integer
         Dim batchesRequired As Integer
 
-        Dim mealID As String
+        Dim ingredientID As Integer
+        Dim totalIngredientQuantity As Integer
 
         meals.setContents()
         mealIngredients.setContents()
 
-        Dim ingredientsForSelectedMeal() As System.Data.DataRow
-
-
         mealsRequired.setRowColumnIndexToZero()
+        ingredientsRequired.setColumns()
 
         For Each mealsRequiredRow As DataRow In mealsRequired.table.Rows
 
-            mealID = mealsRequired.getCurrentMealID
-            servings = mealsRequired.getServingsRequired
-            serves = meals.getServing(mealID)
-            stock = meals.getStock(mealID)
+            Dim mealID As String = mealsRequired.getCurrentMealID
+            Dim servings As Integer = mealsRequired.getServingsRequired
+            Dim serves As Integer = meals.getServing(mealID)
+            Dim stock As Integer = meals.getStock(mealID)
 
-            servingsRequired = calculateServingsRequired(servings, stock)
+            Dim servingsRequired As Integer = calculateServingsRequired(servings, stock)
 
             If servingsRequired > 0 Then
 
                 batchesRequired = calculateBactchesRequired(servingsRequired, serves)
-                ingredientsForSelectedMeal = mealIngredients.getSelectedMealIngredients(mealID)
 
-                For Each mealIngredientsRow As DataRow In mealIngredients.table.Rows
+                For Each selectedRow As DataRow In mealIngredients.table.Rows
 
+                    If Str(mealIngredients.getCurrentMealID) = Str(mealID) Then
 
+                        ingredientID = mealIngredients.getCurrentIngredientID
+                        totalIngredientQuantity = mealIngredients.getTotalIngredientQuantity(batchesRequired)
 
-                    mealIngredients.increaseRowCount()
+                        ingredientsRequired.addIngredient(ingredientID, totalIngredientQuantity)
+                        mealIngredients.increaseRowCount()
+
+                    End If
+
                 Next
 
             End If
 
         Next
 
+        ingredientsRequired.printTable()
 
-        MsgBox("Complete")
+    End Sub
+    Public Sub checkIngredientAvailabilityAndInsert()
+
+        Dim ingredients As Ingredients = New Ingredients
+
+        Dim ingredientID As String
+        Dim quantityInStock As Integer
+        Dim quantityRequired As Integer
+
+        Dim quantityRequiredToBuy As Integer
+
+
+        ingredients.setContents()
+
+        For Each row As DataRow In ingredientsRequired.table.Rows
+
+            ingredientID = ingredientsRequired.getCurrentIngredientID
+            quantityInStock = ingredients.getQuantityInStock(ingredientID)
+            quantityRequired = ingredientsRequired.getCurrentQuantity
+
+            quantityRequiredToBuy = quantityInStock - quantityRequired
+
+            If quantityRequiredToBuy > 0 Then
+
+                'add to db
+
+            End If
+
+
+            ingredientsRequired.increaseRowCount()
+        Next
+
+
 
     End Sub
 
