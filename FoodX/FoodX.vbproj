@@ -142,8 +142,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database Connection\Commands\Insert.vb" />
-    <Compile Include="Database Connection\Operations\shoppingListAccess.vb" />
+    <Compile Include="Database Connection\Operations\ShoppingListDatabaseOperations.vb" />
     <Compile Include="Database Tables\Standard Table\Ingredients.vb" />
     <Compile Include="Database Tables\Quantity List Tables\IngredientsRequired.vb" />
     <Compile Include="Database Tables\Quantity List Tables\MealsRequired.vb" />
@@ -275,6 +274,8 @@
   <ItemGroup>
     <Content Include="Untitled-2.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Database Connection\Commands\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

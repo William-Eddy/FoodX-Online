@@ -8,7 +8,9 @@ Public Class DatabaseConnection
     Dim connIni As Boolean
     Dim portFwld As ForwardedPortLocal
     Dim client As SshClient
+
     Public query As String = String.Empty
+    Public columnsForInsert As New List(Of String)()
     Public command As MySqlCommand
     Public Sub establishConnection()
 
@@ -183,8 +185,7 @@ Public Class DatabaseConnection
 
     End Sub
 
-
-    Public Sub setQueryToConnection(table)
+    Public Sub setQueryToConnection()
 
         With command
             .Connection = conn
@@ -194,19 +195,59 @@ Public Class DatabaseConnection
 
     End Sub
 
-    Public Sub addValues(column)
+    Public Sub addValues(columnName, value)
 
-        command.Parameters.AddWithValue("@" + column, column)
+        command.Parameters.AddWithValue("@" + columnName, value)
+        columnsForInsert.Add(columnName)
 
     End Sub
 
     Public Sub initaliseInsertQuery()
 
-
-
+        columnsForInsert.Clear()
+        command = New MySqlCommand
 
     End Sub
 
+    Public Sub setQueryString(tableName)
 
+        Dim insertPartOfQuery As String = String.Empty
+        Dim valuesPartOfQuery As String = String.Empty
+        Dim columnName As String
+        Dim columnCount As Integer
+
+        insertPartOfQuery = "INSERT INTO " + tableName + "("
+        valuesPartOfQuery = "VALUES ("
+
+        columnCount = columnsForInsert.Count - 1
+
+        For i As Integer = 0 To columnCount
+
+            columnName = columnsForInsert(i)
+
+            insertPartOfQuery &= columnName
+            valuesPartOfQuery &= "@" + columnName
+
+            If i < columnCount Then
+
+                insertPartOfQuery &= ","
+                valuesPartOfQuery &= ","
+
+            End If
+
+        Next
+
+        insertPartOfQuery &= ")"
+        valuesPartOfQuery &= ")"
+
+        query = insertPartOfQuery + " " + valuesPartOfQuery
+
+    End Sub
+
+    Public Sub executeCommand()
+
+        command.ExecuteNonQuery()
+
+    End Sub
 
 End Class

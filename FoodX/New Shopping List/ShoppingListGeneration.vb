@@ -8,6 +8,7 @@
 
         getMealsFromPlan()
         calculateIngredientsRequired()
+        checkIngredientAvailabilityAndInsert()
 
     End Sub
 
@@ -71,19 +72,23 @@
 
                 For Each selectedRow As DataRow In mealIngredients.table.Rows
 
-                    If Str(mealIngredients.getCurrentMealID) = Str(mealID) Then
+                    Dim currentMealID As String = Str(mealIngredients.getCurrentMealID)
+
+                    If currentMealID = Str(mealID) Then
 
                         ingredientID = mealIngredients.getCurrentIngredientID
                         totalIngredientQuantity = mealIngredients.getTotalIngredientQuantity(batchesRequired)
 
                         ingredientsRequired.addIngredient(ingredientID, totalIngredientQuantity)
-                        mealIngredients.increaseRowCount()
 
                     End If
 
+                    mealIngredients.increaseRowCount()
                 Next
 
             End If
+
+            mealsRequired.increaseRowCount()
 
         Next
 
@@ -93,8 +98,10 @@
     Public Sub checkIngredientAvailabilityAndInsert()
 
         Dim ingredients As Ingredients = New Ingredients
+        Dim insertConnection As ShoppingListDatabaseOperations = New ShoppingListDatabaseOperations
 
         Dim ingredientID As String
+        Dim ingredientName As String
         Dim quantityInStock As Integer
         Dim quantityRequired As Integer
 
@@ -102,26 +109,32 @@
 
 
         ingredients.setContents()
+        ingredientsRequired.setRowColumnIndexToZero()
 
         For Each row As DataRow In ingredientsRequired.table.Rows
 
             ingredientID = ingredientsRequired.getCurrentIngredientID
+            ingredientName = ingredients.getIngredientName(ingredientID)
             quantityInStock = ingredients.getQuantityInStock(ingredientID)
             quantityRequired = ingredientsRequired.getCurrentQuantity
 
-            quantityRequiredToBuy = quantityInStock - quantityRequired
+            quantityRequiredToBuy = quantityRequired - quantityInStock
 
             If quantityRequiredToBuy > 0 Then
 
-                'add to db
+                insertConnection.initialise()
+                insertConnection.addIngredientValue("ingredientID", ingredientID)
+                insertConnection.addIngredientValue("quantity", quantityRequiredToBuy)
+                insertConnection.addIngredientValue("name", ingredientName)
+                insertConnection.setQueryString()
+                insertConnection.executeCommand()
 
             End If
-
 
             ingredientsRequired.increaseRowCount()
         Next
 
-
+        MsgBox("Done")
 
     End Sub
 
@@ -133,7 +146,11 @@
 
     Function calculateBactchesRequired(servingsRequired, serves)
 
-        Return Math.Round(servingsRequired / serves, 0)
+        Dim batchesRequired As Double
+
+        batchesRequired = servingsRequired / serves
+
+        Return Math.Ceiling(batchesRequired)
 
     End Function
 

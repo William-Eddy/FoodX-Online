@@ -3,7 +3,7 @@
 
     Public Sub setContents()
 
-        setTableContents("SELECT `name` , `quantity`, `measurement` FROM `tblIngredients`")
+        setTableContents("SELECT `name` , `quantity`, `measurement`, `ingredientID` FROM `tblIngredients`")
 
     End Sub
 
@@ -13,7 +13,11 @@
 
     End Function
 
+    Function getIngredientName(ingredientID)
 
+        Return getSingleSearchValue("ingredientID", ingredientID, "name")
+
+    End Function
 
 
 
