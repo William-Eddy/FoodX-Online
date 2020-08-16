@@ -10,7 +10,6 @@
         databaseOperations.clearShoppingList()
         databaseOperations.clearPending()
 
-
         getMealsFromPlan()
         calculateIngredientsRequired()
         checkIngredientAvailabilityAndInsert()
@@ -20,8 +19,6 @@
     Private Sub getMealsFromPlan()
 
         Dim mealID As String
-
-       
 
         mealPlan.setContents()
         mealsRequired.setColumns()

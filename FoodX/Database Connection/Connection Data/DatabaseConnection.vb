@@ -10,11 +10,9 @@ Public Class DatabaseConnection
     Dim client As SshClient
 
     Public query As String = String.Empty
-    Public mainPartOfQuery As String = String.Empty
-    Public valuesPartOfQuery As String = String.Empty
-    Public criteriaPartOfQuery As String = String.Empty
-    Public columns As New List(Of String)()
     Public criteria As New List(Of String)()
+    Public conditions As New List(Of String)()
+    Public values As New List(Of String)()
     Public updateValues As IngredientsRequired = New IngredientsRequired
     Public command As MySqlCommand = New MySqlCommand
     Public Sub establishConnection()
@@ -147,32 +145,13 @@ Public Class DatabaseConnection
 
     End Sub
 
-    Public Sub updatePendingMeals(mealID, quantity)
-
-        Dim query As String = String.Empty
-        query = "UPDATE tblMeal SET pending=@pending WHERE mealID=@mealID"
-        Using command As New MySqlCommand
-            With command
-                .Connection = conn
-                .CommandType = CommandType.Text
-                .CommandText = query
-                .Parameters.AddWithValue("@pending", Int(quantity))
-                .Parameters.AddWithValue("@mealID", Int(mealID))
-            End With
-            command.ExecuteNonQuery()
-
-        End Using
-
-    End Sub
     Public Sub executeUpdate(tableName)
 
-        setUpdateQuery()
-        setCriteriaQuery()
-        query = "UPDATE " + tableName + " SET " + mainPartOfQuery
+        query = "UPDATE " + tableName + " SET " + getEqualsQuery(values)
 
-        If Len(criteriaPartOfQuery) > 0 Then
+        If Len(getEqualsQuery(conditions)) > 0 Then
 
-            query &= " WHERE " + criteriaPartOfQuery
+            query &= " WHERE " + getEqualsQuery(conditions)
 
         End If
 
@@ -182,61 +161,94 @@ Public Class DatabaseConnection
         reset()
 
     End Sub
+    Public Sub executeInsert(tableName)
 
-    Public Sub setUpdateQuery()
+        query = "INSERT INTO " + tableName + "(" + getListQuery(values, False) + ")" + " VALUES " + "(" + getListQuery(values, True) + ")"
+        setQueryToConnection()
+        executeCommand()
 
-        Dim columnName As String
-        Dim columnCount As Integer
-
-        columnCount = columns.Count - 1
-
-        For i As Integer = 0 To columnCount
-
-            columnName = columns(i)
-
-            mainPartOfQuery &= columnName + "=@" + columnName
-
-            If i < columnCount Then
-
-                mainPartOfQuery &= ","
-
-            End If
-
-        Next
-
-    End Sub
-
-    Public Sub setCriteriaQuery()
-
-        Dim criteriaName As String
-        Dim criteriaCount As Integer
-
-        criteriaCount = criteria.Count - 1
-
-        For i As Integer = 0 To criteriaCount
-
-            criteriaName = criteria(i)
-
-            criteriaPartOfQuery &= (criteriaName + "=@" + criteriaName)
-
-            If i < criteriaCount Then
-
-                criteriaPartOfQuery &= ","
-
-            End If
-
-        Next
+        reset()
 
     End Sub
 
     Public Sub addConditions(columnName, value)
 
         command.Parameters.AddWithValue("@" + columnName, value)
-        criteria.Add(columnName)
+        conditions.Add(columnName)
 
 
     End Sub
 
+    Public Sub addCriteria(columnName, value)
+
+        command.Parameters.AddWithValue("@" + columnName, value)
+        criteria.Add(columnName)
+
+    End Sub
+
+    Public Sub addValues(columnName, value)
+
+        command.Parameters.AddWithValue("@" + columnName, value)
+        values.Add(columnName)
+
+    End Sub
+
+    Function getEqualsQuery(values)
+
+        Dim valueName As String
+        Dim valueCount As Integer
+        Dim query As String = String.Empty
+
+        valueCount = values.Count - 1
+
+        For i As Integer = 0 To valueCount
+
+            valueName = values(i)
+
+            query &= (valueName + "=@" + valueName)
+
+            If i < valueCount Then
+
+                query &= ","
+
+            End If
+
+        Next
+
+        Return query
+
+    End Function
+
+    Function getListQuery(values, isVariable)
+
+        Dim valuesName As String
+        Dim valuesCount As Integer
+        Dim query As String = String.Empty
+
+        valuesCount = values.Count - 1
+
+        For i As Integer = 0 To valuesCount
+
+            valuesName = values(i)
+
+            If isVariable = True Then
+                query &= "@" + valuesName
+            Else
+                query &= valuesName
+            End If
+
+
+            If i < valuesCount Then
+
+                query &= ","
+
+            End If
+
+        Next
+
+        Return query
+
+    End Function
     Public Sub setQueryToConnection()
 
         With command
@@ -247,94 +259,23 @@ Public Class DatabaseConnection
 
     End Sub
 
-    Public Sub addValues(columnName, value)
-
-        command.Parameters.AddWithValue("@" + columnName, value)
-        columns.Add(columnName)
-
-    End Sub
-
     Public Sub executeCommand()
 
         command.ExecuteNonQuery()
 
     End Sub
 
-    Public Sub executeInsert(tableName)
-
-        setInsertQuery()
-        setInsertValueQuery()
-
-        query = "INSERT INTO " + tableName + mainPartOfQuery + " VALUES " + valuesPartOfQuery
-        setQueryToConnection()
-        executeCommand()
-
-        reset()
-
-    End Sub
-
     Public Sub reset()
 
-        columns.Clear()
         criteria.Clear()
+        conditions.Clear()
+        values.Clear()
         command = New MySqlCommand
-        mainPartOfQuery = String.Empty
-        valuesPartOfQuery = String.Empty
-        criteriaPartOfQuery = String.Empty
+        query = String.Empty
+        criteria = New List(Of String)()
+        conditions = New List(Of String)()
+        values = New List(Of String)()
 
     End Sub
 
-    Public Sub setInsertQuery()
-
-        Dim columnName As String
-        Dim columnCount As Integer
-
-        mainPartOfQuery &= "("
-
-        columnCount = columns.Count - 1
-
-        For i As Integer = 0 To columnCount
-
-            columnName = columns(i)
-
-            mainPartOfQuery &= columnName
-
-            If i < columnCount Then
-
-                mainPartOfQuery &= ","
-
-            End If
-
-        Next
-
-        mainPartOfQuery &= ")"
-
-    End Sub
-
-    Public Sub setInsertValueQuery()
-
-        Dim columnName As String
-        Dim columnCount As Integer
-
-        columnCount = columns.Count - 1
-
-        valuesPartOfQuery &= "("
-
-        For i As Integer = 0 To columnCount
-
-            columnName = columns(i)
-
-            valuesPartOfQuery &= "@" + columnName
-
-            If i < columnCount Then
-
-                valuesPartOfQuery &= ","
-
-            End If
-
-        Next
-
-        valuesPartOfQuery &= ")"
-
-    End Sub
 End Class

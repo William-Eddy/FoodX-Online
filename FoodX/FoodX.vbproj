@@ -149,10 +149,10 @@
     <Compile Include="Database Tables\Standard Table\MealIngredients.vb" />
     <Compile Include="Database Tables\Standard Table\MealPlan.vb" />
     <Compile Include="Database Tables\Standard Table\Meals.vb" />
-    <Compile Include="Meal Plan\ChangeMealPlan.Designer.vb">
+    <Compile Include="Forms\ChangeMealPlan.Designer.vb">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </Compile>
-    <Compile Include="Meal Plan\ChangeMealPlan.vb">
+    <Compile Include="Forms\ChangeMealPlan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Database Connection\Connection Data\DatabaseConnection.vb" />
@@ -225,7 +225,7 @@
     <Compile Include="New Shopping List\ShoppingListGeneration.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Meal Plan\ChangeMealPlan.resx">
+    <EmbeddedResource Include="Forms\ChangeMealPlan.resx">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
