@@ -3,7 +3,10 @@
 
     Public Sub setContents()
 
-        setTableContents("SELECT `mealID`, `serves`, `stock` FROM `tblMeal`")
+        MainConnectionAccess.conndb.addCriteria("mealID", 0)
+        MainConnectionAccess.conndb.addCriteria("serves", 0)
+        MainConnectionAccess.conndb.addCriteria("stock", 0)
+        setTableContents(MainConnectionAccess.conndb.executeSelect("tblMeal"))
 
     End Sub
 
@@ -18,6 +21,17 @@
         Return Int(getSingleSearchValue("mealID", mealID, "stock"))
 
     End Function
+
+    Function getMealName(mealID)
+
+        Dim mealName As String
+        mealName = getSingleSearchValue("mealID", mealID, "name")
+        Return mealName
+
+    End Function
+
+
+
 
 
 End Class

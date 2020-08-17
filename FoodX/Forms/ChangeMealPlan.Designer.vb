@@ -272,10 +272,12 @@ Partial Class ChangeMealPlan
         Me.ClientSize = New System.Drawing.Size(200, 493)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Monday)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ChangeMealPlan"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Edit"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Monday.ResumeLayout(False)
         Me.Monday.PerformLayout()
         Me.ResumeLayout(False)

@@ -85,7 +85,7 @@
                 batchesRequired = Math.Round(servingsRequired / serves, 0)
                 mealIngredients.setIndexToZero()
 
-                MainConnectionAccess.conndb.updatePendingMeals(mealID, batchesRequired) '############################################################
+                'MainConnectionAccess.conndb.updatePendingMeals(mealID, batchesRequired) '############################################################
 
                 For Each mealIngredientsRow As DataRow In mealIngredients.table.Rows
 

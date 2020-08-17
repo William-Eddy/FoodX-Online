@@ -163,11 +163,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Database Connection\Data Access\MainConnectionAccess.vb" />
-    <Compile Include="Meal Plan\MealPlanOld.vb" />
-    <Compile Include="Meal Plan\MealPlanConnection.vb" />
+    <Compile Include="Legacy Code\MealPlanOld.vb" />
     <Compile Include="Database Tables\DatabaseTable.vb" />
     <Compile Include="Database Tables\QuantityList.vb" />
-    <Compile Include="Objects\DatabaseTableOld.vb" />
+    <Compile Include="Legacy Code\DatabaseTableOld.vb" />
     <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -192,8 +191,9 @@
     <Compile Include="Forms\ShoppingList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Meal Plan\MealPlanManagement.vb" />
     <Compile Include="Shopping List\ShoppingListDisplay.vb" />
-    <Compile Include="Shopping List\ShoppingListGenerationOld.vb" />
+    <Compile Include="Legacy Code\ShoppingListGenerationOld.vb" />
     <Compile Include="Forms\SplashScreen.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -222,7 +222,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="New Shopping List\ShoppingListGeneration.vb" />
+    <Compile Include="Shopping List\ShoppingListGeneration.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\ChangeMealPlan.resx">

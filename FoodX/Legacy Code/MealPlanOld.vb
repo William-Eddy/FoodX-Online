@@ -100,12 +100,4 @@
 
     End Sub
 
-    Public Sub setNutritionalInfo()
-
-
-
-
-
-    End Sub
-
 End Class

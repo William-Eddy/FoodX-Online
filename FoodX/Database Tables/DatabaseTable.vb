@@ -57,7 +57,7 @@
 
     End Function
 
-    Private Function getValue(row, column)
+    Public Function getValue(row, column)
 
         Return table.Rows(row).Item(column).ToString()
 

@@ -242,53 +242,29 @@
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
-        getMealPlan()
+    Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub getMealPlan()
-
-        Dim day As Integer
-
-        MealPlanConnection.mealPlan = New MealPlanOld
-
-        With MealPlanConnection.mealPlan
-
-            .setMealPlanTableData()
-            .setMealTableData()
-
-        End With
-
-        day = 0
-
-        MealPlanConnection.mealPlan.resetNutritionalCounts()
-
-        Me.monPreWorkout.Text = MealPlanConnection.mealPlan.getMeal(day, 0)
-        Me.monBreakfast.Text = MealPlanConnection.mealPlan.getMeal(day, 1)
-        Me.monLunch.Text = MealPlanConnection.mealPlan.getMeal(day, 2)
-        Me.monDinner.Text = MealPlanConnection.mealPlan.getMeal(day, 3)
-        Me.monSnack.Text = MealPlanConnection.mealPlan.getMeal(day, 4)
-        Me.monMornDrink.Text = MealPlanConnection.mealPlan.getMeal(day, 5)
-        Me.monAfternoonDrink.Text = MealPlanConnection.mealPlan.getMeal(day, 6)
-
-        Me.MonCalories.Text = "Calories: " + Str(MealPlanConnection.mealPlan.getTotalCalories)
-        Me.monFat.Text = "Fat: " + Str(MealPlanConnection.mealPlan.getTotalFat) + "g"
-        Me.monProtein.Text = "Protein: " + Str(MealPlanConnection.mealPlan.getTotalProtein) + "g"
-        Me.monCarbs.Text = "Carbs: " + Str(MealPlanConnection.mealPlan.getTotalCarbs) + "g"
-
-    End Sub
-
-    Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs) Handles monMornDrink.TextChanged
-
-    End Sub
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
 
         Dim editMenu As ChangeMealPlan
         editMenu = New ChangeMealPlan(0)
         editMenu.Show()
+
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
+        Dim editMenu As ChangeMealPlan
+        editMenu = New ChangeMealPlan(0)
+
+        With editMenu
+            .TopLevel = False
+            panelMonday.Controls.Add(editMenu)
+            .BringToFront()
+            .Show()
+        End With
 
     End Sub
 End Class

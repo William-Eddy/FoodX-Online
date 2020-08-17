@@ -128,19 +128,6 @@ Partial Class Main_Menu
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Monday = New System.Windows.Forms.GroupBox()
-        Me.MonCalories = New System.Windows.Forms.Label()
-        Me.monFat = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.monCarbs = New System.Windows.Forms.Label()
-        Me.monProtein = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTabTitle = New System.Windows.Forms.Label()
@@ -148,14 +135,8 @@ Partial Class Main_Menu
         Me.barcodeLaser = New System.IO.Ports.SerialPort(Me.components)
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.monPreWorkout = New System.Windows.Forms.TextBox()
-        Me.monMornDrink = New System.Windows.Forms.TextBox()
-        Me.monBreakfast = New System.Windows.Forms.TextBox()
-        Me.monSnack = New System.Windows.Forms.TextBox()
-        Me.monAfternoonDrink = New System.Windows.Forms.TextBox()
-        Me.monLunch = New System.Windows.Forms.TextBox()
-        Me.monDinner = New System.Windows.Forms.TextBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.panelMonday = New System.Windows.Forms.Panel()
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -176,7 +157,6 @@ Partial Class Main_Menu
         Me.Home.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
-        Me.Monday.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -682,6 +662,7 @@ Partial Class Main_Menu
         '
         'lvMeals
         '
+        Me.lvMeals.HideSelection = False
         Me.lvMeals.Location = New System.Drawing.Point(168, 219)
         Me.lvMeals.Name = "lvMeals"
         Me.lvMeals.Size = New System.Drawing.Size(455, 108)
@@ -690,6 +671,7 @@ Partial Class Main_Menu
         '
         'lvIngredients
         '
+        Me.lvIngredients.HideSelection = False
         Me.lvIngredients.Location = New System.Drawing.Point(168, 69)
         Me.lvIngredients.Name = "lvIngredients"
         Me.lvIngredients.Size = New System.Drawing.Size(455, 106)
@@ -1398,8 +1380,8 @@ Partial Class Main_Menu
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.Button4)
-        Me.TabPage3.Controls.Add(Me.Monday)
+        Me.TabPage3.Controls.Add(Me.panelMonday)
+        Me.TabPage3.Controls.Add(Me.Button6)
         Me.TabPage3.Location = New System.Drawing.Point(4, 25)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
@@ -1407,157 +1389,6 @@ Partial Class Main_Menu
         Me.TabPage3.TabIndex = 7
         Me.TabPage3.Text = "TabPage3"
         Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(761, 19)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 51
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Monday
-        '
-        Me.Monday.Controls.Add(Me.monDinner)
-        Me.Monday.Controls.Add(Me.Button5)
-        Me.Monday.Controls.Add(Me.monSnack)
-        Me.Monday.Controls.Add(Me.MonCalories)
-        Me.Monday.Controls.Add(Me.monAfternoonDrink)
-        Me.Monday.Controls.Add(Me.monFat)
-        Me.Monday.Controls.Add(Me.monLunch)
-        Me.Monday.Controls.Add(Me.Label42)
-        Me.Monday.Controls.Add(Me.monBreakfast)
-        Me.Monday.Controls.Add(Me.monMornDrink)
-        Me.Monday.Controls.Add(Me.monCarbs)
-        Me.Monday.Controls.Add(Me.monPreWorkout)
-        Me.Monday.Controls.Add(Me.monProtein)
-        Me.Monday.Controls.Add(Me.Label48)
-        Me.Monday.Controls.Add(Me.Label47)
-        Me.Monday.Controls.Add(Me.Label43)
-        Me.Monday.Controls.Add(Me.Label44)
-        Me.Monday.Controls.Add(Me.Label46)
-        Me.Monday.Controls.Add(Me.Label45)
-        Me.Monday.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Monday.Location = New System.Drawing.Point(9, 21)
-        Me.Monday.Name = "Monday"
-        Me.Monday.Size = New System.Drawing.Size(174, 428)
-        Me.Monday.TabIndex = 50
-        Me.Monday.TabStop = False
-        Me.Monday.Text = "Monday"
-        '
-        'MonCalories
-        '
-        Me.MonCalories.AutoSize = True
-        Me.MonCalories.Location = New System.Drawing.Point(87, 399)
-        Me.MonCalories.Name = "MonCalories"
-        Me.MonCalories.Size = New System.Drawing.Size(47, 13)
-        Me.MonCalories.TabIndex = 53
-        Me.MonCalories.Text = "Calories:"
-        '
-        'monFat
-        '
-        Me.monFat.AutoSize = True
-        Me.monFat.Location = New System.Drawing.Point(8, 399)
-        Me.monFat.Name = "monFat"
-        Me.monFat.Size = New System.Drawing.Size(25, 13)
-        Me.monFat.TabIndex = 52
-        Me.monFat.Text = "Fat:"
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.ForeColor = System.Drawing.Color.Black
-        Me.Label42.Location = New System.Drawing.Point(7, 32)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(88, 16)
-        Me.Label42.TabIndex = 49
-        Me.Label42.Text = "Pre-Workout"
-        '
-        'monCarbs
-        '
-        Me.monCarbs.AutoSize = True
-        Me.monCarbs.Location = New System.Drawing.Point(87, 379)
-        Me.monCarbs.Name = "monCarbs"
-        Me.monCarbs.Size = New System.Drawing.Size(37, 13)
-        Me.monCarbs.TabIndex = 51
-        Me.monCarbs.Text = "Carbs:"
-        '
-        'monProtein
-        '
-        Me.monProtein.AutoSize = True
-        Me.monProtein.Location = New System.Drawing.Point(8, 379)
-        Me.monProtein.Name = "monProtein"
-        Me.monProtein.Size = New System.Drawing.Size(43, 13)
-        Me.monProtein.TabIndex = 50
-        Me.monProtein.Text = "Protein:"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.ForeColor = System.Drawing.Color.Black
-        Me.Label48.Location = New System.Drawing.Point(7, 273)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(47, 16)
-        Me.Label48.TabIndex = 43
-        Me.Label48.Text = "Snack"
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.ForeColor = System.Drawing.Color.Black
-        Me.Label47.Location = New System.Drawing.Point(7, 323)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(50, 16)
-        Me.Label47.TabIndex = 41
-        Me.Label47.Text = "Dinner"
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.ForeColor = System.Drawing.Color.Black
-        Me.Label43.Location = New System.Drawing.Point(7, 130)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(68, 16)
-        Me.Label43.TabIndex = 37
-        Me.Label43.Text = "Breakfast"
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.ForeColor = System.Drawing.Color.Black
-        Me.Label44.Location = New System.Drawing.Point(7, 227)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(107, 16)
-        Me.Label44.TabIndex = 47
-        Me.Label44.Text = "Afternoon Drink"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label46.ForeColor = System.Drawing.Color.Black
-        Me.Label46.Location = New System.Drawing.Point(7, 80)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(96, 16)
-        Me.Label46.TabIndex = 45
-        Me.Label46.Text = "Morning Drink"
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label45.ForeColor = System.Drawing.Color.Black
-        Me.Label45.Location = New System.Drawing.Point(7, 179)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(47, 16)
-        Me.Label45.TabIndex = 39
-        Me.Label45.Text = "Lunch"
         '
         'Panel1
         '
@@ -1601,63 +1432,21 @@ Partial Class Main_Menu
         '
         Me.laserDisconnect.Interval = 8000
         '
-        'Button5
+        'Button6
         '
-        Me.Button5.Location = New System.Drawing.Point(96, -1)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(66, 23)
-        Me.Button5.TabIndex = 56
-        Me.Button5.Text = "Edit"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Button6.Location = New System.Drawing.Point(761, 67)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 52
+        Me.Button6.Text = "Button6"
+        Me.Button6.UseVisualStyleBackColor = True
         '
-        'monPreWorkout
+        'panelMonday
         '
-        Me.monPreWorkout.Location = New System.Drawing.Point(10, 52)
-        Me.monPreWorkout.Name = "monPreWorkout"
-        Me.monPreWorkout.Size = New System.Drawing.Size(146, 20)
-        Me.monPreWorkout.TabIndex = 56
-        '
-        'monMornDrink
-        '
-        Me.monMornDrink.Location = New System.Drawing.Point(10, 100)
-        Me.monMornDrink.Name = "monMornDrink"
-        Me.monMornDrink.Size = New System.Drawing.Size(146, 20)
-        Me.monMornDrink.TabIndex = 57
-        '
-        'monBreakfast
-        '
-        Me.monBreakfast.Location = New System.Drawing.Point(10, 149)
-        Me.monBreakfast.Name = "monBreakfast"
-        Me.monBreakfast.Size = New System.Drawing.Size(146, 20)
-        Me.monBreakfast.TabIndex = 58
-        '
-        'monSnack
-        '
-        Me.monSnack.Location = New System.Drawing.Point(10, 296)
-        Me.monSnack.Name = "monSnack"
-        Me.monSnack.Size = New System.Drawing.Size(146, 20)
-        Me.monSnack.TabIndex = 61
-        '
-        'monAfternoonDrink
-        '
-        Me.monAfternoonDrink.Location = New System.Drawing.Point(10, 247)
-        Me.monAfternoonDrink.Name = "monAfternoonDrink"
-        Me.monAfternoonDrink.Size = New System.Drawing.Size(146, 20)
-        Me.monAfternoonDrink.TabIndex = 60
-        '
-        'monLunch
-        '
-        Me.monLunch.Location = New System.Drawing.Point(10, 199)
-        Me.monLunch.Name = "monLunch"
-        Me.monLunch.Size = New System.Drawing.Size(146, 20)
-        Me.monLunch.TabIndex = 59
-        '
-        'monDinner
-        '
-        Me.monDinner.Location = New System.Drawing.Point(10, 342)
-        Me.monDinner.Name = "monDinner"
-        Me.monDinner.Size = New System.Drawing.Size(146, 20)
-        Me.monDinner.TabIndex = 62
+        Me.panelMonday.Location = New System.Drawing.Point(19, 12)
+        Me.panelMonday.Name = "panelMonday"
+        Me.panelMonday.Size = New System.Drawing.Size(190, 443)
+        Me.panelMonday.TabIndex = 53
         '
         'Main_Menu
         '
@@ -1703,8 +1492,6 @@ Partial Class Main_Menu
         Me.Home.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
-        Me.Monday.ResumeLayout(False)
-        Me.Monday.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -1821,25 +1608,6 @@ Partial Class Main_Menu
     Friend WithEvents Label38 As Label
     Friend WithEvents ComboBox4 As ComboBox
     Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents Monday As GroupBox
-    Friend WithEvents Label42 As Label
-    Friend WithEvents Label43 As Label
-    Friend WithEvents Label44 As Label
-    Friend WithEvents Label45 As Label
-    Friend WithEvents Label46 As Label
-    Friend WithEvents Label47 As Label
-    Friend WithEvents Label48 As Label
-    Friend WithEvents MonCalories As Label
-    Friend WithEvents monFat As Label
-    Friend WithEvents monCarbs As Label
-    Friend WithEvents monProtein As Label
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents monPreWorkout As TextBox
-    Friend WithEvents monMornDrink As TextBox
-    Friend WithEvents monBreakfast As TextBox
-    Friend WithEvents monDinner As TextBox
-    Friend WithEvents monSnack As TextBox
-    Friend WithEvents monAfternoonDrink As TextBox
-    Friend WithEvents monLunch As TextBox
+    Friend WithEvents Button6 As Button
+    Friend WithEvents panelMonday As Panel
 End Class

@@ -121,7 +121,6 @@ Public Class DatabaseConnection
 
     End Sub
 
-
     Public Sub addNewProduct(barcode, ingredientID, quantity, price)
 
         Dim query As String = String.Empty
@@ -149,11 +148,7 @@ Public Class DatabaseConnection
 
         query = "UPDATE " + tableName + " SET " + getEqualsQuery(values)
 
-        If Len(getEqualsQuery(conditions)) > 0 Then
-
-            query &= " WHERE " + getEqualsQuery(conditions)
-
-        End If
+        checkForConditions()
 
         setQueryToConnection()
         executeCommand()
@@ -170,6 +165,31 @@ Public Class DatabaseConnection
         reset()
 
     End Sub
+
+    Function executeSelect(tableName)
+
+        Dim selectColumns As String
+
+        selectColumns = getListQuery(criteria, False)
+
+        If Len(selectColumns) > 0 Then
+
+            query = "SELECT " + getListQuery(criteria, False) + " FROM " + tableName
+
+        Else
+
+            query = "SELECT * FROM " + tableName
+
+        End If
+
+
+        checkForConditions()
+
+        Return getSQLDataTable(query)
+
+        reset()
+
+    End Function
 
     Public Sub addConditions(columnName, value)
 
@@ -256,6 +276,15 @@ Public Class DatabaseConnection
             .CommandType = CommandType.Text
             .CommandText = query
         End With
+
+    End Sub
+    Public Sub checkForConditions()
+
+        If Len(getEqualsQuery(conditions)) > 0 Then
+
+            query &= " WHERE " + getEqualsQuery(conditions)
+
+        End If
 
     End Sub
 
