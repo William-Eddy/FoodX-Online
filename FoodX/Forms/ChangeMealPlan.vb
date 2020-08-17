@@ -4,7 +4,7 @@
     Dim mealPlanManagement As MealPlanManagement = New MealPlanManagement
     Private Sub ChangeMealPlan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        populateDropdownOptions()
+        'populateDropdownOptions()
         getCurrentMealPlan()
 
     End Sub

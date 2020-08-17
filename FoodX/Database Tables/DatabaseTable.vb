@@ -115,4 +115,10 @@
 
     End Function
 
+    Public Sub executeSelect(tableName)
+
+        table = MainConnectionAccess.conndb.executeSelect(tableName)
+
+    End Sub
+
 End Class

@@ -1,7 +1,7 @@
 ﻿Public Class MealPlanManagement
 
-    Public mealPlan As MealPlan
-    Public meals As NutritionalInfo
+    Public mealPlan As MealPlan = New MealPlan
+    Public meals As NutritionalInfo = New NutritionalInfo
 
     Function getMeal(day, meal)
 

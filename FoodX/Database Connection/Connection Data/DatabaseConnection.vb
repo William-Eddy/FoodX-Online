@@ -96,6 +96,8 @@ Public Class DatabaseConnection
         Dim table As New DataTable
         adapter.Fill(table)
 
+        reset()
+
         Return table
 
     End Function
@@ -182,12 +184,9 @@ Public Class DatabaseConnection
 
         End If
 
-
         checkForConditions()
 
         Return getSQLDataTable(query)
-
-        reset()
 
     End Function
 
@@ -229,7 +228,7 @@ Public Class DatabaseConnection
 
             If i < valueCount Then
 
-                query &= ","
+                query &= ", "
 
             End If
 
@@ -260,7 +259,7 @@ Public Class DatabaseConnection
 
             If i < valuesCount Then
 
-                query &= ","
+                query &= ", "
 
             End If
 

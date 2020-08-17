@@ -40,6 +40,7 @@
             mealPlan.increaseRowCount()
         Next
 
+        mealsRequired.printTable()
 
     End Sub
 

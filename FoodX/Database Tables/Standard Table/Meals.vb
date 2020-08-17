@@ -6,7 +6,8 @@
         MainConnectionAccess.conndb.addCriteria("mealID", 0)
         MainConnectionAccess.conndb.addCriteria("serves", 0)
         MainConnectionAccess.conndb.addCriteria("stock", 0)
-        setTableContents(MainConnectionAccess.conndb.executeSelect("tblMeal"))
+        MainConnectionAccess.conndb.addCriteria("name", 0)
+        executeSelect("tblMeal")
 
     End Sub
 
@@ -25,13 +26,14 @@
     Function getMealName(mealID)
 
         Dim mealName As String
-        mealName = getSingleSearchValue("mealID", mealID, "name")
-        Return mealName
+
+        If mealID = 0 Then
+            Return ""
+        Else
+            mealName = getSingleSearchValue("mealID", mealID, "name")
+            Return mealName
+        End If
 
     End Function
-
-
-
-
 
 End Class

@@ -9,7 +9,15 @@
 
     Public Sub setContents()
 
-        setTableContents(MainConnectionAccess.conndb.executeSelect("tblMealPlan"))
+
+        MainConnectionAccess.conndb.addCriteria("preWorkout", 0)
+        MainConnectionAccess.conndb.addCriteria("breakfast", 0)
+        MainConnectionAccess.conndb.addCriteria("lunch", 0)
+        MainConnectionAccess.conndb.addCriteria("dinner", 0)
+        MainConnectionAccess.conndb.addCriteria("snack", 0)
+        MainConnectionAccess.conndb.addCriteria("drink1", 0)
+        MainConnectionAccess.conndb.addCriteria("drink2", 0)
+        executeSelect("tblMealPlan")
 
     End Sub
     Function getMealID(day, meal)
