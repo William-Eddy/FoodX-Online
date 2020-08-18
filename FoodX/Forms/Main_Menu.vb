@@ -144,8 +144,11 @@
     End Sub
 
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
-        SetCurrentTab(1)
+        SetCurrentTab(7)
         SetTabTitle()
+
+        displayMealEditDays()
+
     End Sub
 
     Private Sub txtScanIn_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtScanIn.KeyDown
@@ -254,17 +257,43 @@
 
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs)
 
-        Dim editMenu As ChangeMealPlan
-        editMenu = New ChangeMealPlan(0)
-
-        With editMenu
-            .TopLevel = False
-            panelMonday.Controls.Add(editMenu)
-            .BringToFront()
-            .Show()
-        End With
+        displayMealEditDays()
 
     End Sub
+
+    Private Sub displayMealEditDays()
+
+        Dim editMonday As EditFormsManagement = New EditFormsManagement(0)
+        panelMonday.Controls.Add(editMonday.editMenu)
+        editMonday.show()
+
+        Dim editTuesday As EditFormsManagement = New EditFormsManagement(1)
+        panelTuesday.Controls.Add(editTuesday.editMenu)
+        editTuesday.show()
+
+        Dim editWednesday As EditFormsManagement = New EditFormsManagement(2)
+        panelWednesday.Controls.Add(editWednesday.editMenu)
+        editWednesday.show()
+
+        Dim editThursday As EditFormsManagement = New EditFormsManagement(3)
+        panelThursday.Controls.Add(editThursday.editMenu)
+        editThursday.show()
+
+        Dim editFriday As EditFormsManagement = New EditFormsManagement(4)
+        panelFriday.Controls.Add(editFriday.editMenu)
+        editFriday.show()
+
+        Dim editSaturday As EditFormsManagement = New EditFormsManagement(5)
+        panelSaturday.Controls.Add(editSaturday.editMenu)
+        editSaturday.show()
+
+        Dim editSunday As EditFormsManagement = New EditFormsManagement(6)
+        panelSunday.Controls.Add(editSunday.editMenu)
+        editSunday.show()
+
+
+    End Sub
+
 End Class

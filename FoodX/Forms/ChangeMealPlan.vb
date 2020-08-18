@@ -4,108 +4,105 @@
     Dim mealPlanManagement As MealPlanManagement = New MealPlanManagement
     Private Sub ChangeMealPlan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'populateDropdownOptions()
+        populateDropdownOptions()
         getCurrentMealPlan()
+        setDayTitle()
 
     End Sub
 
     Public Sub New(ByVal dayID As String)
 
         InitializeComponent()
-
         day = dayID
 
     End Sub
 
     Public Sub getCurrentMealPlan()
 
-        Dim day As Integer
-
-        day = 0
-
         mealPlanManagement.setMealPlanContent()
         mealPlanManagement.setMealsContent()
         mealPlanManagement.resetNurtionalInfo()
 
-        Me.monPreWorkout.Text = mealPlanManagement.getMeal(day, 1)
-        Me.monBreakfast.Text = mealPlanManagement.getMeal(day, 1)
-        Me.monLunch.Text = mealPlanManagement.getMeal(day, 2)
-        Me.monDinner.Text = mealPlanManagement.getMeal(day, 3)
-        Me.monSnack.Text = mealPlanManagement.getMeal(day, 4)
-        Me.monMornDrink.Text = mealPlanManagement.getMeal(day, 5)
-        Me.monAfternoonDrink.Text = mealPlanManagement.getMeal(day, 6)
+        Me.PreWorkout.Text = mealPlanManagement.getMeal(day, 1)
+        Me.Breakfast.Text = mealPlanManagement.getMeal(day, 1)
+        Me.Lunch.Text = mealPlanManagement.getMeal(day, 2)
+        Me.Dinner.Text = mealPlanManagement.getMeal(day, 3)
+        Me.Snack.Text = mealPlanManagement.getMeal(day, 4)
+        Me.MornDrink.Text = mealPlanManagement.getMeal(day, 5)
+        Me.AfternoonDrink.Text = mealPlanManagement.getMeal(day, 6)
 
-        Me.MonCalories.Text = "Calories: " + Str(mealPlanManagement.meals.getTotalCalories)
-        Me.monFat.Text = "Fat: " + Str(mealPlanManagement.meals.getTotalFat) + "g"
-        Me.monProtein.Text = "Protein: " + Str(mealPlanManagement.meals.getTotalProtein) + "g"
-        Me.monCarbs.Text = "Carbs: " + Str(mealPlanManagement.meals.getTotalCarbs) + "g"
+        Me.Calories.Text = "Calories: " + Str(mealPlanManagement.meals.getTotalCalories)
+        Me.Fat.Text = "Fat: " + Str(mealPlanManagement.meals.getTotalFat) + "g"
+        Me.Protein.Text = "Protein: " + Str(mealPlanManagement.meals.getTotalProtein) + "g"
+        Me.Carbs.Text = "Carbs: " + Str(mealPlanManagement.meals.getTotalCarbs) + "g"
 
     End Sub
 
-
     Public Sub populateDropdownOptions()
 
-        Dim mealOptions As MealPlanOld
-        mealOptions = New MealPlanOld
+        Dim mealOptions As Meals
+        mealOptions = New Meals
 
-        mealOptions.setMealsTable("Pre-workout/Snack")
+        mealPlanManagement.setMealOptions("Pre-workout/Snack")
 
-        With Me.monPreWorkout
-            .DataSource = mealOptions.getTable
-            .ValueMember = mealOptions.getTable.Columns(0).ToString
-            .DisplayMember = mealOptions.getTable.Columns(1).ToString
+        With Me.PreWorkout
+            .DataSource = mealPlanManagement.getMealOptionDataSource
+            .ValueMember = mealPlanManagement.getMealOptionValueMember
+            .DisplayMember = mealPlanManagement.getMealOptionDisplayMember
         End With
 
-        mealOptions.setMealsTable("Pre-workout/Snack")
-
-        With Me.monSnack
-            .DataSource = mealOptions.getTable
-            .ValueMember = mealOptions.getTable.Columns(0).ToString
-            .DisplayMember = mealOptions.getTable.Columns(1).ToString
-        End With
-
-
-        mealOptions.setMealsTable("Breakfast")
-
-        With Me.monBreakfast
-            .DataSource = mealOptions.getTable
-            .ValueMember = mealOptions.getTable.Columns(0).ToString
-            .DisplayMember = mealOptions.getTable.Columns(1).ToString
+        With Me.Snack
+            .DataSource = mealPlanManagement.getMealOptionDataSource
+            .ValueMember = mealPlanManagement.getMealOptionValueMember
+            .DisplayMember = mealPlanManagement.getMealOptionDisplayMember
         End With
 
 
-        mealOptions.setMealsTable("Lunch/Dinner")
+        mealPlanManagement.setMealOptions("Breakfast")
 
-        With Me.monLunch
-            .DataSource = mealOptions.getTable
-            .ValueMember = mealOptions.getTable.Columns(0).ToString
-            .DisplayMember = mealOptions.getTable.Columns(1).ToString
-        End With
-
-        mealOptions.setMealsTable("Lunch/Dinner")
-
-        With Me.monDinner
-            .DataSource = mealOptions.getTable
-            .ValueMember = mealOptions.getTable.Columns(0).ToString
-            .DisplayMember = mealOptions.getTable.Columns(1).ToString
+        With Me.Breakfast
+            .DataSource = mealPlanManagement.getMealOptionDataSource
+            .ValueMember = mealPlanManagement.getMealOptionValueMember
+            .DisplayMember = mealPlanManagement.getMealOptionDisplayMember
         End With
 
 
-        mealOptions.setMealsTable("Drink")
+        mealPlanManagement.setMealOptions("Lunch/Dinner")
 
-        With Me.monMornDrink
-            .DataSource = mealOptions.getTable
-            .ValueMember = mealOptions.getTable.Columns(0).ToString
-            .DisplayMember = mealOptions.getTable.Columns(1).ToString
+        With Me.Lunch
+            .DataSource = mealPlanManagement.getMealOptionDataSource
+            .ValueMember = mealPlanManagement.getMealOptionValueMember
+            .DisplayMember = mealPlanManagement.getMealOptionDisplayMember
         End With
 
-        mealOptions.setMealsTable("Drink")
-
-        With Me.monAfternoonDrink
-            .DataSource = mealOptions.getTable
-            .ValueMember = mealOptions.getTable.Columns(0).ToString
-            .DisplayMember = mealOptions.getTable.Columns(1).ToString
+        With Me.Dinner
+            .DataSource = mealPlanManagement.getMealOptionDataSource
+            .ValueMember = mealPlanManagement.getMealOptionValueMember
+            .DisplayMember = mealPlanManagement.getMealOptionDisplayMember
         End With
+
+
+        mealPlanManagement.setMealOptions("Drink")
+
+        With Me.MornDrink
+            .DataSource = mealPlanManagement.getMealOptionDataSource
+            .ValueMember = mealPlanManagement.getMealOptionValueMember
+            .DisplayMember = mealPlanManagement.getMealOptionDisplayMember
+        End With
+
+        With Me.AfternoonDrink
+            .DataSource = mealPlanManagement.getMealOptionDataSource
+            .ValueMember = mealPlanManagement.getMealOptionValueMember
+            .DisplayMember = mealPlanManagement.getMealOptionDisplayMember
+        End With
+
+    End Sub
+
+    Private Sub setDayTitle()
+
+        Dim days As String() = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
+
+        mainGroupBox.Text = days(day)
 
     End Sub
 

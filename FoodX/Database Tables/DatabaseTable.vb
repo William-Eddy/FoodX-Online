@@ -121,4 +121,22 @@
 
     End Sub
 
+    Public Sub addConditions(columnName, value)
+
+        MainConnectionAccess.conndb.addConditions(columnName, value)
+
+    End Sub
+
+    Public Sub addCriteria(columnName, value)
+
+        MainConnectionAccess.conndb.addCriteria(columnName, value)
+
+    End Sub
+
+    Public Sub addValues(columnName, value)
+
+        MainConnectionAccess.conndb.addValues(columnName, value)
+
+    End Sub
+
 End Class

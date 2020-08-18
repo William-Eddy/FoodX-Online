@@ -127,7 +127,11 @@ Partial Class Main_Menu
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.EditMealPlan = New System.Windows.Forms.TabPage()
+        Me.scrollPanel = New System.Windows.Forms.Panel()
+        Me.panelWednesday = New System.Windows.Forms.Panel()
+        Me.panelMonday = New System.Windows.Forms.Panel()
+        Me.panelTuesday = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTabTitle = New System.Windows.Forms.Label()
@@ -135,8 +139,10 @@ Partial Class Main_Menu
         Me.barcodeLaser = New System.IO.Ports.SerialPort(Me.components)
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.panelMonday = New System.Windows.Forms.Panel()
+        Me.panelThursday = New System.Windows.Forms.Panel()
+        Me.panelFriday = New System.Windows.Forms.Panel()
+        Me.panelSaturday = New System.Windows.Forms.Panel()
+        Me.panelSunday = New System.Windows.Forms.Panel()
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,7 +162,8 @@ Partial Class Main_Menu
         Me.EditMeals.SuspendLayout()
         Me.Home.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage3.SuspendLayout()
+        Me.EditMealPlan.SuspendLayout()
+        Me.scrollPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -375,12 +382,12 @@ Partial Class Main_Menu
         Me.mainTabControl.Controls.Add(Me.Settings)
         Me.mainTabControl.Controls.Add(Me.EditMeals)
         Me.mainTabControl.Controls.Add(Me.Home)
-        Me.mainTabControl.Controls.Add(Me.TabPage3)
+        Me.mainTabControl.Controls.Add(Me.EditMealPlan)
         Me.mainTabControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mainTabControl.Location = New System.Drawing.Point(180, 106)
         Me.mainTabControl.Name = "mainTabControl"
         Me.mainTabControl.SelectedIndex = 0
-        Me.mainTabControl.Size = New System.Drawing.Size(862, 500)
+        Me.mainTabControl.Size = New System.Drawing.Size(849, 500)
         Me.mainTabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
         Me.mainTabControl.TabIndex = 5
         '
@@ -392,7 +399,7 @@ Partial Class Main_Menu
         Me.Dashboard.Location = New System.Drawing.Point(4, 25)
         Me.Dashboard.Name = "Dashboard"
         Me.Dashboard.Padding = New System.Windows.Forms.Padding(3)
-        Me.Dashboard.Size = New System.Drawing.Size(854, 471)
+        Me.Dashboard.Size = New System.Drawing.Size(841, 471)
         Me.Dashboard.TabIndex = 0
         Me.Dashboard.Text = "Dashboard"
         '
@@ -404,7 +411,7 @@ Partial Class Main_Menu
         Me.Meals.Location = New System.Drawing.Point(4, 25)
         Me.Meals.Name = "Meals"
         Me.Meals.Padding = New System.Windows.Forms.Padding(3)
-        Me.Meals.Size = New System.Drawing.Size(854, 471)
+        Me.Meals.Size = New System.Drawing.Size(841, 471)
         Me.Meals.TabIndex = 1
         Me.Meals.Text = "Meal Plan"
         Me.Meals.UseVisualStyleBackColor = True
@@ -604,7 +611,7 @@ Partial Class Main_Menu
         '
         Me.Stock.Location = New System.Drawing.Point(4, 25)
         Me.Stock.Name = "Stock"
-        Me.Stock.Size = New System.Drawing.Size(854, 471)
+        Me.Stock.Size = New System.Drawing.Size(841, 471)
         Me.Stock.TabIndex = 2
         Me.Stock.Text = "Stock"
         Me.Stock.UseVisualStyleBackColor = True
@@ -621,7 +628,7 @@ Partial Class Main_Menu
         Me.Scan.Controls.Add(Me.ButScanConnect)
         Me.Scan.Location = New System.Drawing.Point(4, 25)
         Me.Scan.Name = "Scan"
-        Me.Scan.Size = New System.Drawing.Size(854, 471)
+        Me.Scan.Size = New System.Drawing.Size(841, 471)
         Me.Scan.TabIndex = 3
         Me.Scan.Text = "Scan"
         Me.Scan.UseVisualStyleBackColor = True
@@ -720,7 +727,7 @@ Partial Class Main_Menu
         Me.Settings.Controls.Add(Me.TabControl1)
         Me.Settings.Location = New System.Drawing.Point(4, 25)
         Me.Settings.Name = "Settings"
-        Me.Settings.Size = New System.Drawing.Size(854, 471)
+        Me.Settings.Size = New System.Drawing.Size(841, 471)
         Me.Settings.TabIndex = 4
         Me.Settings.Text = "Settings"
         Me.Settings.UseVisualStyleBackColor = True
@@ -1100,7 +1107,7 @@ Partial Class Main_Menu
         Me.EditMeals.Controls.Add(Me.Label17)
         Me.EditMeals.Location = New System.Drawing.Point(4, 25)
         Me.EditMeals.Name = "EditMeals"
-        Me.EditMeals.Size = New System.Drawing.Size(854, 471)
+        Me.EditMeals.Size = New System.Drawing.Size(841, 471)
         Me.EditMeals.TabIndex = 5
         Me.EditMeals.Text = "Edit Meals"
         Me.EditMeals.UseVisualStyleBackColor = True
@@ -1231,7 +1238,7 @@ Partial Class Main_Menu
         Me.Home.Location = New System.Drawing.Point(4, 25)
         Me.Home.Name = "Home"
         Me.Home.Padding = New System.Windows.Forms.Padding(3)
-        Me.Home.Size = New System.Drawing.Size(854, 471)
+        Me.Home.Size = New System.Drawing.Size(841, 471)
         Me.Home.TabIndex = 6
         Me.Home.Text = "Home"
         '
@@ -1378,17 +1385,52 @@ Partial Class Main_Menu
         Me.Label25.TabIndex = 5
         Me.Label25.Text = "Feel better."
         '
-        'TabPage3
+        'EditMealPlan
         '
-        Me.TabPage3.Controls.Add(Me.panelMonday)
-        Me.TabPage3.Controls.Add(Me.Button6)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(854, 471)
-        Me.TabPage3.TabIndex = 7
-        Me.TabPage3.Text = "TabPage3"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.EditMealPlan.Controls.Add(Me.scrollPanel)
+        Me.EditMealPlan.Location = New System.Drawing.Point(4, 25)
+        Me.EditMealPlan.Name = "EditMealPlan"
+        Me.EditMealPlan.Padding = New System.Windows.Forms.Padding(3)
+        Me.EditMealPlan.Size = New System.Drawing.Size(841, 471)
+        Me.EditMealPlan.TabIndex = 7
+        Me.EditMealPlan.Text = "Edit Meal Plan"
+        Me.EditMealPlan.UseVisualStyleBackColor = True
+        '
+        'scrollPanel
+        '
+        Me.scrollPanel.AutoScroll = True
+        Me.scrollPanel.Controls.Add(Me.panelSunday)
+        Me.scrollPanel.Controls.Add(Me.panelSaturday)
+        Me.scrollPanel.Controls.Add(Me.panelFriday)
+        Me.scrollPanel.Controls.Add(Me.panelThursday)
+        Me.scrollPanel.Controls.Add(Me.panelWednesday)
+        Me.scrollPanel.Controls.Add(Me.panelMonday)
+        Me.scrollPanel.Controls.Add(Me.panelTuesday)
+        Me.scrollPanel.Location = New System.Drawing.Point(9, 6)
+        Me.scrollPanel.Name = "scrollPanel"
+        Me.scrollPanel.Size = New System.Drawing.Size(826, 459)
+        Me.scrollPanel.TabIndex = 56
+        '
+        'panelWednesday
+        '
+        Me.panelWednesday.Location = New System.Drawing.Point(395, 3)
+        Me.panelWednesday.Name = "panelWednesday"
+        Me.panelWednesday.Size = New System.Drawing.Size(190, 430)
+        Me.panelWednesday.TabIndex = 55
+        '
+        'panelMonday
+        '
+        Me.panelMonday.Location = New System.Drawing.Point(3, 3)
+        Me.panelMonday.Name = "panelMonday"
+        Me.panelMonday.Size = New System.Drawing.Size(190, 430)
+        Me.panelMonday.TabIndex = 53
+        '
+        'panelTuesday
+        '
+        Me.panelTuesday.Location = New System.Drawing.Point(199, 3)
+        Me.panelTuesday.Name = "panelTuesday"
+        Me.panelTuesday.Size = New System.Drawing.Size(190, 430)
+        Me.panelTuesday.TabIndex = 54
         '
         'Panel1
         '
@@ -1397,7 +1439,7 @@ Partial Class Main_Menu
         Me.Panel1.Controls.Add(Me.txtTabTitle)
         Me.Panel1.Location = New System.Drawing.Point(181, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(853, 100)
+        Me.Panel1.Size = New System.Drawing.Size(853, 121)
         Me.Panel1.TabIndex = 4
         '
         'Label1
@@ -1432,27 +1474,39 @@ Partial Class Main_Menu
         '
         Me.laserDisconnect.Interval = 8000
         '
-        'Button6
+        'panelThursday
         '
-        Me.Button6.Location = New System.Drawing.Point(761, 67)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 52
-        Me.Button6.Text = "Button6"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.panelThursday.Location = New System.Drawing.Point(591, 3)
+        Me.panelThursday.Name = "panelThursday"
+        Me.panelThursday.Size = New System.Drawing.Size(190, 430)
+        Me.panelThursday.TabIndex = 54
         '
-        'panelMonday
+        'panelFriday
         '
-        Me.panelMonday.Location = New System.Drawing.Point(19, 12)
-        Me.panelMonday.Name = "panelMonday"
-        Me.panelMonday.Size = New System.Drawing.Size(190, 443)
-        Me.panelMonday.TabIndex = 53
+        Me.panelFriday.Location = New System.Drawing.Point(787, 3)
+        Me.panelFriday.Name = "panelFriday"
+        Me.panelFriday.Size = New System.Drawing.Size(190, 430)
+        Me.panelFriday.TabIndex = 55
+        '
+        'panelSaturday
+        '
+        Me.panelSaturday.Location = New System.Drawing.Point(983, 3)
+        Me.panelSaturday.Name = "panelSaturday"
+        Me.panelSaturday.Size = New System.Drawing.Size(190, 430)
+        Me.panelSaturday.TabIndex = 56
+        '
+        'panelSunday
+        '
+        Me.panelSunday.Location = New System.Drawing.Point(1179, 3)
+        Me.panelSunday.Name = "panelSunday"
+        Me.panelSunday.Size = New System.Drawing.Size(190, 430)
+        Me.panelSunday.TabIndex = 57
         '
         'Main_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1032, 598)
+        Me.ClientSize = New System.Drawing.Size(1034, 598)
         Me.Controls.Add(Me.panNav)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.mainTabControl)
@@ -1491,7 +1545,8 @@ Partial Class Main_Menu
         Me.Home.ResumeLayout(False)
         Me.Home.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage3.ResumeLayout(False)
+        Me.EditMealPlan.ResumeLayout(False)
+        Me.scrollPanel.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -1607,7 +1662,13 @@ Partial Class Main_Menu
     Friend WithEvents Label37 As Label
     Friend WithEvents Label38 As Label
     Friend WithEvents ComboBox4 As ComboBox
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents Button6 As Button
+    Friend WithEvents EditMealPlan As TabPage
     Friend WithEvents panelMonday As Panel
+    Friend WithEvents panelWednesday As Panel
+    Friend WithEvents panelTuesday As Panel
+    Friend WithEvents scrollPanel As Panel
+    Friend WithEvents panelSunday As Panel
+    Friend WithEvents panelSaturday As Panel
+    Friend WithEvents panelFriday As Panel
+    Friend WithEvents panelThursday As Panel
 End Class

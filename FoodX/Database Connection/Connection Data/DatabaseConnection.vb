@@ -24,7 +24,7 @@ Public Class DatabaseConnection
 
     Public Sub establishMySQLConnection()
 
-        conn = New MySqlConnection("server = " + My.Settings.mysqlAddress + "; port = " + My.Settings.mysqlPort + "; uid = '" + My.Settings.dbUsername + "'; password = '" + My.Settings.dbPassword + "'; database='innovnli_dbuniversityfoodtracker'")
+        conn = New MySqlConnection("server = " + My.Settings.mysqlAddress + "; port = " + My.Settings.mysqlPort + "; uid = '" + My.Settings.dbUsername + "'; password = '" + My.Settings.dbPassword + "'; database='innovnli_dbuniversityfoodtracker'" + "; Allow User Variables=True")
 
         Console.WriteLine(conn.ConnectionString)
 
@@ -92,9 +92,14 @@ Public Class DatabaseConnection
 
     Function getSQLDataTable(sqlcommand)
 
-        Dim adapter As New MySqlDataAdapter(sqlcommand, conn)
-        Dim table As New DataTable
-        adapter.Fill(table)
+        Dim adptr As New MySqlDataAdapter
+        Dim table As DataTable = New DataTable
+
+        command.Connection = conn
+        command.CommandText = sqlcommand
+
+        adptr = New MySqlDataAdapter(command)
+        adptr.Fill(table)
 
         reset()
 
@@ -194,7 +199,6 @@ Public Class DatabaseConnection
 
         command.Parameters.AddWithValue("@" + columnName, value)
         conditions.Add(columnName)
-
 
     End Sub
 
@@ -303,6 +307,18 @@ Public Class DatabaseConnection
         criteria = New List(Of String)()
         conditions = New List(Of String)()
         values = New List(Of String)()
+
+    End Sub
+
+    Public Sub testCommand()
+
+        Dim adptr As New MySqlDataAdapter
+        Dim table As DataTable = New DataTable
+        Using cmd As New MySqlCommand("SELECT * from tblMeal WHERE category=@uname", conn)
+            cmd.Parameters.AddWithValue("@uname", "Pre-workout/Snack")
+            adptr = New MySqlDataAdapter(cmd)
+            adptr.Fill(table)
+        End Using
 
     End Sub
 

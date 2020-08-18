@@ -191,6 +191,7 @@
     <Compile Include="Forms\ShoppingList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Meal Plan\EditFormsManagement.vb" />
     <Compile Include="Meal Plan\MealPlanManagement.vb" />
     <Compile Include="Shopping List\ShoppingListDisplay.vb" />
     <Compile Include="Legacy Code\ShoppingListGenerationOld.vb" />
