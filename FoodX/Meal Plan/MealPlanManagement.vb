@@ -4,7 +4,7 @@
     Public meals As NutritionalInfo = New NutritionalInfo
     Public mealOptions As Meals = meals
 
-    Dim day As Integer
+    Public day As Integer
 
     Function getMeal(day, meal)
 
@@ -48,6 +48,11 @@
         mealOptions.addConditions("category", mealType)
         mealOptions.executeSelect("tblMeal")
 
+        Dim dr As DataRow = mealOptions.table.NewRow
+        dr("mealID") = 0
+        dr("name") = ""
+        mealOptions.table.Rows.Add(dr)
+
     End Sub
 
     Function getMealOptionDataSource()
@@ -85,9 +90,9 @@
 
     End Sub
 
-    Public Sub setDay(day)
+    Public Sub setDay(selectedDay)
 
-        day = day
+        day = selectedDay
 
     End Sub
 

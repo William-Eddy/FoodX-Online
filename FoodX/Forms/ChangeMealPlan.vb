@@ -18,6 +18,8 @@
         InitializeComponent()
         day = dayID
 
+        mealPlanManagement.setDay(day)
+
     End Sub
 
     Public Sub getCurrentMealPlan()
@@ -26,7 +28,7 @@
         mealPlanManagement.setMealsContent()
         mealPlanManagement.resetNurtionalInfo()
 
-        Me.PreWorkout.Text = mealPlanManagement.getMeal(day, 1)
+        Me.PreWorkout.Text = mealPlanManagement.getMeal(day, 0)
         Me.Breakfast.Text = mealPlanManagement.getMeal(day, 1)
         Me.Lunch.Text = mealPlanManagement.getMeal(day, 2)
         Me.Dinner.Text = mealPlanManagement.getMeal(day, 3)
@@ -181,6 +183,5 @@
         getNutritionalInfoTotals()
 
     End Sub
-
 
 End Class

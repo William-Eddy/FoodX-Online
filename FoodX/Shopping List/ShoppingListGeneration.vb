@@ -92,6 +92,8 @@
                     mealIngredients.increaseRowCount()
                 Next
 
+                mealIngredients.setRowColumnIndexToZero()
+
             End If
 
             mealsRequired.increaseRowCount()
