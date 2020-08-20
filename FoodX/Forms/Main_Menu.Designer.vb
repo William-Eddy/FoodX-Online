@@ -129,6 +129,10 @@ Partial Class Main_Menu
         Me.Label25 = New System.Windows.Forms.Label()
         Me.EditMealPlan = New System.Windows.Forms.TabPage()
         Me.scrollPanel = New System.Windows.Forms.Panel()
+        Me.panelSunday = New System.Windows.Forms.Panel()
+        Me.panelSaturday = New System.Windows.Forms.Panel()
+        Me.panelFriday = New System.Windows.Forms.Panel()
+        Me.panelThursday = New System.Windows.Forms.Panel()
         Me.panelWednesday = New System.Windows.Forms.Panel()
         Me.panelMonday = New System.Windows.Forms.Panel()
         Me.panelTuesday = New System.Windows.Forms.Panel()
@@ -139,10 +143,6 @@ Partial Class Main_Menu
         Me.barcodeLaser = New System.IO.Ports.SerialPort(Me.components)
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
-        Me.panelThursday = New System.Windows.Forms.Panel()
-        Me.panelFriday = New System.Windows.Forms.Panel()
-        Me.panelSaturday = New System.Windows.Forms.Panel()
-        Me.panelSunday = New System.Windows.Forms.Panel()
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1411,6 +1411,34 @@ Partial Class Main_Menu
         Me.scrollPanel.Size = New System.Drawing.Size(826, 459)
         Me.scrollPanel.TabIndex = 56
         '
+        'panelSunday
+        '
+        Me.panelSunday.Location = New System.Drawing.Point(1179, 3)
+        Me.panelSunday.Name = "panelSunday"
+        Me.panelSunday.Size = New System.Drawing.Size(190, 430)
+        Me.panelSunday.TabIndex = 57
+        '
+        'panelSaturday
+        '
+        Me.panelSaturday.Location = New System.Drawing.Point(983, 3)
+        Me.panelSaturday.Name = "panelSaturday"
+        Me.panelSaturday.Size = New System.Drawing.Size(190, 430)
+        Me.panelSaturday.TabIndex = 56
+        '
+        'panelFriday
+        '
+        Me.panelFriday.Location = New System.Drawing.Point(787, 3)
+        Me.panelFriday.Name = "panelFriday"
+        Me.panelFriday.Size = New System.Drawing.Size(190, 430)
+        Me.panelFriday.TabIndex = 55
+        '
+        'panelThursday
+        '
+        Me.panelThursday.Location = New System.Drawing.Point(591, 3)
+        Me.panelThursday.Name = "panelThursday"
+        Me.panelThursday.Size = New System.Drawing.Size(190, 430)
+        Me.panelThursday.TabIndex = 54
+        '
         'panelWednesday
         '
         Me.panelWednesday.Location = New System.Drawing.Point(395, 3)
@@ -1439,7 +1467,7 @@ Partial Class Main_Menu
         Me.Panel1.Controls.Add(Me.txtTabTitle)
         Me.Panel1.Location = New System.Drawing.Point(181, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(853, 121)
+        Me.Panel1.Size = New System.Drawing.Size(853, 111)
         Me.Panel1.TabIndex = 4
         '
         'Label1
@@ -1473,34 +1501,6 @@ Partial Class Main_Menu
         'laserDisconnect
         '
         Me.laserDisconnect.Interval = 8000
-        '
-        'panelThursday
-        '
-        Me.panelThursday.Location = New System.Drawing.Point(591, 3)
-        Me.panelThursday.Name = "panelThursday"
-        Me.panelThursday.Size = New System.Drawing.Size(190, 430)
-        Me.panelThursday.TabIndex = 54
-        '
-        'panelFriday
-        '
-        Me.panelFriday.Location = New System.Drawing.Point(787, 3)
-        Me.panelFriday.Name = "panelFriday"
-        Me.panelFriday.Size = New System.Drawing.Size(190, 430)
-        Me.panelFriday.TabIndex = 55
-        '
-        'panelSaturday
-        '
-        Me.panelSaturday.Location = New System.Drawing.Point(983, 3)
-        Me.panelSaturday.Name = "panelSaturday"
-        Me.panelSaturday.Size = New System.Drawing.Size(190, 430)
-        Me.panelSaturday.TabIndex = 56
-        '
-        'panelSunday
-        '
-        Me.panelSunday.Location = New System.Drawing.Point(1179, 3)
-        Me.panelSunday.Name = "panelSunday"
-        Me.panelSunday.Size = New System.Drawing.Size(190, 430)
-        Me.panelSunday.TabIndex = 57
         '
         'Main_Menu
         '

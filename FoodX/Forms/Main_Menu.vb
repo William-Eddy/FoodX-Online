@@ -285,13 +285,13 @@
         panelFriday.Controls.Add(editFriday.editMenu)
         editFriday.show()
 
-        Dim editSaturday As EditFormsManagement = New EditFormsManagement(5)
-        panelSaturday.Controls.Add(editSaturday.editMenu)
-        editSaturday.show()
+        'Dim editSaturday As EditFormsManagement = New EditFormsManagement(5)
+        'panelSaturday.Controls.Add(editSaturday.editMenu)
+        'editSaturday.show()
 
-        Dim editSunday As EditFormsManagement = New EditFormsManagement(6)
-        panelSunday.Controls.Add(editSunday.editMenu)
-        editSunday.show()
+        'Dim editSunday As EditFormsManagement = New EditFormsManagement(6)
+        'panelSunday.Controls.Add(editSunday.editMenu)
+        'editSunday.show()
 
 
     End Sub

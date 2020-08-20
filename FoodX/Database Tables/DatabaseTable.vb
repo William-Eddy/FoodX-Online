@@ -120,6 +120,11 @@
         table = MainConnectionAccess.conndb.executeSelect(tableName)
 
     End Sub
+    Public Sub executeUpdate(tableName)
+
+        MainConnectionAccess.conndb.executeUpdate(tableName)
+
+    End Sub
 
     Public Sub addConditions(columnName, value)
 

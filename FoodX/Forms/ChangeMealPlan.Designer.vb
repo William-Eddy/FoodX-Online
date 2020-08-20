@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ChangeMealPlan
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,9 @@ Partial Class ChangeMealPlan
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.mainGroupBox = New System.Windows.Forms.GroupBox()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Calories = New System.Windows.Forms.Label()
         Me.PreWorkout = New System.Windows.Forms.ComboBox()
         Me.Snack = New System.Windows.Forms.ComboBox()
@@ -47,7 +46,6 @@ Partial Class ChangeMealPlan
         '
         'mainGroupBox
         '
-        Me.mainGroupBox.Controls.Add(Me.Button4)
         Me.mainGroupBox.Controls.Add(Me.Calories)
         Me.mainGroupBox.Controls.Add(Me.PreWorkout)
         Me.mainGroupBox.Controls.Add(Me.Snack)
@@ -69,19 +67,10 @@ Partial Class ChangeMealPlan
         Me.mainGroupBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mainGroupBox.Location = New System.Drawing.Point(12, 2)
         Me.mainGroupBox.Name = "mainGroupBox"
-        Me.mainGroupBox.Size = New System.Drawing.Size(174, 436)
+        Me.mainGroupBox.Size = New System.Drawing.Size(174, 409)
         Me.mainGroupBox.TabIndex = 51
         Me.mainGroupBox.TabStop = False
         Me.mainGroupBox.Text = "Day"
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(8, 402)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(152, 23)
-        Me.Button4.TabIndex = 52
-        Me.Button4.Text = "Save"
-        Me.Button4.UseVisualStyleBackColor = True
         '
         'Calories
         '
@@ -270,7 +259,7 @@ Partial Class ChangeMealPlan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(200, 455)
+        Me.ClientSize = New System.Drawing.Size(200, 424)
         Me.Controls.Add(Me.mainGroupBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ChangeMealPlan"
@@ -303,5 +292,4 @@ Partial Class ChangeMealPlan
     Friend WithEvents Label46 As Label
     Friend WithEvents AfternoonDrink As ComboBox
     Friend WithEvents Label45 As Label
-    Friend WithEvents Button4 As Button
 End Class

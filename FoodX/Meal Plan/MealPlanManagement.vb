@@ -4,15 +4,24 @@
     Public meals As NutritionalInfo = New NutritionalInfo
     Public mealOptions As Meals = meals
 
+    Dim day As Integer
+
     Function getMeal(day, meal)
 
         Dim mealID As String
+        Dim name As String
 
         mealID = mealPlan.getMealID(day, meal)
 
-        Return meals.getMealName(mealID)
+        name = meals.getMealName(mealID)
 
-        meals.addNutritonalInfo(mealID)
+        If Not (name = "") Then
+
+            addNutritonalInfo(mealID, name)
+
+        End If
+
+        Return meals.getMealName(mealID)
 
     End Function
 
@@ -58,5 +67,28 @@
         Return mealOptions.table.Columns(1).ToString
 
     End Function
+
+    Public Sub updateMealChoice(mealTime, mealID)
+
+        mealPlan.addValues(mealTime, mealID)
+        mealPlan.addConditions("dayID", day)
+        mealPlan.executeUpdate("tblMealPlan")
+
+    End Sub
+
+    Public Sub addNutritonalInfo(mealID, mealName)
+
+        If Not (mealName = "") Then
+            meals.addNutritonalInfo(mealID)
+        End If
+
+
+    End Sub
+
+    Public Sub setDay(day)
+
+        day = day
+
+    End Sub
 
 End Class

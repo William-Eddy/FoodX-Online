@@ -3,10 +3,6 @@
 
     Public Sub setContents()
 
-        MainConnectionAccess.conndb.addCriteria("mealID", 0)
-        MainConnectionAccess.conndb.addCriteria("serves", 0)
-        MainConnectionAccess.conndb.addCriteria("stock", 0)
-        MainConnectionAccess.conndb.addCriteria("name", 0)
         executeSelect("tblMeal")
 
     End Sub
