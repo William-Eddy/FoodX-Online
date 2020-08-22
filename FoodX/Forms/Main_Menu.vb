@@ -296,4 +296,11 @@
 
     End Sub
 
+    Private Sub lbBreakfast_DoubleClick(sender As Object, e As EventArgs) Handles lbBreakfast.DoubleClick
+
+        Dim editMealForm As EditMeal = New EditMeal(lbBreakfast.SelectedValue)
+        editMealForm.Show()
+
+    End Sub
+
 End Class

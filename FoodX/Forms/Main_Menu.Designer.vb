@@ -251,7 +251,7 @@ Partial Class Main_Menu
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(185, 34)
         Me.Button1.TabIndex = 7
-        Me.Button1.Text = "    🍎 Meal Plan"
+        Me.Button1.Text = "    🍎 Edit Plan"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.UseVisualStyleBackColor = False
         '

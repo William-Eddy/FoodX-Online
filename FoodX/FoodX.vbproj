@@ -149,10 +149,17 @@
     <Compile Include="Database Tables\Standard Table\MealIngredients.vb" />
     <Compile Include="Database Tables\Standard Table\MealPlan.vb" />
     <Compile Include="Database Tables\Standard Table\Meals.vb" />
-    <Compile Include="Forms\ChangeMealPlan.Designer.vb">
+    <Compile Include="Edit Meal\EditMeal.Designer.vb">
+      <DependentUpon>EditMeal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Edit Meal\EditMeal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit Meal\EditMealManagement.vb" />
+    <Compile Include="Meal Plan\ChangeMealPlan.Designer.vb">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChangeMealPlan.vb">
+    <Compile Include="Meal Plan\ChangeMealPlan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Database Connection\Connection Data\DatabaseConnection.vb" />
@@ -173,10 +180,10 @@
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MakeList.Designer.vb">
+    <Compile Include="Shopping List\MakeList.Designer.vb">
       <DependentUpon>MakeList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MakeList.vb">
+    <Compile Include="Shopping List\MakeList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\NewBarcode.Designer.vb">
@@ -185,10 +192,10 @@
     <Compile Include="Forms\NewBarcode.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ShoppingList.Designer.vb">
+    <Compile Include="Shopping List\ShoppingList.Designer.vb">
       <DependentUpon>ShoppingList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ShoppingList.vb">
+    <Compile Include="Shopping List\ShoppingList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Meal Plan\EditFormsManagement.vb" />
@@ -226,7 +233,10 @@
     <Compile Include="Shopping List\ShoppingListGeneration.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\ChangeMealPlan.resx">
+    <EmbeddedResource Include="Edit Meal\EditMeal.resx">
+      <DependentUpon>EditMeal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Meal Plan\ChangeMealPlan.resx">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
@@ -235,13 +245,13 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MakeList.resx">
+    <EmbeddedResource Include="Shopping List\MakeList.resx">
       <DependentUpon>MakeList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewBarcode.resx">
       <DependentUpon>NewBarcode.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ShoppingList.resx">
+    <EmbeddedResource Include="Shopping List\ShoppingList.resx">
       <DependentUpon>ShoppingList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashScreen.resx">
