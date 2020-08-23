@@ -41,7 +41,7 @@ Partial Class EditMeal
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.lbIngredients = New System.Windows.Forms.ListBox()
+        Me.lvIngredients = New System.Windows.Forms.ListView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -232,7 +232,7 @@ Partial Class EditMeal
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.lbIngredients)
+        Me.GroupBox3.Controls.Add(Me.lvIngredients)
         Me.GroupBox3.Location = New System.Drawing.Point(29, 155)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(557, 141)
@@ -240,14 +240,14 @@ Partial Class EditMeal
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ingredients"
         '
-        'lbIngredients
+        'lvIngredients
         '
-        Me.lbIngredients.DisplayMember = "name"
-        Me.lbIngredients.FormattingEnabled = True
-        Me.lbIngredients.Location = New System.Drawing.Point(20, 31)
-        Me.lbIngredients.Name = "lbIngredients"
-        Me.lbIngredients.Size = New System.Drawing.Size(322, 95)
-        Me.lbIngredients.TabIndex = 69
+        Me.lvIngredients.HideSelection = False
+        Me.lvIngredients.Location = New System.Drawing.Point(20, 29)
+        Me.lvIngredients.Name = "lvIngredients"
+        Me.lvIngredients.Size = New System.Drawing.Size(273, 92)
+        Me.lvIngredients.TabIndex = 70
+        Me.lvIngredients.UseCompatibleStateImageBehavior = False
         '
         'EditMeal
         '
@@ -289,5 +289,5 @@ Partial Class EditMeal
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents lbIngredients As ListBox
+    Friend WithEvents lvIngredients As ListView
 End Class

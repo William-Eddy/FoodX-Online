@@ -156,6 +156,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Edit Meal\EditMealManagement.vb" />
+    <Compile Include="Edit Meal\IngredientDisplay.vb" />
     <Compile Include="Meal Plan\ChangeMealPlan.Designer.vb">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </Compile>

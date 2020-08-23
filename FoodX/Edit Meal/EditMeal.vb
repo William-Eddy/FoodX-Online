@@ -2,6 +2,7 @@
 
     Dim mealID As String
     Dim editMealManagement As EditMealManagement
+    Dim ingredientDisplay As IngredientDisplay
 
     Public Sub New(ByVal mealIDToEdit As String)
 
@@ -21,9 +22,32 @@
 
     Private Sub setIngredientsView()
 
-        lbIngredients.DisplayMember = "id"
-        lbIngredients.ValueMember = "Ingredient"
-        lbIngredients.DataSource = editMealManagement.getMealIngredientsTable
+        ingredientDisplay = New IngredientDisplay(mealID)
+
+        Dim ingredientID As String
+        Dim name As String
+        Dim quantity As String
+
+        Dim insertArray As String()
+
+        setIngredientsListViewFormat()
+
+        ingredientDisplay.setTableContents()
+
+        For Each row As DataRow In ingredientDisplay.getMealIngredientRows()
+
+            ingredientID = ingredientDisplay.getIngredientID
+            name = ingredientDisplay.getIngredientName(ingredientID)
+            quantity = ingredientDisplay.getIngredientQuantity + ingredientDisplay.getIngredientUnit(ingredientID)
+
+            insertArray = {name, quantity}
+            Me.lvIngredients.Items.Add(ingredientID).SubItems.AddRange(insertArray)
+
+            ingredientDisplay.mealIngredients.increaseRowCount()
+
+        Next
+
+
 
     End Sub
     Private Sub setCurrentMealData()
@@ -55,6 +79,18 @@
 
     Private Sub setIngredientsListViewFormat()
 
+        With Me.lvIngredients
+
+            .View = View.Details
+            .FullRowSelect = True
+            .HideSelection = False
+            .MultiSelect = False
+            .Columns.Add("id", 0)
+            .Columns.Add("Ingredient", 180)
+            .Columns.Add("Quantity")
+            .GridLines = True
+
+        End With
 
     End Sub
 

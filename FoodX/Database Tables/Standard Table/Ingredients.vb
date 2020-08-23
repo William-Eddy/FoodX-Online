@@ -19,7 +19,11 @@
 
     End Function
 
+    Function getUnit(ingredientID)
 
+        Return getSingleSearchValue("ingredientID", ingredientID, "measurement")
+
+    End Function
 
 
 End Class
