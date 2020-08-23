@@ -3,7 +3,12 @@
 
     Public Sub setContents()
 
-        setTableContents("SELECT `name` , `quantity`, `measurement`, `ingredientID` FROM `tblIngredients`")
+        addColumnsForReturn("name")
+        addColumnsForReturn("quantity")
+        addColumnsForReturn("measurement")
+        addColumnsForReturn("ingredientID")
+
+        executeSelect("tblIngredients")
 
     End Sub
 

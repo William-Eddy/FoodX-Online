@@ -42,6 +42,7 @@ Partial Class EditMeal
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lvIngredients = New System.Windows.Forms.ListView()
+        Me.butSave = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -232,6 +233,7 @@ Partial Class EditMeal
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.butSave)
         Me.GroupBox3.Controls.Add(Me.lvIngredients)
         Me.GroupBox3.Location = New System.Drawing.Point(29, 155)
         Me.GroupBox3.Name = "GroupBox3"
@@ -248,6 +250,21 @@ Partial Class EditMeal
         Me.lvIngredients.Size = New System.Drawing.Size(273, 92)
         Me.lvIngredients.TabIndex = 70
         Me.lvIngredients.UseCompatibleStateImageBehavior = False
+        '
+        'butSave
+        '
+        Me.butSave.BackColor = System.Drawing.Color.SlateBlue
+        Me.butSave.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butSave.FlatAppearance.BorderSize = 0
+        Me.butSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butSave.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butSave.ForeColor = System.Drawing.Color.White
+        Me.butSave.Location = New System.Drawing.Point(309, 29)
+        Me.butSave.Name = "butSave"
+        Me.butSave.Size = New System.Drawing.Size(121, 22)
+        Me.butSave.TabIndex = 71
+        Me.butSave.Text = "Add Ingredient"
+        Me.butSave.UseVisualStyleBackColor = False
         '
         'EditMeal
         '
@@ -290,4 +307,5 @@ Partial Class EditMeal
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents lvIngredients As ListView
+    Friend WithEvents butSave As Button
 End Class

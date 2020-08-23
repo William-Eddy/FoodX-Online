@@ -1,4 +1,4 @@
-﻿Public Class IngredientDisplay
+﻿Public Class MealIngredientDisplay
 
     Public mealID As Integer
     Public mealIngredients As MealIngredients = New MealIngredients

@@ -116,7 +116,7 @@
 
     End Function
 
-    Public Sub executeSelect(tableName)
+    Public Overridable Sub executeSelect(tableName)
 
         table = MainConnectionAccess.conndb.executeSelect(tableName)
 

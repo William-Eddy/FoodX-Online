@@ -2,7 +2,7 @@
 
     Dim mealID As String
     Dim editMealManagement As EditMealManagement
-    Dim ingredientDisplay As IngredientDisplay
+    Dim ingredientDisplay As MealIngredientDisplay
 
     Public Sub New(ByVal mealIDToEdit As String)
 
@@ -22,7 +22,7 @@
 
     Private Sub setIngredientsView()
 
-        ingredientDisplay = New IngredientDisplay(mealID)
+        ingredientDisplay = New MealIngredientDisplay(mealID)
 
         Dim ingredientID As String
         Dim name As String
@@ -94,4 +94,11 @@
 
     End Sub
 
+    Private Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
+
+        Dim editMealIngredientForm As AddEditMealIngredient = New AddEditMealIngredient(0)
+
+        editMealIngredientForm.Show()
+
+    End Sub
 End Class
