@@ -298,9 +298,34 @@
 
     Private Sub lbBreakfast_DoubleClick(sender As Object, e As EventArgs) Handles lbBreakfast.DoubleClick
 
-        Dim editMealForm As EditMeal = New EditMeal(lbBreakfast.SelectedValue)
+        openMealEditForm(lbBreakfast.SelectedValue)
+
+    End Sub
+    Private Sub lbLunchDinner_DoubleClick(sender As Object, e As EventArgs) Handles lbLunchDinner.DoubleClick
+
+        openMealEditForm(lbLunchDinner.SelectedValue)
+
+    End Sub
+
+    Private Sub lbSnacks_DoubleClick(sender As Object, e As EventArgs) Handles lbSnacks.DoubleClick
+
+        openMealEditForm(lbSnacks.SelectedValue)
+
+    End Sub
+
+
+    Private Sub lbDrinks_DoubleClick(sender As Object, e As EventArgs) Handles lbDrinks.DoubleClick
+
+        openMealEditForm(lbDrinks.SelectedValue)
+
+    End Sub
+
+    Private Sub openMealEditForm(mealID)
+
+        Dim editMealForm As EditMeal = New EditMeal(mealID)
         editMealForm.Show()
 
     End Sub
+
 
 End Class

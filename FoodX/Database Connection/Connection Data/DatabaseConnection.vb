@@ -10,7 +10,7 @@ Public Class DatabaseConnection
     Dim client As SshClient
 
     Public query As String = String.Empty
-    Public criteria As New List(Of String)()
+    Public columns As New List(Of String)()
     Public conditions As New List(Of String)()
     Public values As New List(Of String)()
     Public updateValues As IngredientsRequired = New IngredientsRequired
@@ -177,11 +177,11 @@ Public Class DatabaseConnection
 
         Dim selectColumns As String
 
-        selectColumns = getListQuery(criteria, False)
+        selectColumns = getListQuery(columns, False)
 
         If Len(selectColumns) > 0 Then
 
-            query = "SELECT " + getListQuery(criteria, False) + " FROM " + tableName
+            query = "SELECT " + getListQuery(columns, False) + " FROM " + tableName
 
         Else
 
@@ -202,10 +202,10 @@ Public Class DatabaseConnection
 
     End Sub
 
-    Public Sub addCriteria(columnName, value)
+    Public Sub addColumns(columnName, value)
 
         command.Parameters.AddWithValue("@" + columnName, value)
-        criteria.Add(columnName)
+        columns.Add(columnName)
 
     End Sub
 
@@ -299,12 +299,12 @@ Public Class DatabaseConnection
 
     Public Sub reset()
 
-        criteria.Clear()
+        columns.Clear()
         conditions.Clear()
         values.Clear()
         command = New MySqlCommand
         query = String.Empty
-        criteria = New List(Of String)()
+        columns = New List(Of String)()
         conditions = New List(Of String)()
         values = New List(Of String)()
 

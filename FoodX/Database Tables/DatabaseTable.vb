@@ -91,7 +91,8 @@
 
     Function getDataRow(searchColumn As String, searchValue As String)
 
-        Return table.Select(searchColumn + "= " + searchValue)
+
+        Return table.Select(searchColumn + "= '" + searchValue + "'")
 
     End Function
 
@@ -132,15 +133,20 @@
 
     End Sub
 
-    Public Sub addCriteria(columnName, value)
+    Public Sub addColumns(columnName, value)
 
-        MainConnectionAccess.conndb.addCriteria(columnName, value)
+        MainConnectionAccess.conndb.addColumns(columnName, value)
 
     End Sub
 
     Public Sub addValues(columnName, value)
 
         MainConnectionAccess.conndb.addValues(columnName, value)
+
+    End Sub
+    Public Sub addColumnsForReturn(columnName)
+
+        MainConnectionAccess.conndb.addColumns(columnName, 0)
 
     End Sub
 

@@ -10,13 +10,13 @@
     Public Sub setContents()
 
 
-        MainConnectionAccess.conndb.addCriteria("preWorkout", 0)
-        MainConnectionAccess.conndb.addCriteria("breakfast", 0)
-        MainConnectionAccess.conndb.addCriteria("lunch", 0)
-        MainConnectionAccess.conndb.addCriteria("dinner", 0)
-        MainConnectionAccess.conndb.addCriteria("snack", 0)
-        MainConnectionAccess.conndb.addCriteria("drink1", 0)
-        MainConnectionAccess.conndb.addCriteria("drink2", 0)
+        MainConnectionAccess.conndb.addColumns("preWorkout", 0)
+        MainConnectionAccess.conndb.addColumns("breakfast", 0)
+        MainConnectionAccess.conndb.addColumns("lunch", 0)
+        MainConnectionAccess.conndb.addColumns("dinner", 0)
+        MainConnectionAccess.conndb.addColumns("snack", 0)
+        MainConnectionAccess.conndb.addColumns("drink1", 0)
+        MainConnectionAccess.conndb.addColumns("drink2", 0)
         executeSelect("tblMealPlan")
 
     End Sub
