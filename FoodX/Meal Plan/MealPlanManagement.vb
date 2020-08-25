@@ -1,7 +1,7 @@
 ﻿Public Class MealPlanManagement
 
     Public mealPlan As MealPlan = New MealPlan
-    Public meals As NutritionalInfo = New NutritionalInfo
+    Public meals As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
     Public mealOptions As Meals = meals
 
     Public day As Integer

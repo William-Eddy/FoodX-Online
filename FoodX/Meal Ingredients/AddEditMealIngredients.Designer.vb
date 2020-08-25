@@ -65,7 +65,7 @@ Partial Class AddEditMealIngredients
         'lblUnit
         '
         Me.lblUnit.AutoSize = True
-        Me.lblUnit.Location = New System.Drawing.Point(153, 60)
+        Me.lblUnit.Location = New System.Drawing.Point(141, 60)
         Me.lblUnit.Name = "lblUnit"
         Me.lblUnit.Size = New System.Drawing.Size(26, 13)
         Me.lblUnit.TabIndex = 21
@@ -84,7 +84,7 @@ Partial Class AddEditMealIngredients
         '
         Me.txtQuantity.Location = New System.Drawing.Point(86, 57)
         Me.txtQuantity.Name = "txtQuantity"
-        Me.txtQuantity.Size = New System.Drawing.Size(61, 20)
+        Me.txtQuantity.Size = New System.Drawing.Size(49, 20)
         Me.txtQuantity.TabIndex = 19
         '
         'cmbIngredients

@@ -25,6 +25,7 @@
         ingredientDisplay = New MealIngredientDisplay(mealID)
 
         Dim ingredientID As String
+        Dim mealIngredientID As String
         Dim name As String
         Dim quantity As String
 
@@ -37,11 +38,12 @@
         For Each row As DataRow In ingredientDisplay.getMealIngredientRows()
 
             ingredientID = ingredientDisplay.getIngredientID
+            mealIngredientID = ingredientDisplay.getMealIngredientID
             name = ingredientDisplay.getIngredientName(ingredientID)
             quantity = ingredientDisplay.getIngredientQuantity + ingredientDisplay.getIngredientUnit(ingredientID)
 
             insertArray = {name, quantity}
-            Me.lvIngredients.Items.Add(ingredientID).SubItems.AddRange(insertArray)
+            Me.lvIngredients.Items.Add(mealIngredientID).SubItems.AddRange(insertArray)
 
             ingredientDisplay.mealIngredients.increaseRowCount()
 
@@ -83,7 +85,7 @@
             .FullRowSelect = True
             .HideSelection = False
             .MultiSelect = False
-            .Columns.Add("id", 0)
+            .Columns.Add("mealIngredientID", 0)
             .Columns.Add("Ingredient", 180)
             .Columns.Add("Quantity")
             .GridLines = True
@@ -94,7 +96,7 @@
 
     Private Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
 
-        Dim editMealIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(0)
+        Dim editMealIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(0, mealID)
 
         editMealIngredientForm.Show()
 
@@ -102,7 +104,7 @@
 
     Private Sub lvIngredients_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles lvIngredients.DoubleClick
 
-        Dim editIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(Me.lvIngredients.FocusedItem.Text)
+        Dim editIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(Me.lvIngredients.FocusedItem.Text, mealID)
 
         editIngredientForm.Show()
 

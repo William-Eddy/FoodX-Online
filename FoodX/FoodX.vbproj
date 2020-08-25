@@ -164,7 +164,6 @@
     <Compile Include="Edit Meal\EditMealManagement.vb" />
     <Compile Include="Edit Meal\MealIngredientDisplay.vb" />
     <Compile Include="Dropdown Population\IngredientDropDown.vb" />
-    <Compile Include="Meal Ingredients\EditMealIngredients.vb" />
     <Compile Include="Meal Plan\ChangeMealPlan.Designer.vb">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </Compile>
@@ -280,7 +279,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Meal Plan\NutritionalInfo.vb" />
+    <Compile Include="Meal Plan\MealsWithNutritionalInfo.vb" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

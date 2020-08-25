@@ -2,7 +2,7 @@
 
     Dim mealID As Integer
 
-    Public meals As NutritionalInfo = New NutritionalInfo
+    Public meals As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
     Public mealIngredients As MealIngredients = New MealIngredients
     Public ingredients As Ingredients = New Ingredients
 

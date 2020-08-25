@@ -126,6 +126,11 @@
         MainConnectionAccess.conndb.executeUpdate(tableName)
 
     End Sub
+    Public Sub executeInsert(tableName)
+
+        MainConnectionAccess.conndb.executeInsert(tableName)
+
+    End Sub
 
     Public Sub addConditions(columnName, value)
 

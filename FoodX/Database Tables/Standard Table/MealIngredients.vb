@@ -15,29 +15,30 @@
     End Function
     Function getCurrentIngredientQuantityPerBatch()
 
-        Return getCurrentRowValue(2)
+        Return getCurrentRowValue("quantity")
 
     End Function
     Function getCurrentIngredientID()
 
-        Return getCurrentRowValue(1)
+        Return getCurrentRowValue("ingredientID")
 
     End Function
 
     Function getCurrentMealID()
 
-        Return getCurrentRowValue(0)
+        Return getCurrentRowValue("mealID")
 
     End Function
 
+    Function getCurrentQuantity()
 
+        Return getCurrentRowValue("quantity")
 
+    End Function
+    Function getMealID()
 
+        Return getCurrentRowValue("mealID")
 
-
-
-
-
-
+    End Function
 
 End Class

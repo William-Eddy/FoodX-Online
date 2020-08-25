@@ -14,7 +14,10 @@
 
         mealIngredients.addColumnsForReturn("ingredientID")
         mealIngredients.addColumnsForReturn("quantity")
+        mealIngredients.addColumnsForReturn("mealIngredientsID")
+
         mealIngredients.addConditions("mealID", mealID)
+
         mealIngredients.executeSelect("tblMealIngredients")
 
         ingredients.setContents()
@@ -30,6 +33,12 @@
     Function getIngredientID()
 
         Return mealIngredients.getCurrentRowValue(0)
+
+    End Function
+
+    Function getMealIngredientID()
+
+        Return mealIngredients.getCurrentRowValue(2)
 
     End Function
 

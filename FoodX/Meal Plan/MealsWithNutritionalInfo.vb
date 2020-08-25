@@ -1,4 +1,4 @@
-﻿Public Class NutritionalInfo
+﻿Public Class MealsWithNutritionalInfo
 
     Inherits Meals
 
