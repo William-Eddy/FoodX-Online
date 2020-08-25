@@ -41,8 +41,8 @@ Partial Class EditMeal
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.lvIngredients = New System.Windows.Forms.ListView()
         Me.butSave = New System.Windows.Forms.Button()
+        Me.lvIngredients = New System.Windows.Forms.ListView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -242,15 +242,6 @@ Partial Class EditMeal
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ingredients"
         '
-        'lvIngredients
-        '
-        Me.lvIngredients.HideSelection = False
-        Me.lvIngredients.Location = New System.Drawing.Point(20, 29)
-        Me.lvIngredients.Name = "lvIngredients"
-        Me.lvIngredients.Size = New System.Drawing.Size(273, 92)
-        Me.lvIngredients.TabIndex = 70
-        Me.lvIngredients.UseCompatibleStateImageBehavior = False
-        '
         'butSave
         '
         Me.butSave.BackColor = System.Drawing.Color.SlateBlue
@@ -265,6 +256,15 @@ Partial Class EditMeal
         Me.butSave.TabIndex = 71
         Me.butSave.Text = "Add Ingredient"
         Me.butSave.UseVisualStyleBackColor = False
+        '
+        'lvIngredients
+        '
+        Me.lvIngredients.HideSelection = False
+        Me.lvIngredients.Location = New System.Drawing.Point(20, 29)
+        Me.lvIngredients.Name = "lvIngredients"
+        Me.lvIngredients.Size = New System.Drawing.Size(273, 92)
+        Me.lvIngredients.TabIndex = 70
+        Me.lvIngredients.UseCompatibleStateImageBehavior = False
         '
         'EditMeal
         '

@@ -1,8 +1,16 @@
-﻿Public Class AddEditMealIngredient
+﻿Public Class AddEditMealIngredients
 
     Dim mealIngredientID As Integer
 
-    Private Sub AddEditMealIngredient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub New(ByVal mealIngredientIDToEdit As Integer)
+
+        InitializeComponent()
+
+        mealIngredientID = mealIngredientIDToEdit
+
+    End Sub
+
+    Private Sub AddEditMealIngredients_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         setIngredientDropdown()
 
@@ -11,16 +19,9 @@
             'something
         Else
 
-
-
+            Me.cmbIngredients.SelectedValue = mealIngredientID
 
         End If
-
-    End Sub
-
-    Public Sub New(ByVal mealIngredientIDToEdit As Integer)
-
-        mealIngredientID = mealIngredientIDToEdit
 
     End Sub
 
@@ -30,7 +31,7 @@
 
         ingredientDropdown.setContents()
 
-        With cbxIngredientList
+        With cmbIngredients
 
             .DataSource = ingredientDropdown.getDataSource
             .ValueMember = ingredientDropdown.getValueMember
@@ -39,5 +40,7 @@
         End With
 
     End Sub
+
+
 
 End Class

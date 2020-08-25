@@ -1,6 +1,6 @@
 ﻿Public Class IngredientDropDown
 
-    Dim ingredients As Ingredients = New Ingredients
+    Public ingredients As Ingredients = New Ingredients
     Public Sub setContents()
 
         ingredients.addColumnsForReturn("ingredientID")
@@ -12,13 +12,13 @@
 
     Function getValueMember()
 
-        Return ingredients.table.Columns(0)
+        Return "ingredientID"
 
     End Function
 
     Function getDisplayMember()
 
-        Return ingredients.table.Columns(1)
+        Return "name"
 
     End Function
 

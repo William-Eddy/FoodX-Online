@@ -69,7 +69,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButScanConnect.Click
 
-        'StartScanner()
+        StartScanner()
 
     End Sub
 

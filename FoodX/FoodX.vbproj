@@ -142,6 +142,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Meal Ingredients\AddEditMealIngredients.Designer.vb">
+      <DependentUpon>AddEditMealIngredients.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Meal Ingredients\AddEditMealIngredients.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Database Connection\Operations\ShoppingListDatabaseOperations.vb" />
     <Compile Include="Database Tables\Standard Table\Ingredients.vb" />
     <Compile Include="Database Tables\Quantity List Tables\IngredientsRequired.vb" />
@@ -157,13 +163,8 @@
     </Compile>
     <Compile Include="Edit Meal\EditMealManagement.vb" />
     <Compile Include="Edit Meal\MealIngredientDisplay.vb" />
-    <Compile Include="Ingredients\AddEditMealIngredient.Designer.vb">
-      <DependentUpon>AddEditMealIngredient.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Ingredients\AddEditMealIngredient.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Dropdown Population\IngredientDropDown.vb" />
+    <Compile Include="Meal Ingredients\EditMealIngredients.vb" />
     <Compile Include="Meal Plan\ChangeMealPlan.Designer.vb">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </Compile>
@@ -241,11 +242,11 @@
     <Compile Include="Shopping List\ShoppingListGeneration.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Meal Ingredients\AddEditMealIngredients.resx">
+      <DependentUpon>AddEditMealIngredients.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit Meal\EditMeal.resx">
       <DependentUpon>EditMeal.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ingredients\AddEditMealIngredient.resx">
-      <DependentUpon>AddEditMealIngredient.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Meal Plan\ChangeMealPlan.resx">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>

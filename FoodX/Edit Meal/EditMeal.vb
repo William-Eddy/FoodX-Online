@@ -47,8 +47,6 @@
 
         Next
 
-
-
     End Sub
     Private Sub setCurrentMealData()
 
@@ -96,9 +94,18 @@
 
     Private Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
 
-        Dim editMealIngredientForm As AddEditMealIngredient = New AddEditMealIngredient(0)
+        Dim editMealIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(0)
 
         editMealIngredientForm.Show()
 
     End Sub
+
+    Private Sub lvIngredients_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles lvIngredients.DoubleClick
+
+        Dim editIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(Me.lvIngredients.FocusedItem.Text)
+
+        editIngredientForm.Show()
+
+    End Sub
+
 End Class

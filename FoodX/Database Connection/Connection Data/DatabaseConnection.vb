@@ -181,7 +181,7 @@ Public Class DatabaseConnection
 
         If Len(selectColumns) > 0 Then
 
-            query = "SELECT " + getListQuery(columns, False) + " FROM " + tableName
+            query = "SELECT " + selectColumns + " FROM " + tableName
 
         Else
 
