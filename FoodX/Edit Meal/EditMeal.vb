@@ -1,26 +1,43 @@
 ﻿Public Class EditMeal
 
     Dim mealID As String
-    Dim editMealManagement As EditMealManagement
     Dim ingredientDisplay As MealIngredientDisplay
+
+    Public meals As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
+    Public mealIngredients As MealIngredients = New MealIngredients
+    Public ingredients As Ingredients = New Ingredients
+
+    Dim saved As Boolean = False
 
     Public Sub New(ByVal mealIDToEdit As String)
 
         InitializeComponent()
-
         mealID = mealIDToEdit
-
-        editMealManagement = New EditMealManagement(mealID)
 
     End Sub
 
     Private Sub EditMeal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        setCurrentMealData()
+        setCategoryOptions()
+
+        If Not (mealID = 0) Then
+
+            setCurrentMealData()
+
+        End If
 
     End Sub
 
-    Private Sub setIngredientsView()
+    Public Sub setContentsForSelectedMeal()
+
+        meals.addConditions("mealID", mealID)
+        meals.executeSelect("tblMeal")
+
+    End Sub
+
+    Public Sub setIngredientsView()
+
+        lvIngredients.Clear()
 
         ingredientDisplay = New MealIngredientDisplay(mealID)
 
@@ -52,28 +69,35 @@
     End Sub
     Private Sub setCurrentMealData()
 
-        editMealManagement.setContentsForSelectedMeal()
+        setContentsForSelectedMeal()
 
         setCurrentMealDetails()
         setCurrentNutritionalData()
         setIngredientsView()
 
     End Sub
+
+    Private Sub setCategoryOptions()
+
+        cmbCategory.DataSource = {"Pre-workout/Snack", "Breakfast", "Lunch/Dinner", "Drink"}
+
+    End Sub
+
     Private Sub setCurrentMealDetails()
 
-        Me.txtName.Text = editMealManagement.getMealName()
-        Me.txtServes.Text = editMealManagement.getNumberOfServings()
-        Me.txtStock.Text = editMealManagement.getStock()
-        Me.cboCategory.Text = editMealManagement.getCategory()
+        Me.txtName.Text = meals.getCurrentMealName()
+        Me.txtServes.Text = meals.getNumberOfServings()
+        Me.txtStock.Text = meals.getStock()
+        Me.cmbCategory.Text = meals.getCategory()
 
     End Sub
 
     Private Sub setCurrentNutritionalData()
 
-        Me.txtCalories.Text = editMealManagement.getCalories()
-        Me.txtCarbs.Text = editMealManagement.getCarbs()
-        Me.txtFat.Text = editMealManagement.getFat()
-        Me.txtProtein.Text = editMealManagement.getProtein()
+        Me.txtCalories.Text = meals.getCalories()
+        Me.txtCarbs.Text = meals.getCarbs()
+        Me.txtFat.Text = meals.getFat()
+        Me.txtProtein.Text = meals.getProtein()
 
     End Sub
 
@@ -96,7 +120,7 @@
 
     Private Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
 
-        Dim editMealIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(0, mealID)
+        Dim editMealIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(0, mealID, Me)
 
         editMealIngredientForm.Show()
 
@@ -104,9 +128,65 @@
 
     Private Sub lvIngredients_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles lvIngredients.DoubleClick
 
-        Dim editIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(Me.lvIngredients.FocusedItem.Text, mealID)
-
+        Dim editIngredientForm As AddEditMealIngredients = New AddEditMealIngredients(Me.lvIngredients.FocusedItem.Text, mealID, Me)
         editIngredientForm.Show()
+
+    End Sub
+
+    Private Sub butSaveAndClose_click(sender As Object, e As EventArgs) Handles butSaveAndClose.Click
+
+        If mealID = 0 Then
+
+            addNewMeal()
+        Else
+            updateMeal()
+
+        End If
+
+        saved = True
+        Me.Close()
+
+    End Sub
+
+    Private Sub EditMeal_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+
+        If saved = False Then
+
+            If (MessageBox.Show("Are you sure you want to exit without saving? Any changes will be lost.", "Exit", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No) Then
+                e.Cancel = True
+            End If
+
+        End If
+
+
+    End Sub
+
+    Private Sub addNewMeal()
+
+        addUpdateInsertValues()
+        meals.executeInsert("tblMeal")
+
+    End Sub
+
+    Private Sub updateMeal()
+
+        addUpdateInsertValues()
+        meals.addConditions("mealID", mealID)
+        meals.executeUpdate("tblMeal")
+
+    End Sub
+
+    Private Sub addUpdateInsertValues()
+
+        meals.addValues("name", Me.txtName.Text)
+        meals.addValues("serves", Me.txtServes.Text)
+        meals.addValues("stock", Me.txtStock.Text)
+        meals.addValues("category", Me.cmbCategory.Text)
+
+        meals.addValues("calories", Me.txtCalories.Text)
+        meals.addValues("carbs", Me.txtCarbs.Text)
+        meals.addValues("fat", Me.txtFat.Text)
+        meals.addValues("Protein", Me.txtProtein.Text)
 
     End Sub
 

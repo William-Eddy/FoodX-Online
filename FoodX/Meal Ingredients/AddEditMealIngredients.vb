@@ -7,12 +7,16 @@
     Dim mealID As String
     Dim ingredientID As String
 
-    Public Sub New(ByVal mealIngredientIDToEdit As Integer, ByVal relatedMealID As Integer)
+    Dim masterEditForm As EditMeal
+
+    Public Sub New(mealIngredientIDToEdit, relatedMealID, masterForm)
 
         InitializeComponent()
 
         mealIngredientID = mealIngredientIDToEdit
         mealID = relatedMealID
+
+        masterEditForm = masterForm
 
         setMealIngredientsContents()
         setIngredientsContents()
@@ -47,10 +51,9 @@
         ingredientDropdown.setContents()
 
         With cmbIngredients
-
-            .DataSource = ingredientDropdown.getDataSource
             .ValueMember = ingredientDropdown.getValueMember
             .DisplayMember = ingredientDropdown.getDisplayMember
+            .DataSource = ingredientDropdown.getDataSource
 
         End With
 
@@ -69,7 +72,7 @@
     End Sub
     Private Sub setUnit()
 
-        Me.lblUnit.Text = getUnit()
+        Me.lblUnit.Text = ingredients.getUnit(ingredientID)
 
     End Sub
 
@@ -87,6 +90,8 @@
             updateMealIngredient()
 
         End If
+
+        masterEditForm.setIngredientsView()
 
         Me.Close()
 
@@ -108,12 +113,6 @@
 
     End Sub
 
-    Function getUnit()
-
-        Return ingredients.getUnit(ingredientID)
-
-    End Function
-
     Private Sub updateMealIngredient()
 
         mealIngredients.addValues("ingredientID", Me.cmbIngredients.SelectedValue)
@@ -133,5 +132,17 @@
 
     End Sub
 
+    Private Sub cmbIngredients_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbIngredients.SelectionChangeCommitted
 
+        ingredientID = Me.cmbIngredients.SelectedValue
+        setUnit()
+
+    End Sub
+
+    Private Sub butAddNewIngredient_Click(sender As Object, e As EventArgs) Handles butAddNewIngredient.Click
+
+        Dim newIngredientForm As NewIngredient = New NewIngredient
+        newIngredientForm.Show()
+
+    End Sub
 End Class

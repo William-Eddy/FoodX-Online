@@ -327,5 +327,10 @@
 
     End Sub
 
+    Private Sub butNewMeal_Click(sender As Object, e As EventArgs) Handles butNewMeal.Click
 
+        Dim editMealForm As EditMeal = New EditMeal(0)
+        editMealForm.Show()
+
+    End Sub
 End Class

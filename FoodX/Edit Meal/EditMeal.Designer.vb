@@ -28,7 +28,7 @@ Partial Class EditMeal
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtStock = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.cboCategory = New System.Windows.Forms.ComboBox()
+        Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtCalories = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -43,6 +43,7 @@ Partial Class EditMeal
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.butSave = New System.Windows.Forms.Button()
         Me.lvIngredients = New System.Windows.Forms.ListView()
+        Me.butSaveAndClose = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -102,13 +103,13 @@ Partial Class EditMeal
         Me.Label2.TabIndex = 55
         Me.Label2.Text = "Stock:"
         '
-        'cboCategory
+        'cmbCategory
         '
-        Me.cboCategory.FormattingEnabled = True
-        Me.cboCategory.Location = New System.Drawing.Point(94, 63)
-        Me.cboCategory.Name = "cboCategory"
-        Me.cboCategory.Size = New System.Drawing.Size(147, 21)
-        Me.cboCategory.TabIndex = 57
+        Me.cmbCategory.FormattingEnabled = True
+        Me.cmbCategory.Location = New System.Drawing.Point(94, 63)
+        Me.cmbCategory.Name = "cmbCategory"
+        Me.cmbCategory.Size = New System.Drawing.Size(147, 21)
+        Me.cmbCategory.TabIndex = 57
         '
         'Label3
         '
@@ -205,7 +206,7 @@ Partial Class EditMeal
         Me.GroupBox1.Controls.Add(Me.txtServes)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtStock)
-        Me.GroupBox1.Controls.Add(Me.cboCategory)
+        Me.GroupBox1.Controls.Add(Me.cmbCategory)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(29, 23)
         Me.GroupBox1.Name = "GroupBox1"
@@ -266,11 +267,27 @@ Partial Class EditMeal
         Me.lvIngredients.TabIndex = 70
         Me.lvIngredients.UseCompatibleStateImageBehavior = False
         '
+        'butSaveAndClose
+        '
+        Me.butSaveAndClose.BackColor = System.Drawing.Color.SlateBlue
+        Me.butSaveAndClose.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butSaveAndClose.FlatAppearance.BorderSize = 0
+        Me.butSaveAndClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butSaveAndClose.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butSaveAndClose.ForeColor = System.Drawing.Color.White
+        Me.butSaveAndClose.Location = New System.Drawing.Point(29, 495)
+        Me.butSaveAndClose.Name = "butSaveAndClose"
+        Me.butSaveAndClose.Size = New System.Drawing.Size(121, 22)
+        Me.butSaveAndClose.TabIndex = 72
+        Me.butSaveAndClose.Text = "Save and Close"
+        Me.butSaveAndClose.UseVisualStyleBackColor = False
+        '
         'EditMeal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 498)
+        Me.ClientSize = New System.Drawing.Size(620, 540)
+        Me.Controls.Add(Me.butSaveAndClose)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -293,7 +310,7 @@ Partial Class EditMeal
     Friend WithEvents Label1 As Label
     Friend WithEvents txtStock As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents cboCategory As ComboBox
+    Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtCalories As TextBox
     Friend WithEvents Label4 As Label
@@ -308,4 +325,5 @@ Partial Class EditMeal
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents lvIngredients As ListView
     Friend WithEvents butSave As Button
+    Friend WithEvents butSaveAndClose As Button
 End Class

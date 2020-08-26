@@ -48,6 +48,31 @@
 
     End Sub
 
+    Function getCategory()
+        Return getCurrentRowValue("category")
+    End Function
+    Function getCalories()
+        Return getCurrentRowValue("calories")
+    End Function
+    Function getCarbs()
+        Return getCurrentRowValue("carbs")
+    End Function
+    Function getFat()
+        Return getCurrentRowValue("fat")
+    End Function
+    Function getProtein()
+        Return getCurrentRowValue("protein")
+    End Function
+
+
+
+
+
+
+
+
+
+
 
 End Class
 

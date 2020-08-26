@@ -65,11 +65,12 @@ Partial Class AddEditMealIngredients
         'lblUnit
         '
         Me.lblUnit.AutoSize = True
-        Me.lblUnit.Location = New System.Drawing.Point(141, 60)
+        Me.lblUnit.Location = New System.Drawing.Point(137, 60)
         Me.lblUnit.Name = "lblUnit"
         Me.lblUnit.Size = New System.Drawing.Size(26, 13)
         Me.lblUnit.TabIndex = 21
         Me.lblUnit.Text = "Unit"
+        Me.lblUnit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label2
         '

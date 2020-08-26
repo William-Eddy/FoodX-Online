@@ -104,7 +104,7 @@ Partial Class Main_Menu
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.EditMeals = New System.Windows.Forms.TabPage()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.butNewMeal = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.lbBreakfast = New System.Windows.Forms.ListBox()
         Me.lbDrinks = New System.Windows.Forms.ListBox()
@@ -1096,7 +1096,7 @@ Partial Class Main_Menu
         '
         'EditMeals
         '
-        Me.EditMeals.Controls.Add(Me.Button2)
+        Me.EditMeals.Controls.Add(Me.butNewMeal)
         Me.EditMeals.Controls.Add(Me.Label20)
         Me.EditMeals.Controls.Add(Me.lbBreakfast)
         Me.EditMeals.Controls.Add(Me.lbDrinks)
@@ -1112,20 +1112,20 @@ Partial Class Main_Menu
         Me.EditMeals.Text = "Edit Meals"
         Me.EditMeals.UseVisualStyleBackColor = True
         '
-        'Button2
+        'butNewMeal
         '
-        Me.Button2.BackColor = System.Drawing.Color.SlateBlue
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(61, 294)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(176, 27)
-        Me.Button2.TabIndex = 8
-        Me.Button2.Text = "Add new Meal"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.butNewMeal.BackColor = System.Drawing.Color.SlateBlue
+        Me.butNewMeal.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butNewMeal.FlatAppearance.BorderSize = 0
+        Me.butNewMeal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butNewMeal.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butNewMeal.ForeColor = System.Drawing.Color.White
+        Me.butNewMeal.Location = New System.Drawing.Point(61, 294)
+        Me.butNewMeal.Name = "butNewMeal"
+        Me.butNewMeal.Size = New System.Drawing.Size(176, 27)
+        Me.butNewMeal.TabIndex = 8
+        Me.butNewMeal.Text = "Add new Meal"
+        Me.butNewMeal.UseVisualStyleBackColor = False
         '
         'Label20
         '
@@ -1181,9 +1181,9 @@ Partial Class Main_Menu
         Me.Label18.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label18.Location = New System.Drawing.Point(58, 154)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(54, 16)
+        Me.Label18.Size = New System.Drawing.Size(134, 16)
         Me.Label18.TabIndex = 21
-        Me.Label18.Text = "Snacks"
+        Me.Label18.Text = "Pre-workout/Snacks"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lbLunchDinner
@@ -1612,7 +1612,7 @@ Partial Class Main_Menu
     Friend WithEvents lbLunchDinner As ListBox
     Friend WithEvents lbSnacks As ListBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents butNewMeal As Button
     Friend WithEvents barcodeLaser As IO.Ports.SerialPort
     Friend WithEvents laserDisconnect As Timer
     Friend WithEvents GroupBox4 As GroupBox

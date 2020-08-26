@@ -32,5 +32,15 @@
 
     End Function
 
+    Function getCurrentMealName()
+        Return getCurrentRowValue("name")
+    End Function
+    Function getNumberOfServings()
+        Return getCurrentRowValue("serves")
+    End Function
+    Function getStock()
+        Return getCurrentRowValue("stock")
+    End Function
+
 
 End Class
