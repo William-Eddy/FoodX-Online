@@ -163,6 +163,25 @@ Public Class DatabaseConnection
         reset()
 
     End Sub
+
+    Public Sub executeDelete(tableName)
+
+        query = "DELETE FROM " + tableName
+
+        checkForConditions()
+
+        If Not (query.Contains("WHERE")) Then
+
+            MsgBox("This delete statement is not bound to any conditions. Running this statement could result in the entire table being dropped. Check the code and try again.", , "IMPORTANT")
+
+        Else
+            setQueryToConnection()
+            executeCommand()
+        End If
+
+        reset()
+
+    End Sub
     Public Sub executeInsert(tableName)
 
         query = "INSERT INTO " + tableName + "(" + getListQuery(values, False) + ")" + " VALUES " + "(" + getListQuery(values, True) + ")"
@@ -283,9 +302,11 @@ Public Class DatabaseConnection
     End Sub
     Public Sub checkForConditions()
 
-        If Len(getEqualsQuery(conditions)) > 0 Then
+        Dim queryConditions As String = getEqualsQuery(conditions)
 
-            query &= " WHERE " + getEqualsQuery(conditions)
+        If Len(queryConditions) > 0 Then
+
+            query &= " WHERE " + queryConditions
 
         End If
 

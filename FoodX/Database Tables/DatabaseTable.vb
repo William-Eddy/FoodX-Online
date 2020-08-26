@@ -131,6 +131,11 @@
         MainConnectionAccess.conndb.executeInsert(tableName)
 
     End Sub
+    Public Sub executeDelete(tableName)
+
+        MainConnectionAccess.conndb.executeDelete(tableName)
+
+    End Sub
 
     Public Sub addConditions(columnName, value)
 

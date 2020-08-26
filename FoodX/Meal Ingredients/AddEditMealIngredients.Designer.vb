@@ -30,6 +30,7 @@ Partial Class AddEditMealIngredients
         Me.txtQuantity = New System.Windows.Forms.TextBox()
         Me.cmbIngredients = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.butDelete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'butAddNewIngredient
@@ -105,11 +106,27 @@ Partial Class AddEditMealIngredients
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Ingredient:"
         '
+        'butDelete
+        '
+        Me.butDelete.BackColor = System.Drawing.Color.Crimson
+        Me.butDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butDelete.FlatAppearance.BorderSize = 0
+        Me.butDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butDelete.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butDelete.ForeColor = System.Drawing.Color.White
+        Me.butDelete.Location = New System.Drawing.Point(173, 95)
+        Me.butDelete.Name = "butDelete"
+        Me.butDelete.Size = New System.Drawing.Size(121, 22)
+        Me.butDelete.TabIndex = 24
+        Me.butDelete.Text = "Delete"
+        Me.butDelete.UseVisualStyleBackColor = False
+        '
         'AddEditMealIngredients
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(327, 140)
+        Me.ClientSize = New System.Drawing.Size(322, 140)
+        Me.Controls.Add(Me.butDelete)
         Me.Controls.Add(Me.butAddNewIngredient)
         Me.Controls.Add(Me.butSave)
         Me.Controls.Add(Me.lblUnit)
@@ -133,4 +150,5 @@ Partial Class AddEditMealIngredients
     Friend WithEvents txtQuantity As TextBox
     Friend WithEvents cmbIngredients As ComboBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents butDelete As Button
 End Class

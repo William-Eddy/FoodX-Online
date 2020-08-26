@@ -25,7 +25,6 @@
 
     Private Sub AddEditMealIngredients_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
         setIngredientDropdown()
 
         If Not (mealIngredientID = 0) Then
@@ -44,7 +43,7 @@
 
     End Sub
 
-    Private Sub setIngredientDropdown()
+    Public Sub setIngredientDropdown()
 
         Dim ingredientDropdown As IngredientDropDown = New IngredientDropDown
 
@@ -91,9 +90,7 @@
 
         End If
 
-        masterEditForm.setIngredientsView()
-
-        Me.Close()
+        UpdateMasterAndClose()
 
     End Sub
 
@@ -141,8 +138,27 @@
 
     Private Sub butAddNewIngredient_Click(sender As Object, e As EventArgs) Handles butAddNewIngredient.Click
 
-        Dim newIngredientForm As NewIngredient = New NewIngredient
+        Dim newIngredientForm As NewIngredient = New NewIngredient(Me)
         newIngredientForm.Show()
+
+    End Sub
+
+    Private Sub UpdateMasterAndClose()
+
+        masterEditForm.setIngredientsView()
+        Me.Close()
+
+    End Sub
+
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles butDelete.Click
+
+        If (MessageBox.Show("Are you sure you want to remove this ingredient from the meal?", "Removing Ingredient", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
+
+            mealIngredients.addConditions("mealIngredientsID", mealIngredientID)
+            mealIngredients.executeDelete("tblMealIngredients")
+
+            UpdateMasterAndClose()
+        End If
 
     End Sub
 End Class
