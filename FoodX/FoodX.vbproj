@@ -142,6 +142,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard\MealListviewFormatting.vb" />
     <Compile Include="Ingredients\NewIngredient.Designer.vb">
       <DependentUpon>NewIngredient.vb</DependentUpon>
     </Compile>

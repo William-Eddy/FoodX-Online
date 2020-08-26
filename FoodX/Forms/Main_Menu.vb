@@ -1,6 +1,6 @@
 ﻿Public Class Main_Menu
     Dim connected As Boolean
-    Public newShoppingList As New ShoppingListGeneration
+    Public shoppingList As New ShoppingListGeneration
 
     Private Sub ButDashboard_Click(sender As Object, e As EventArgs) Handles butDashboard.Click
         SetCurrentTab(0)
@@ -11,10 +11,18 @@
         SetCurrentTab(5)
         SetTabTitle()
 
-        lbBreakfast.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Breakfast'")
-        lbLunchDinner.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Lunch/Dinner'")
-        lbSnacks.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Pre-workout/Snack'")
-        lbDrinks.DataSource = MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `name` FROM `tblMeal` WHERE category='Drink'")
+        populateMealListviews()
+
+    End Sub
+
+    Public Sub populateMealListviews()
+
+        Dim listviewFormatting As MealListviewFormatting = New MealListviewFormatting
+
+        lbBreakfast.DataSource = listviewFormatting.getMealsFromDatabase("Breakfast")
+        lbLunchDinner.DataSource = listviewFormatting.getMealsFromDatabase("Lunch/Dinner")
+        lbSnacks.DataSource = listviewFormatting.getMealsFromDatabase("Pre-workout/Snack")
+        lbDrinks.DataSource = listviewFormatting.getMealsFromDatabase("Drink")
 
     End Sub
 
@@ -322,14 +330,14 @@
 
     Private Sub openMealEditForm(mealID)
 
-        Dim editMealForm As EditMeal = New EditMeal(mealID)
+        Dim editMealForm As EditMeal = New EditMeal(mealID, Me)
         editMealForm.Show()
 
     End Sub
 
     Private Sub butNewMeal_Click(sender As Object, e As EventArgs) Handles butNewMeal.Click
 
-        Dim editMealForm As EditMeal = New EditMeal(0)
+        Dim editMealForm As EditMeal = New EditMeal(0, Me)
         editMealForm.Show()
 
     End Sub

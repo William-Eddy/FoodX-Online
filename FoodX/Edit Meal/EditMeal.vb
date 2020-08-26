@@ -7,12 +7,16 @@
     Public mealIngredients As MealIngredients = New MealIngredients
     Public ingredients As Ingredients = New Ingredients
 
+    Dim mainMenuForm As Main_Menu
+
     Dim saved As Boolean = False
 
-    Public Sub New(ByVal mealIDToEdit As String)
+    Public Sub New(mealIDToEdit, mainMenu)
 
         InitializeComponent()
         mealID = mealIDToEdit
+
+        mainMenuForm = mainMenu
 
     End Sub
 
@@ -144,6 +148,8 @@
         End If
 
         saved = True
+
+        updateMealListviews()
         Me.Close()
 
     End Sub
@@ -154,10 +160,11 @@
 
             If (MessageBox.Show("Are you sure you want to exit without saving? Any changes will be lost.", "Exit", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No) Then
                 e.Cancel = True
+            Else
+                updateMealListviews()
             End If
 
         End If
-
 
     End Sub
 
@@ -187,6 +194,12 @@
         meals.addValues("carbs", Me.txtCarbs.Text)
         meals.addValues("fat", Me.txtFat.Text)
         meals.addValues("Protein", Me.txtProtein.Text)
+
+    End Sub
+
+    Private Sub updateMealListviews()
+
+        mainMenuForm.populateMealListviews()
 
     End Sub
 
