@@ -203,4 +203,19 @@
 
     End Sub
 
+    Private Sub butDelete_Click(sender As Object, e As EventArgs) Handles butDelete.Click
+
+        If (MessageBox.Show("Are you sure you want to delete this meal?", "Delete meal", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
+
+            meals.addConditions("mealID", mealID)
+            mealIngredients.executeDelete("tblMeal")
+
+            updateMealListviews()
+            saved = True
+            Me.Close()
+        End If
+
+
+    End Sub
+
 End Class

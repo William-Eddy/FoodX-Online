@@ -59,15 +59,12 @@ Partial Class Main_Menu
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Stock = New System.Windows.Forms.TabPage()
         Me.Scan = New System.Windows.Forms.TabPage()
-        Me.DataGridView = New System.Windows.Forms.DataGridView()
-        Me.barcode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.butReconcile = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.lvMeals = New System.Windows.Forms.ListView()
+        Me.pbCamera = New System.Windows.Forms.PictureBox()
         Me.lvIngredients = New System.Windows.Forms.ListView()
         Me.txtScanIn = New System.Windows.Forms.TextBox()
-        Me.ButReconcile = New System.Windows.Forms.Button()
-        Me.ButScanConnect = New System.Windows.Forms.Button()
         Me.Settings = New System.Windows.Forms.TabPage()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -143,6 +140,7 @@ Partial Class Main_Menu
         Me.barcodeLaser = New System.IO.Ports.SerialPort(Me.components)
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
+        Me.cameraTimer = New System.Windows.Forms.Timer(Me.components)
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,7 +149,8 @@ Partial Class Main_Menu
         Me.Meals.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.Scan.SuspendLayout()
-        CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.pbCamera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Settings.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -618,14 +617,11 @@ Partial Class Main_Menu
         '
         'Scan
         '
-        Me.Scan.Controls.Add(Me.DataGridView)
-        Me.Scan.Controls.Add(Me.Label21)
-        Me.Scan.Controls.Add(Me.Label19)
-        Me.Scan.Controls.Add(Me.lvMeals)
+        Me.Scan.Controls.Add(Me.butReconcile)
+        Me.Scan.Controls.Add(Me.Panel2)
+        Me.Scan.Controls.Add(Me.pbCamera)
         Me.Scan.Controls.Add(Me.lvIngredients)
         Me.Scan.Controls.Add(Me.txtScanIn)
-        Me.Scan.Controls.Add(Me.ButReconcile)
-        Me.Scan.Controls.Add(Me.ButScanConnect)
         Me.Scan.Location = New System.Drawing.Point(4, 25)
         Me.Scan.Name = "Scan"
         Me.Scan.Size = New System.Drawing.Size(841, 471)
@@ -633,94 +629,64 @@ Partial Class Main_Menu
         Me.Scan.Text = "Scan"
         Me.Scan.UseVisualStyleBackColor = True
         '
-        'DataGridView
+        'butReconcile
         '
-        Me.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.barcode})
-        Me.DataGridView.Location = New System.Drawing.Point(641, 69)
-        Me.DataGridView.Name = "DataGridView"
-        Me.DataGridView.Size = New System.Drawing.Size(137, 150)
-        Me.DataGridView.TabIndex = 14
+        Me.butReconcile.BackColor = System.Drawing.Color.SlateBlue
+        Me.butReconcile.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butReconcile.FlatAppearance.BorderSize = 0
+        Me.butReconcile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butReconcile.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butReconcile.ForeColor = System.Drawing.Color.White
+        Me.butReconcile.Location = New System.Drawing.Point(476, 348)
+        Me.butReconcile.Name = "butReconcile"
+        Me.butReconcile.Size = New System.Drawing.Size(146, 22)
+        Me.butReconcile.TabIndex = 26
+        Me.butReconcile.Text = "Reconcile"
+        Me.butReconcile.UseVisualStyleBackColor = False
         '
-        'barcode
+        'Panel2
         '
-        Me.barcode.HeaderText = "barcode"
-        Me.barcode.Name = "barcode"
+        Me.Panel2.BackColor = System.Drawing.Color.LawnGreen
+        Me.Panel2.Controls.Add(Me.Label21)
+        Me.Panel2.Location = New System.Drawing.Point(55, 177)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(361, 18)
+        Me.Panel2.TabIndex = 14
         '
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(165, 201)
+        Me.Label21.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(149, 2)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(38, 13)
-        Me.Label21.TabIndex = 13
-        Me.Label21.Text = "Meals:"
-        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label21.Size = New System.Drawing.Size(58, 14)
+        Me.Label21.TabIndex = 0
+        Me.Label21.Text = "Scan Here"
         '
-        'Label19
+        'pbCamera
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(165, 50)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(62, 13)
-        Me.Label19.TabIndex = 12
-        Me.Label19.Text = "Ingredients:"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lvMeals
-        '
-        Me.lvMeals.HideSelection = False
-        Me.lvMeals.Location = New System.Drawing.Point(168, 219)
-        Me.lvMeals.Name = "lvMeals"
-        Me.lvMeals.Size = New System.Drawing.Size(455, 108)
-        Me.lvMeals.TabIndex = 11
-        Me.lvMeals.UseCompatibleStateImageBehavior = False
+        Me.pbCamera.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.pbCamera.Location = New System.Drawing.Point(55, 94)
+        Me.pbCamera.Name = "pbCamera"
+        Me.pbCamera.Size = New System.Drawing.Size(361, 239)
+        Me.pbCamera.TabIndex = 13
+        Me.pbCamera.TabStop = False
         '
         'lvIngredients
         '
         Me.lvIngredients.HideSelection = False
-        Me.lvIngredients.Location = New System.Drawing.Point(168, 69)
+        Me.lvIngredients.Location = New System.Drawing.Point(476, 94)
         Me.lvIngredients.Name = "lvIngredients"
-        Me.lvIngredients.Size = New System.Drawing.Size(455, 106)
+        Me.lvIngredients.Size = New System.Drawing.Size(315, 239)
         Me.lvIngredients.TabIndex = 10
         Me.lvIngredients.UseCompatibleStateImageBehavior = False
         '
         'txtScanIn
         '
-        Me.txtScanIn.Location = New System.Drawing.Point(221, 9)
+        Me.txtScanIn.Location = New System.Drawing.Point(55, 350)
         Me.txtScanIn.Name = "txtScanIn"
-        Me.txtScanIn.Size = New System.Drawing.Size(335, 20)
+        Me.txtScanIn.Size = New System.Drawing.Size(361, 20)
         Me.txtScanIn.TabIndex = 9
-        '
-        'ButReconcile
-        '
-        Me.ButReconcile.BackColor = System.Drawing.Color.SlateBlue
-        Me.ButReconcile.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.ButReconcile.FlatAppearance.BorderSize = 0
-        Me.ButReconcile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButReconcile.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButReconcile.ForeColor = System.Drawing.Color.White
-        Me.ButReconcile.Location = New System.Drawing.Point(457, 359)
-        Me.ButReconcile.Name = "ButReconcile"
-        Me.ButReconcile.Size = New System.Drawing.Size(166, 39)
-        Me.ButReconcile.TabIndex = 8
-        Me.ButReconcile.Text = "Reconcile"
-        Me.ButReconcile.UseVisualStyleBackColor = False
-        '
-        'ButScanConnect
-        '
-        Me.ButScanConnect.BackColor = System.Drawing.Color.SlateBlue
-        Me.ButScanConnect.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.ButScanConnect.FlatAppearance.BorderSize = 0
-        Me.ButScanConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButScanConnect.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButScanConnect.ForeColor = System.Drawing.Color.White
-        Me.ButScanConnect.Location = New System.Drawing.Point(168, 359)
-        Me.ButScanConnect.Name = "ButScanConnect"
-        Me.ButScanConnect.Size = New System.Drawing.Size(166, 39)
-        Me.ButScanConnect.TabIndex = 6
-        Me.ButScanConnect.Text = "Scan"
-        Me.ButScanConnect.UseVisualStyleBackColor = False
         '
         'Settings
         '
@@ -1467,7 +1433,7 @@ Partial Class Main_Menu
         Me.Panel1.Controls.Add(Me.txtTabTitle)
         Me.Panel1.Location = New System.Drawing.Point(181, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(853, 111)
+        Me.Panel1.Size = New System.Drawing.Size(853, 100)
         Me.Panel1.TabIndex = 4
         '
         'Label1
@@ -1502,6 +1468,10 @@ Partial Class Main_Menu
         '
         Me.laserDisconnect.Interval = 8000
         '
+        'cameraTimer
+        '
+        Me.cameraTimer.Interval = 10
+        '
         'Main_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1528,7 +1498,9 @@ Partial Class Main_Menu
         Me.GroupBox5.PerformLayout()
         Me.Scan.ResumeLayout(False)
         Me.Scan.PerformLayout()
-        CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.pbCamera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Settings.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -1567,8 +1539,6 @@ Partial Class Main_Menu
     Friend WithEvents Settings As TabPage
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtTabTitle As Label
-    Friend WithEvents ButScanConnect As Button
-    Friend WithEvents ButReconcile As Button
     Friend WithEvents butConnect As Button
     Friend WithEvents checkStatus As Timer
     Friend WithEvents GroupBox1 As GroupBox
@@ -1619,11 +1589,6 @@ Partial Class Main_Menu
     Friend WithEvents Label22 As Label
     Friend WithEvents TextBox16 As TextBox
     Friend WithEvents txtScanIn As TextBox
-    Friend WithEvents lvMeals As ListView
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents DataGridView As DataGridView
-    Friend WithEvents barcode As DataGridViewTextBoxColumn
     Public WithEvents lvIngredients As ListView
     Friend WithEvents shoppingGenWorker As System.ComponentModel.BackgroundWorker
     Friend WithEvents Label24 As Label
@@ -1671,4 +1636,9 @@ Partial Class Main_Menu
     Friend WithEvents panelSaturday As Panel
     Friend WithEvents panelFriday As Panel
     Friend WithEvents panelThursday As Panel
+    Friend WithEvents pbCamera As PictureBox
+    Friend WithEvents cameraTimer As Timer
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label21 As Label
+    Friend WithEvents butReconcile As Button
 End Class

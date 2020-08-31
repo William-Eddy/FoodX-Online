@@ -41,11 +41,25 @@ Partial Class ChangeMealPlan
         Me.Label46 = New System.Windows.Forms.Label()
         Me.AfternoonDrink = New System.Windows.Forms.ComboBox()
         Me.Label45 = New System.Windows.Forms.Label()
+        Me.butPreWorkoutMealOut = New System.Windows.Forms.Button()
+        Me.butMornDrinkMealOut = New System.Windows.Forms.Button()
+        Me.butBreakfastMealOut = New System.Windows.Forms.Button()
+        Me.butLunchMealOut = New System.Windows.Forms.Button()
+        Me.butAfternoonDrinkMealOut = New System.Windows.Forms.Button()
+        Me.butSnackMealOut = New System.Windows.Forms.Button()
+        Me.butDinnerMealOut = New System.Windows.Forms.Button()
         Me.mainGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'mainGroupBox
         '
+        Me.mainGroupBox.Controls.Add(Me.butDinnerMealOut)
+        Me.mainGroupBox.Controls.Add(Me.butSnackMealOut)
+        Me.mainGroupBox.Controls.Add(Me.butAfternoonDrinkMealOut)
+        Me.mainGroupBox.Controls.Add(Me.butLunchMealOut)
+        Me.mainGroupBox.Controls.Add(Me.butBreakfastMealOut)
+        Me.mainGroupBox.Controls.Add(Me.butMornDrinkMealOut)
+        Me.mainGroupBox.Controls.Add(Me.butPreWorkoutMealOut)
         Me.mainGroupBox.Controls.Add(Me.Calories)
         Me.mainGroupBox.Controls.Add(Me.PreWorkout)
         Me.mainGroupBox.Controls.Add(Me.Snack)
@@ -65,7 +79,7 @@ Partial Class ChangeMealPlan
         Me.mainGroupBox.Controls.Add(Me.AfternoonDrink)
         Me.mainGroupBox.Controls.Add(Me.Label45)
         Me.mainGroupBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mainGroupBox.Location = New System.Drawing.Point(12, 2)
+        Me.mainGroupBox.Location = New System.Drawing.Point(12, 3)
         Me.mainGroupBox.Name = "mainGroupBox"
         Me.mainGroupBox.Size = New System.Drawing.Size(174, 409)
         Me.mainGroupBox.TabIndex = 51
@@ -86,9 +100,9 @@ Partial Class ChangeMealPlan
         Me.PreWorkout.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PreWorkout.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.PreWorkout.FormattingEnabled = True
-        Me.PreWorkout.Location = New System.Drawing.Point(10, 45)
+        Me.PreWorkout.Location = New System.Drawing.Point(8, 45)
         Me.PreWorkout.Name = "PreWorkout"
-        Me.PreWorkout.Size = New System.Drawing.Size(154, 21)
+        Me.PreWorkout.Size = New System.Drawing.Size(137, 21)
         Me.PreWorkout.TabIndex = 48
         '
         'Snack
@@ -96,9 +110,9 @@ Partial Class ChangeMealPlan
         Me.Snack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Snack.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.Snack.FormattingEnabled = True
-        Me.Snack.Location = New System.Drawing.Point(10, 273)
+        Me.Snack.Location = New System.Drawing.Point(8, 273)
         Me.Snack.Name = "Snack"
-        Me.Snack.Size = New System.Drawing.Size(154, 21)
+        Me.Snack.Size = New System.Drawing.Size(137, 21)
         Me.Snack.TabIndex = 42
         '
         'Fat
@@ -115,7 +129,7 @@ Partial Class ChangeMealPlan
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label42.ForeColor = System.Drawing.Color.Black
-        Me.Label42.Location = New System.Drawing.Point(7, 27)
+        Me.Label42.Location = New System.Drawing.Point(5, 27)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(75, 15)
         Me.Label42.TabIndex = 49
@@ -144,7 +158,7 @@ Partial Class ChangeMealPlan
         Me.Label48.AutoSize = True
         Me.Label48.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label48.ForeColor = System.Drawing.Color.Black
-        Me.Label48.Location = New System.Drawing.Point(7, 256)
+        Me.Label48.Location = New System.Drawing.Point(5, 256)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(41, 15)
         Me.Label48.TabIndex = 43
@@ -155,9 +169,9 @@ Partial Class ChangeMealPlan
         Me.Breakfast.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Breakfast.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.Breakfast.FormattingEnabled = True
-        Me.Breakfast.Location = New System.Drawing.Point(10, 136)
+        Me.Breakfast.Location = New System.Drawing.Point(8, 136)
         Me.Breakfast.Name = "Breakfast"
-        Me.Breakfast.Size = New System.Drawing.Size(154, 21)
+        Me.Breakfast.Size = New System.Drawing.Size(137, 21)
         Me.Breakfast.TabIndex = 36
         '
         'Label47
@@ -165,7 +179,7 @@ Partial Class ChangeMealPlan
         Me.Label47.AutoSize = True
         Me.Label47.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label47.ForeColor = System.Drawing.Color.Black
-        Me.Label47.Location = New System.Drawing.Point(7, 306)
+        Me.Label47.Location = New System.Drawing.Point(5, 306)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(44, 15)
         Me.Label47.TabIndex = 41
@@ -176,7 +190,7 @@ Partial Class ChangeMealPlan
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label43.ForeColor = System.Drawing.Color.Black
-        Me.Label43.Location = New System.Drawing.Point(7, 119)
+        Me.Label43.Location = New System.Drawing.Point(5, 119)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(59, 15)
         Me.Label43.TabIndex = 37
@@ -187,9 +201,9 @@ Partial Class ChangeMealPlan
         Me.MornDrink.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MornDrink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.MornDrink.FormattingEnabled = True
-        Me.MornDrink.Location = New System.Drawing.Point(10, 89)
+        Me.MornDrink.Location = New System.Drawing.Point(8, 89)
         Me.MornDrink.Name = "MornDrink"
-        Me.MornDrink.Size = New System.Drawing.Size(154, 21)
+        Me.MornDrink.Size = New System.Drawing.Size(137, 21)
         Me.MornDrink.TabIndex = 44
         '
         'Label44
@@ -197,7 +211,7 @@ Partial Class ChangeMealPlan
         Me.Label44.AutoSize = True
         Me.Label44.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label44.ForeColor = System.Drawing.Color.Black
-        Me.Label44.Location = New System.Drawing.Point(7, 210)
+        Me.Label44.Location = New System.Drawing.Point(5, 210)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(91, 15)
         Me.Label44.TabIndex = 47
@@ -208,9 +222,9 @@ Partial Class ChangeMealPlan
         Me.Dinner.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dinner.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.Dinner.FormattingEnabled = True
-        Me.Dinner.Location = New System.Drawing.Point(10, 323)
+        Me.Dinner.Location = New System.Drawing.Point(8, 323)
         Me.Dinner.Name = "Dinner"
-        Me.Dinner.Size = New System.Drawing.Size(154, 21)
+        Me.Dinner.Size = New System.Drawing.Size(137, 21)
         Me.Dinner.TabIndex = 40
         '
         'Lunch
@@ -218,9 +232,9 @@ Partial Class ChangeMealPlan
         Me.Lunch.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lunch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.Lunch.FormattingEnabled = True
-        Me.Lunch.Location = New System.Drawing.Point(10, 182)
+        Me.Lunch.Location = New System.Drawing.Point(8, 182)
         Me.Lunch.Name = "Lunch"
-        Me.Lunch.Size = New System.Drawing.Size(154, 21)
+        Me.Lunch.Size = New System.Drawing.Size(137, 21)
         Me.Lunch.TabIndex = 38
         '
         'Label46
@@ -228,7 +242,7 @@ Partial Class ChangeMealPlan
         Me.Label46.AutoSize = True
         Me.Label46.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label46.ForeColor = System.Drawing.Color.Black
-        Me.Label46.Location = New System.Drawing.Point(7, 72)
+        Me.Label46.Location = New System.Drawing.Point(5, 72)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(83, 15)
         Me.Label46.TabIndex = 45
@@ -239,9 +253,9 @@ Partial Class ChangeMealPlan
         Me.AfternoonDrink.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AfternoonDrink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.AfternoonDrink.FormattingEnabled = True
-        Me.AfternoonDrink.Location = New System.Drawing.Point(10, 228)
+        Me.AfternoonDrink.Location = New System.Drawing.Point(8, 228)
         Me.AfternoonDrink.Name = "AfternoonDrink"
-        Me.AfternoonDrink.Size = New System.Drawing.Size(154, 21)
+        Me.AfternoonDrink.Size = New System.Drawing.Size(137, 21)
         Me.AfternoonDrink.TabIndex = 46
         '
         'Label45
@@ -249,11 +263,116 @@ Partial Class ChangeMealPlan
         Me.Label45.AutoSize = True
         Me.Label45.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label45.ForeColor = System.Drawing.Color.Black
-        Me.Label45.Location = New System.Drawing.Point(7, 164)
+        Me.Label45.Location = New System.Drawing.Point(5, 164)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(41, 15)
         Me.Label45.TabIndex = 39
         Me.Label45.Text = "Lunch"
+        '
+        'butPreWorkoutMealOut
+        '
+        Me.butPreWorkoutMealOut.BackColor = System.Drawing.Color.SlateBlue
+        Me.butPreWorkoutMealOut.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butPreWorkoutMealOut.FlatAppearance.BorderSize = 0
+        Me.butPreWorkoutMealOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butPreWorkoutMealOut.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butPreWorkoutMealOut.ForeColor = System.Drawing.Color.White
+        Me.butPreWorkoutMealOut.Location = New System.Drawing.Point(148, 45)
+        Me.butPreWorkoutMealOut.Name = "butPreWorkoutMealOut"
+        Me.butPreWorkoutMealOut.Size = New System.Drawing.Size(21, 21)
+        Me.butPreWorkoutMealOut.TabIndex = 54
+        Me.butPreWorkoutMealOut.Text = "✓"
+        Me.butPreWorkoutMealOut.UseVisualStyleBackColor = False
+        '
+        'butMornDrinkMealOut
+        '
+        Me.butMornDrinkMealOut.BackColor = System.Drawing.Color.SlateBlue
+        Me.butMornDrinkMealOut.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butMornDrinkMealOut.FlatAppearance.BorderSize = 0
+        Me.butMornDrinkMealOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butMornDrinkMealOut.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butMornDrinkMealOut.ForeColor = System.Drawing.Color.White
+        Me.butMornDrinkMealOut.Location = New System.Drawing.Point(148, 89)
+        Me.butMornDrinkMealOut.Name = "butMornDrinkMealOut"
+        Me.butMornDrinkMealOut.Size = New System.Drawing.Size(21, 21)
+        Me.butMornDrinkMealOut.TabIndex = 55
+        Me.butMornDrinkMealOut.Text = "✓"
+        Me.butMornDrinkMealOut.UseVisualStyleBackColor = False
+        '
+        'butBreakfastMealOut
+        '
+        Me.butBreakfastMealOut.BackColor = System.Drawing.Color.SlateBlue
+        Me.butBreakfastMealOut.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butBreakfastMealOut.FlatAppearance.BorderSize = 0
+        Me.butBreakfastMealOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butBreakfastMealOut.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butBreakfastMealOut.ForeColor = System.Drawing.Color.White
+        Me.butBreakfastMealOut.Location = New System.Drawing.Point(148, 136)
+        Me.butBreakfastMealOut.Name = "butBreakfastMealOut"
+        Me.butBreakfastMealOut.Size = New System.Drawing.Size(21, 21)
+        Me.butBreakfastMealOut.TabIndex = 56
+        Me.butBreakfastMealOut.Text = "✓"
+        Me.butBreakfastMealOut.UseVisualStyleBackColor = False
+        '
+        'butLunchMealOut
+        '
+        Me.butLunchMealOut.BackColor = System.Drawing.Color.SlateBlue
+        Me.butLunchMealOut.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butLunchMealOut.FlatAppearance.BorderSize = 0
+        Me.butLunchMealOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butLunchMealOut.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butLunchMealOut.ForeColor = System.Drawing.Color.White
+        Me.butLunchMealOut.Location = New System.Drawing.Point(148, 182)
+        Me.butLunchMealOut.Name = "butLunchMealOut"
+        Me.butLunchMealOut.Size = New System.Drawing.Size(21, 21)
+        Me.butLunchMealOut.TabIndex = 57
+        Me.butLunchMealOut.Text = "✓"
+        Me.butLunchMealOut.UseVisualStyleBackColor = False
+        '
+        'butAfternoonDrinkMealOut
+        '
+        Me.butAfternoonDrinkMealOut.BackColor = System.Drawing.Color.SlateBlue
+        Me.butAfternoonDrinkMealOut.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butAfternoonDrinkMealOut.FlatAppearance.BorderSize = 0
+        Me.butAfternoonDrinkMealOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butAfternoonDrinkMealOut.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butAfternoonDrinkMealOut.ForeColor = System.Drawing.Color.White
+        Me.butAfternoonDrinkMealOut.Location = New System.Drawing.Point(148, 228)
+        Me.butAfternoonDrinkMealOut.Name = "butAfternoonDrinkMealOut"
+        Me.butAfternoonDrinkMealOut.Size = New System.Drawing.Size(21, 21)
+        Me.butAfternoonDrinkMealOut.TabIndex = 58
+        Me.butAfternoonDrinkMealOut.Text = "✓"
+        Me.butAfternoonDrinkMealOut.UseVisualStyleBackColor = False
+        '
+        'butSnackMealOut
+        '
+        Me.butSnackMealOut.BackColor = System.Drawing.Color.SlateBlue
+        Me.butSnackMealOut.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butSnackMealOut.FlatAppearance.BorderSize = 0
+        Me.butSnackMealOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butSnackMealOut.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butSnackMealOut.ForeColor = System.Drawing.Color.White
+        Me.butSnackMealOut.Location = New System.Drawing.Point(148, 273)
+        Me.butSnackMealOut.Name = "butSnackMealOut"
+        Me.butSnackMealOut.Size = New System.Drawing.Size(21, 21)
+        Me.butSnackMealOut.TabIndex = 59
+        Me.butSnackMealOut.Text = "✓"
+        Me.butSnackMealOut.UseVisualStyleBackColor = False
+        '
+        'butDinnerMealOut
+        '
+        Me.butDinnerMealOut.BackColor = System.Drawing.Color.SlateBlue
+        Me.butDinnerMealOut.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butDinnerMealOut.FlatAppearance.BorderSize = 0
+        Me.butDinnerMealOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butDinnerMealOut.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butDinnerMealOut.ForeColor = System.Drawing.Color.White
+        Me.butDinnerMealOut.Location = New System.Drawing.Point(148, 323)
+        Me.butDinnerMealOut.Name = "butDinnerMealOut"
+        Me.butDinnerMealOut.Size = New System.Drawing.Size(21, 21)
+        Me.butDinnerMealOut.TabIndex = 60
+        Me.butDinnerMealOut.Text = "✓"
+        Me.butDinnerMealOut.UseVisualStyleBackColor = False
         '
         'ChangeMealPlan
         '
@@ -292,4 +411,11 @@ Partial Class ChangeMealPlan
     Friend WithEvents Label46 As Label
     Friend WithEvents AfternoonDrink As ComboBox
     Friend WithEvents Label45 As Label
+    Friend WithEvents butDinnerMealOut As Button
+    Friend WithEvents butSnackMealOut As Button
+    Friend WithEvents butAfternoonDrinkMealOut As Button
+    Friend WithEvents butLunchMealOut As Button
+    Friend WithEvents butBreakfastMealOut As Button
+    Friend WithEvents butMornDrinkMealOut As Button
+    Friend WithEvents butPreWorkoutMealOut As Button
 End Class

@@ -184,4 +184,52 @@
 
     End Sub
 
+    Private Sub butPreWorkoutMealOut_Click(sender As Object, e As EventArgs) Handles butPreWorkoutMealOut.Click
+
+        mealPlanManagement.decreaseMealStock(Me.PreWorkout.SelectedValue)
+        Me.butPreWorkoutMealOut.Enabled = False
+
+    End Sub
+
+    Private Sub butMornDrinkMealOut_Click(sender As Object, e As EventArgs) Handles butMornDrinkMealOut.Click
+
+        mealPlanManagement.decreaseMealStock(Me.MornDrink.SelectedValue)
+        Me.butMornDrinkMealOut.Enabled = False
+
+    End Sub
+
+    Private Sub butBreakfastMealOut_Click(sender As Object, e As EventArgs) Handles butBreakfastMealOut.Click
+
+        mealPlanManagement.decreaseMealStock(Me.Breakfast.SelectedValue)
+        Me.butBreakfastMealOut.Enabled = False
+
+    End Sub
+
+    Private Sub butLunchMealOut_Click(sender As Object, e As EventArgs) Handles butLunchMealOut.Click
+
+        mealPlanManagement.decreaseMealStock(Me.Lunch.SelectedValue)
+        Me.butLunchMealOut.Enabled = False
+
+    End Sub
+
+    Private Sub butAfternoonDrinkMealOut_Click(sender As Object, e As EventArgs) Handles butAfternoonDrinkMealOut.Click
+
+        mealPlanManagement.decreaseMealStock(Me.AfternoonDrink.SelectedValue)
+        Me.butAfternoonDrinkMealOut.Enabled = False
+
+    End Sub
+
+    Private Sub butSnackMealOut_Click(sender As Object, e As EventArgs) Handles butSnackMealOut.Click
+
+        mealPlanManagement.decreaseMealStock(Me.Snack.SelectedValue)
+        Me.butSnackMealOut.Enabled = False
+
+    End Sub
+
+    Private Sub butDinnerMealOut_Click(sender As Object, e As EventArgs) Handles butDinnerMealOut.Click
+
+        mealPlanManagement.decreaseMealStock(Me.Dinner.SelectedValue)
+        Me.butDinnerMealOut.Enabled = False
+
+    End Sub
 End Class

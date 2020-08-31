@@ -96,4 +96,16 @@
 
     End Sub
 
+    Public Sub decreaseMealStock(mealID)
+
+        Dim currentStock As Integer
+
+        currentStock = meals.getSingleSearchValue("mealID", mealID, "stock")
+
+        meals.addValues("stock", (currentStock - 1))
+        meals.addConditions("mealID", mealID)
+        meals.executeUpdate("tblMeal")
+
+    End Sub
+
 End Class

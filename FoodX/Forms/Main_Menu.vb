@@ -1,6 +1,10 @@
-﻿Public Class Main_Menu
+﻿Imports Emgu.CV
+
+Public Class Main_Menu
+
     Dim connected As Boolean
     Public shoppingList As New ShoppingListGeneration
+    Dim videoCapture As New VideoCapture
 
     Private Sub ButDashboard_Click(sender As Object, e As EventArgs) Handles butDashboard.Click
         SetCurrentTab(0)
@@ -34,7 +38,7 @@
     Private Sub ButScan_Click(sender As Object, e As EventArgs) Handles butScan.Click
         SetCurrentTab(3)
         SetTabTitle()
-        'StartScanner()
+        StartScanner()
 
         With lvIngredients
             .View = View.Details
@@ -48,17 +52,7 @@
             .Columns.Add("Price", 60)
         End With
 
-        With lvMeals
-            .View = View.Details
-            .FullRowSelect = True
-            .HideSelection = False
-            .MultiSelect = False
-            .Columns.Add("mealStockbarcode", 0)
-            .Columns.Add("mealID", 0)
-            .Columns.Add("Name", 160)
-            .Columns.Add("Quantity", 80)
-            .Columns.Add("Date made", 150)
-        End With
+        'cameraTimer.Start()
 
     End Sub
 
@@ -75,7 +69,7 @@
         mainTabControl.SelectTab(index)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButScanConnect.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
 
         StartScanner()
 
@@ -83,24 +77,32 @@
 
     Private Sub StartScanner()
 
-        Dim com As IO.Ports.SerialPort = My.Computer.Ports.OpenSerialPort(My.Settings.scannerPort)
+        Try
 
-        If connected = False Then
-            com.ReadTimeout = 1000
-            com.WriteLine("a")
-            ButScanConnect.BackColor = Color.Green
-            ButScanConnect.Text = "Stop"
-            connected = True
-            Me.txtScanIn.Focus()
-        Else
-            ButScanConnect.Text = "Disconnecting..."
-            ButScanConnect.BackColor = Color.SlateBlue
-            com.WriteLine("b")
-            laserDisconnect.Start()
-            connected = False
-        End If
+            Dim com As IO.Ports.SerialPort = My.Computer.Ports.OpenSerialPort(My.Settings.scannerPort)
 
-        com.Close()
+            If connected = False Then
+                com.ReadTimeout = 1000
+                com.WriteLine("a")
+                connected = True
+                Me.txtScanIn.Focus()
+            Else
+                com.WriteLine("b")
+                laserDisconnect.Start()
+                connected = False
+            End If
+
+            com.Close()
+
+
+        Catch e As System.IO.IOException
+
+            MsgBox("No scanner connected")
+
+
+        End Try
+
+
 
     End Sub
 
@@ -148,7 +150,6 @@
 
     Private Sub laserDisconnect_Tick(sender As Object, e As EventArgs) Handles laserDisconnect.Tick
         laserDisconnect.Stop()
-        ButScanConnect.Text = "Start"
     End Sub
 
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
@@ -163,13 +164,7 @@
 
         If e.KeyCode = Keys.Enter Then
 
-
-            If Me.txtScanIn.TextLength = 10 Then
-                addMealBarcode()
-            Else
-                addIngredientBarcode(Me.txtScanIn.Text)
-            End If
-
+            addIngredientBarcode(Me.txtScanIn.Text)
             Me.txtScanIn.Text = ""
 
         End If
@@ -211,34 +206,13 @@
 
     End Sub
 
-    Private Sub addMealBarcode()
-
-        Dim mealStockData As DataTable
-        Dim mealName As String
-        Dim madeDate As String
-        Dim mealID As String
-        Dim insertArray As String()
-
-
-        mealStockData = (MainConnectionAccess.conndb.getSQLDataTable("SELECT `mealID`, `madedate` FROM `tblMealStock` WHERE mealStockBarcode='" + Me.txtScanIn.Text + "'"))
-        madeDate = mealStockData.Rows(0)("madedate").ToString
-        mealID = mealStockData.Rows(0).Item(0).ToString()
-        mealName = (MainConnectionAccess.conndb.getSQLDataTable("SELECT `name` FROM `tblMeal` WHERE mealID=" + mealID)).Rows(0).Item(0).ToString()
-
-        insertArray = {mealID, mealName, madeDate}
-
-        lvMeals.Items.Add(Me.txtScanIn.Text).SubItems.AddRange(insertArray)
-
-
-    End Sub
-
     Public Sub AddToIngListView(barcode, array)
 
         Me.lvIngredients.Items.Add(barcode).SubItems.AddRange(array)
 
     End Sub
 
-    Private Sub ButReconcile_Click(sender As Object, e As EventArgs) Handles ButReconcile.Click
+    Private Sub ButReconcile_Click(sender As Object, e As EventArgs)
 
         Me.Refresh()
 
@@ -339,6 +313,26 @@
 
         Dim editMealForm As EditMeal = New EditMeal(0, Me)
         editMealForm.Show()
+
+    End Sub
+    Private Sub cameraTimer_Tick(sender As Object, e As EventArgs) Handles cameraTimer.Tick
+
+        videoCapture = New VideoCapture
+
+        Try
+            pbCamera.Image = videoCapture.QueryFrame.ToBitmap
+
+        Catch ecam As System.NullReferenceException
+            MsgBox("No camera connected")
+
+        End Try
+
+
+    End Sub
+
+    Private Sub Scan_Leave(sender As Object, e As EventArgs) Handles Scan.Leave
+
+        StartScanner()
 
     End Sub
 End Class
