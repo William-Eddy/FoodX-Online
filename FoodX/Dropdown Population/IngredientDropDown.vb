@@ -5,6 +5,7 @@
 
         ingredients.addColumnsForReturn("ingredientID")
         ingredients.addColumnsForReturn("name")
+        ingredients.addColumnsForReturn("measurement")
 
         ingredients.executeSelect("tblIngredients")
 
@@ -25,6 +26,12 @@
     Function getDataSource()
 
         Return ingredients.table
+
+    End Function
+
+    Function getUnit(ingredientID)
+
+        Return ingredients.getSingleSearchValue("ingredientID", ingredientID, "measurement")
 
     End Function
 

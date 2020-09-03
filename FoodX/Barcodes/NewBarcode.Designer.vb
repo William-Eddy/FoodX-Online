@@ -54,7 +54,7 @@ Partial Class NewBarcode
         '
         Me.txtQuantity.Location = New System.Drawing.Point(79, 52)
         Me.txtQuantity.Name = "txtQuantity"
-        Me.txtQuantity.Size = New System.Drawing.Size(61, 20)
+        Me.txtQuantity.Size = New System.Drawing.Size(51, 20)
         Me.txtQuantity.TabIndex = 3
         '
         'Label2
@@ -69,7 +69,7 @@ Partial Class NewBarcode
         'lblUnit
         '
         Me.lblUnit.AutoSize = True
-        Me.lblUnit.Location = New System.Drawing.Point(146, 55)
+        Me.lblUnit.Location = New System.Drawing.Point(131, 56)
         Me.lblUnit.Name = "lblUnit"
         Me.lblUnit.Size = New System.Drawing.Size(26, 13)
         Me.lblUnit.TabIndex = 5

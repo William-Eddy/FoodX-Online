@@ -47,9 +47,9 @@ Public Class Main_Menu
             .MultiSelect = False
             .Columns.Add("barcode", 0)
             .Columns.Add("ingID", 0)
-            .Columns.Add("Name", 160)
-            .Columns.Add("Quantity", 60)
-            .Columns.Add("Price", 60)
+            .Columns.Add("Ingredient", 160)
+            .Columns.Add("Quantity", 70)
+            .Columns.Add("Price")
         End With
 
         'cameraTimer.Start()
@@ -97,8 +97,8 @@ Public Class Main_Menu
 
         Catch e As System.IO.IOException
 
-            MsgBox("No scanner connected")
-
+            Me.lblNoScanner.Visible = True
+            Me.lblQuestionMark.Visible = True
 
         End Try
 
@@ -173,29 +173,16 @@ Public Class Main_Menu
 
     Public Sub addIngredientBarcode(barcode)
 
-        Dim ingID As Integer
-        Dim barcodeData As DataTable
-        Dim name As String
-        Dim quantity As String
-        Dim price As String
-        Dim insertArray As String()
-
         Try
 
-            barcodeData = MainConnectionAccess.conndb.getSQLDataTable("SELECT `ingredientID`, `quantity`, `price`  FROM `tblIngredientBarcodes` WHERE barcode='" + barcode + "'")
-            ingID = barcodeData.Rows(0).Item(0).ToString()
-            name = (MainConnectionAccess.conndb.getSQLDataTable("SELECT `name` FROM `tblIngredients` WHERE ingredientID=" + Str(ingID))).Rows(0).Item(0).ToString()
-            quantity = barcodeData.Rows(0).Item(1).ToString()
-            price = barcodeData.Rows(0).Item(2).ToString()
+            Dim addIngredientBarcode As AddIngredientBarcode = New AddIngredientBarcode
 
-            insertArray = {ingID, name, quantity, price}
-
-            AddToIngListView(barcode, insertArray)
+            AddToIngListView(barcode, addIngredientBarcode.getBarcodeDataArray(barcode))
 
         Catch err As System.IndexOutOfRangeException
 
             Dim oForm As NewBarcode
-            oForm = New NewBarcode(barcode)
+            oForm = New NewBarcode(barcode, Me)
             oForm.Show()
 
             Exit Sub
@@ -227,9 +214,6 @@ Public Class Main_Menu
 
     End Sub
 
-    Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs)
 
@@ -335,4 +319,6 @@ Public Class Main_Menu
         StartScanner()
 
     End Sub
+
+
 End Class

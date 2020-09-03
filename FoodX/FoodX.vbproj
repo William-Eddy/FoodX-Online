@@ -173,6 +173,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Barcodes\AddIngredientBarcode.vb" />
+    <Compile Include="Database Tables\Standard Table\IngredientBarcodes.vb" />
     <Compile Include="Dashboard\MealListviewFormatting.vb" />
     <Compile Include="Ingredients\NewIngredient.Designer.vb">
       <DependentUpon>NewIngredient.vb</DependentUpon>
@@ -231,10 +233,10 @@
     <Compile Include="Shopping List\MakeList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NewBarcode.Designer.vb">
+    <Compile Include="Barcodes\NewBarcode.Designer.vb">
       <DependentUpon>NewBarcode.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NewBarcode.vb">
+    <Compile Include="Barcodes\NewBarcode.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Shopping List\ShoppingList.Designer.vb">
@@ -299,7 +301,7 @@
     <EmbeddedResource Include="Shopping List\MakeList.resx">
       <DependentUpon>MakeList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NewBarcode.resx">
+    <EmbeddedResource Include="Barcodes\NewBarcode.resx">
       <DependentUpon>NewBarcode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shopping List\ShoppingList.resx">

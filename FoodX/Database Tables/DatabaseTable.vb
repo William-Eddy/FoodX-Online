@@ -91,7 +91,6 @@
 
     Function getDataRow(searchColumn As String, searchValue As String)
 
-
         Return table.Select(searchColumn + "= '" + searchValue + "'")
 
     End Function

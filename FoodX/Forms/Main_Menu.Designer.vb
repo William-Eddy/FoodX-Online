@@ -39,29 +39,10 @@ Partial Class Main_Menu
         Me.txtTitle = New System.Windows.Forms.Label()
         Me.mainTabControl = New System.Windows.Forms.TabControl()
         Me.Dashboard = New System.Windows.Forms.TabPage()
-        Me.Meals = New System.Windows.Forms.TabPage()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.txtBreakfast = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Stock = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Scan = New System.Windows.Forms.TabPage()
         Me.butReconcile = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label21 = New System.Windows.Forms.Label()
         Me.pbCamera = New System.Windows.Forms.PictureBox()
         Me.lvIngredients = New System.Windows.Forms.ListView()
         Me.txtScanIn = New System.Windows.Forms.TextBox()
@@ -141,15 +122,15 @@ Partial Class Main_Menu
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
         Me.cameraTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblNoScanner = New System.Windows.Forms.Label()
+        Me.lblQuestionMark = New System.Windows.Forms.Label()
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mainTabControl.SuspendLayout()
         Me.Dashboard.SuspendLayout()
-        Me.Meals.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
         Me.Scan.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.pbCamera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Settings.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -375,8 +356,8 @@ Partial Class Main_Menu
         '
         Me.mainTabControl.Appearance = System.Windows.Forms.TabAppearance.Buttons
         Me.mainTabControl.Controls.Add(Me.Dashboard)
-        Me.mainTabControl.Controls.Add(Me.Meals)
         Me.mainTabControl.Controls.Add(Me.Stock)
+        Me.mainTabControl.Controls.Add(Me.TabPage3)
         Me.mainTabControl.Controls.Add(Me.Scan)
         Me.mainTabControl.Controls.Add(Me.Settings)
         Me.mainTabControl.Controls.Add(Me.EditMeals)
@@ -402,210 +383,6 @@ Partial Class Main_Menu
         Me.Dashboard.TabIndex = 0
         Me.Dashboard.Text = "Dashboard"
         '
-        'Meals
-        '
-        Me.Meals.Controls.Add(Me.GroupBox5)
-        Me.Meals.Controls.Add(Me.ComboBox1)
-        Me.Meals.Controls.Add(Me.Label2)
-        Me.Meals.Location = New System.Drawing.Point(4, 25)
-        Me.Meals.Name = "Meals"
-        Me.Meals.Padding = New System.Windows.Forms.Padding(3)
-        Me.Meals.Size = New System.Drawing.Size(841, 471)
-        Me.Meals.TabIndex = 1
-        Me.Meals.Text = "Meal Plan"
-        Me.Meals.UseVisualStyleBackColor = True
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.ComboBox7)
-        Me.GroupBox5.Controls.Add(Me.Label41)
-        Me.GroupBox5.Controls.Add(Me.txtBreakfast)
-        Me.GroupBox5.Controls.Add(Me.Label3)
-        Me.GroupBox5.Controls.Add(Me.Label40)
-        Me.GroupBox5.Controls.Add(Me.ComboBox2)
-        Me.GroupBox5.Controls.Add(Me.ComboBox6)
-        Me.GroupBox5.Controls.Add(Me.Label23)
-        Me.GroupBox5.Controls.Add(Me.Label39)
-        Me.GroupBox5.Controls.Add(Me.ComboBox3)
-        Me.GroupBox5.Controls.Add(Me.ComboBox5)
-        Me.GroupBox5.Controls.Add(Me.Label37)
-        Me.GroupBox5.Controls.Add(Me.Label38)
-        Me.GroupBox5.Controls.Add(Me.ComboBox4)
-        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(45, 108)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(724, 323)
-        Me.GroupBox5.TabIndex = 22
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Meal Selection"
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(178, 80)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(182, 24)
-        Me.ComboBox7.TabIndex = 34
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.ForeColor = System.Drawing.Color.Black
-        Me.Label41.Location = New System.Drawing.Point(173, 40)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(149, 23)
-        Me.Label41.TabIndex = 35
-        Me.Label41.Text = "Pre-Workout 🏋️"
-        '
-        'txtBreakfast
-        '
-        Me.txtBreakfast.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBreakfast.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.txtBreakfast.FormattingEnabled = True
-        Me.txtBreakfast.Location = New System.Drawing.Point(63, 255)
-        Me.txtBreakfast.Name = "txtBreakfast"
-        Me.txtBreakfast.Size = New System.Drawing.Size(182, 24)
-        Me.txtBreakfast.TabIndex = 22
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(58, 215)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(123, 23)
-        Me.Label3.TabIndex = 23
-        Me.Label3.Text = "Breakfast 🥐"
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label40.ForeColor = System.Drawing.Color.Black
-        Me.Label40.Location = New System.Drawing.Point(402, 127)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(169, 23)
-        Me.Label40.TabIndex = 33
-        Me.Label40.Text = "Afternoon Drink 🥛"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(281, 255)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(182, 24)
-        Me.ComboBox2.TabIndex = 24
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(407, 167)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(182, 24)
-        Me.ComboBox6.TabIndex = 32
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.Black
-        Me.Label23.Location = New System.Drawing.Point(276, 215)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(89, 23)
-        Me.Label23.TabIndex = 25
-        Me.Label23.Text = "Lunch 🍽"
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.ForeColor = System.Drawing.Color.Black
-        Me.Label39.Location = New System.Drawing.Point(173, 127)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(154, 23)
-        Me.Label39.TabIndex = 31
-        Me.Label39.Text = "Morning Drink 🥛"
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(510, 255)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(182, 24)
-        Me.ComboBox3.TabIndex = 26
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(178, 167)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(182, 24)
-        Me.ComboBox5.TabIndex = 30
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.ForeColor = System.Drawing.Color.Black
-        Me.Label37.Location = New System.Drawing.Point(505, 215)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(94, 23)
-        Me.Label37.TabIndex = 27
-        Me.Label37.Text = "Dinner 🌙"
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label38.ForeColor = System.Drawing.Color.Black
-        Me.Label38.Location = New System.Drawing.Point(402, 40)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(87, 23)
-        Me.Label38.TabIndex = 29
-        Me.Label38.Text = "Snack 🍿"
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(407, 80)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(182, 24)
-        Me.ComboBox4.TabIndex = 28
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(98, 48)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(182, 24)
-        Me.ComboBox1.TabIndex = 6
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Atlanta", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(47, 47)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 21)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Day:"
-        '
         'Stock
         '
         Me.Stock.Location = New System.Drawing.Point(4, 25)
@@ -615,10 +392,22 @@ Partial Class Main_Menu
         Me.Stock.Text = "Stock"
         Me.Stock.UseVisualStyleBackColor = True
         '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(841, 471)
+        Me.TabPage3.TabIndex = 8
+        Me.TabPage3.Text = "Old Meal Plan"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
         'Scan
         '
+        Me.Scan.Controls.Add(Me.lblQuestionMark)
+        Me.Scan.Controls.Add(Me.lblNoScanner)
+        Me.Scan.Controls.Add(Me.Label2)
         Me.Scan.Controls.Add(Me.butReconcile)
-        Me.Scan.Controls.Add(Me.Panel2)
         Me.Scan.Controls.Add(Me.pbCamera)
         Me.Scan.Controls.Add(Me.lvIngredients)
         Me.Scan.Controls.Add(Me.txtScanIn)
@@ -644,25 +433,6 @@ Partial Class Main_Menu
         Me.butReconcile.Text = "Reconcile"
         Me.butReconcile.UseVisualStyleBackColor = False
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.LawnGreen
-        Me.Panel2.Controls.Add(Me.Label21)
-        Me.Panel2.Location = New System.Drawing.Point(55, 177)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(361, 18)
-        Me.Panel2.TabIndex = 14
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(149, 2)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(58, 14)
-        Me.Label21.TabIndex = 0
-        Me.Label21.Text = "Scan Here"
-        '
         'pbCamera
         '
         Me.pbCamera.BackColor = System.Drawing.SystemColors.ControlLight
@@ -677,7 +447,7 @@ Partial Class Main_Menu
         Me.lvIngredients.HideSelection = False
         Me.lvIngredients.Location = New System.Drawing.Point(476, 94)
         Me.lvIngredients.Name = "lvIngredients"
-        Me.lvIngredients.Size = New System.Drawing.Size(315, 239)
+        Me.lvIngredients.Size = New System.Drawing.Size(295, 239)
         Me.lvIngredients.TabIndex = 10
         Me.lvIngredients.UseCompatibleStateImageBehavior = False
         '
@@ -1472,6 +1242,38 @@ Partial Class Main_Menu
         '
         Me.cameraTimer.Interval = 10
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(474, 57)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(144, 26)
+        Me.Label2.TabIndex = 27
+        Me.Label2.Text = "Shopping List"
+        '
+        'lblNoScanner
+        '
+        Me.lblNoScanner.AutoSize = True
+        Me.lblNoScanner.Location = New System.Drawing.Point(150, 267)
+        Me.lblNoScanner.Name = "lblNoScanner"
+        Me.lblNoScanner.Size = New System.Drawing.Size(166, 13)
+        Me.lblNoScanner.TabIndex = 28
+        Me.lblNoScanner.Text = "No camera or scanner connected"
+        Me.lblNoScanner.Visible = False
+        '
+        'lblQuestionMark
+        '
+        Me.lblQuestionMark.AutoSize = True
+        Me.lblQuestionMark.BackColor = System.Drawing.Color.Transparent
+        Me.lblQuestionMark.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblQuestionMark.Location = New System.Drawing.Point(193, 147)
+        Me.lblQuestionMark.Name = "lblQuestionMark"
+        Me.lblQuestionMark.Size = New System.Drawing.Size(83, 91)
+        Me.lblQuestionMark.TabIndex = 29
+        Me.lblQuestionMark.Text = "?"
+        Me.lblQuestionMark.Visible = False
+        '
         'Main_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1492,14 +1294,8 @@ Partial Class Main_Menu
         Me.mainTabControl.ResumeLayout(False)
         Me.Dashboard.ResumeLayout(False)
         Me.Dashboard.PerformLayout()
-        Me.Meals.ResumeLayout(False)
-        Me.Meals.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         Me.Scan.ResumeLayout(False)
         Me.Scan.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         CType(Me.pbCamera, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Settings.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
@@ -1529,7 +1325,6 @@ Partial Class Main_Menu
     Friend WithEvents mainTabControl As TabControl
     Friend WithEvents Dashboard As TabPage
     Friend WithEvents butDashboard As Button
-    Friend WithEvents Meals As TabPage
     Friend WithEvents butMeals As Button
     Friend WithEvents butScan As Button
     Friend WithEvents butSettings As Button
@@ -1610,23 +1405,6 @@ Partial Class Main_Menu
     Friend WithEvents Label28 As Label
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents Button3 As Button
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents ComboBox7 As ComboBox
-    Friend WithEvents Label41 As Label
-    Friend WithEvents txtBreakfast As ComboBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label40 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox6 As ComboBox
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label39 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox5 As ComboBox
-    Friend WithEvents Label37 As Label
-    Friend WithEvents Label38 As Label
-    Friend WithEvents ComboBox4 As ComboBox
     Friend WithEvents EditMealPlan As TabPage
     Friend WithEvents panelMonday As Panel
     Friend WithEvents panelWednesday As Panel
@@ -1638,7 +1416,9 @@ Partial Class Main_Menu
     Friend WithEvents panelThursday As Panel
     Friend WithEvents pbCamera As PictureBox
     Friend WithEvents cameraTimer As Timer
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Label21 As Label
     Friend WithEvents butReconcile As Button
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents lblQuestionMark As Label
+    Friend WithEvents lblNoScanner As Label
+    Friend WithEvents Label2 As Label
 End Class
