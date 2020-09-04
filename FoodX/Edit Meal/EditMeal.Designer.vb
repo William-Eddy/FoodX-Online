@@ -46,13 +46,15 @@ Partial Class EditMeal
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblUnit = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.butSave = New System.Windows.Forms.Button()
         Me.lvIngredients = New System.Windows.Forms.ListView()
+        Me.butSave = New System.Windows.Forms.Button()
         Me.butSaveAndClose = New System.Windows.Forms.Button()
         Me.butDelete = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.ListView1 = New System.Windows.Forms.ListView()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.butAddNewIngredient = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -216,6 +218,8 @@ Partial Class EditMeal
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.butAddNewIngredient)
         Me.GroupBox1.Controls.Add(Me.txtName)
         Me.GroupBox1.Controls.Add(Me.Label42)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -303,6 +307,15 @@ Partial Class EditMeal
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ingredients"
         '
+        'lvIngredients
+        '
+        Me.lvIngredients.HideSelection = False
+        Me.lvIngredients.Location = New System.Drawing.Point(19, 27)
+        Me.lvIngredients.Name = "lvIngredients"
+        Me.lvIngredients.Size = New System.Drawing.Size(273, 73)
+        Me.lvIngredients.TabIndex = 70
+        Me.lvIngredients.UseCompatibleStateImageBehavior = False
+        '
         'butSave
         '
         Me.butSave.BackColor = System.Drawing.Color.SlateBlue
@@ -317,15 +330,6 @@ Partial Class EditMeal
         Me.butSave.TabIndex = 71
         Me.butSave.Text = "Add Ingredient"
         Me.butSave.UseVisualStyleBackColor = False
-        '
-        'lvIngredients
-        '
-        Me.lvIngredients.HideSelection = False
-        Me.lvIngredients.Location = New System.Drawing.Point(19, 27)
-        Me.lvIngredients.Name = "lvIngredients"
-        Me.lvIngredients.Size = New System.Drawing.Size(273, 73)
-        Me.lvIngredients.TabIndex = 70
-        Me.lvIngredients.UseCompatibleStateImageBehavior = False
         '
         'butSaveAndClose
         '
@@ -368,15 +372,6 @@ Partial Class EditMeal
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Instructions"
         '
-        'ListView1
-        '
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(19, 27)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(504, 92)
-        Me.ListView1.TabIndex = 70
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.SlateBlue
@@ -391,6 +386,45 @@ Partial Class EditMeal
         Me.Button1.TabIndex = 74
         Me.Button1.Text = "Add Instruction"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'ListView1
+        '
+        Me.ListView1.HideSelection = False
+        Me.ListView1.Location = New System.Drawing.Point(19, 27)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(504, 92)
+        Me.ListView1.TabIndex = 70
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        '
+        'butAddNewIngredient
+        '
+        Me.butAddNewIngredient.BackColor = System.Drawing.Color.SlateBlue
+        Me.butAddNewIngredient.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butAddNewIngredient.FlatAppearance.BorderSize = 0
+        Me.butAddNewIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butAddNewIngredient.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butAddNewIngredient.ForeColor = System.Drawing.Color.White
+        Me.butAddNewIngredient.Location = New System.Drawing.Point(469, 61)
+        Me.butAddNewIngredient.Name = "butAddNewIngredient"
+        Me.butAddNewIngredient.Size = New System.Drawing.Size(21, 21)
+        Me.butAddNewIngredient.TabIndex = 74
+        Me.butAddNewIngredient.Text = "+"
+        Me.butAddNewIngredient.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Crimson
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(496, 61)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(21, 21)
+        Me.Button2.TabIndex = 75
+        Me.Button2.Text = "−"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'EditMeal
         '
@@ -447,4 +481,6 @@ Partial Class EditMeal
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Button1 As Button
     Friend WithEvents ListView1 As ListView
+    Friend WithEvents butAddNewIngredient As Button
+    Friend WithEvents Button2 As Button
 End Class

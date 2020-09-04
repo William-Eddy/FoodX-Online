@@ -6,6 +6,8 @@ Public Class Main_Menu
     Public shoppingList As New ShoppingListGeneration
     Dim videoCapture As New VideoCapture
 
+    Dim advancedOperations As AdvancedOperations = New AdvancedOperations
+
     Private Sub ButDashboard_Click(sender As Object, e As EventArgs) Handles butDashboard.Click
         SetCurrentTab(0)
         SetTabTitle()
@@ -31,26 +33,14 @@ Public Class Main_Menu
     End Sub
 
     Private Sub ButStock_Click(sender As Object, e As EventArgs) Handles butStock.Click
-        SetCurrentTab(6)
-        SetTabTitle()
+        Dim stockForm As Stock = New Stock
+        stockForm.Show()
     End Sub
 
     Private Sub ButScan_Click(sender As Object, e As EventArgs) Handles butScan.Click
-        SetCurrentTab(3)
-        SetTabTitle()
-        StartScanner()
 
-        With lvIngredients
-            .View = View.Details
-            .FullRowSelect = True
-            .HideSelection = False
-            .MultiSelect = False
-            .Columns.Add("barcode", 0)
-            .Columns.Add("ingID", 0)
-            .Columns.Add("Ingredient", 160)
-            .Columns.Add("Quantity", 70)
-            .Columns.Add("Price")
-        End With
+        Dim scanIngredientsIn As scanIngredientsIn = New scanIngredientsIn
+        scanIngredientsIn.Show()
 
         'cameraTimer.Start()
 
@@ -157,45 +147,6 @@ Public Class Main_Menu
         SetTabTitle()
 
         displayMealEditDays()
-
-    End Sub
-
-    Private Sub txtScanIn_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtScanIn.KeyDown
-
-        If e.KeyCode = Keys.Enter Then
-
-            addIngredientBarcode(Me.txtScanIn.Text)
-            Me.txtScanIn.Text = ""
-
-        End If
-
-    End Sub
-
-    Public Sub addIngredientBarcode(barcode)
-
-        Try
-
-            Dim addIngredientBarcode As AddIngredientBarcode = New AddIngredientBarcode
-
-            AddToIngListView(barcode, addIngredientBarcode.getBarcodeDataArray(barcode))
-
-        Catch err As System.IndexOutOfRangeException
-
-            Dim oForm As NewBarcode
-            oForm = New NewBarcode(barcode, Me)
-            oForm.Show()
-
-            Exit Sub
-
-        Finally
-
-        End Try
-
-    End Sub
-
-    Public Sub AddToIngListView(barcode, array)
-
-        Me.lvIngredients.Items.Add(barcode).SubItems.AddRange(array)
 
     End Sub
 
@@ -311,7 +262,6 @@ Public Class Main_Menu
 
         End Try
 
-
     End Sub
 
     Private Sub Scan_Leave(sender As Object, e As EventArgs) Handles Scan.Leave
@@ -320,5 +270,27 @@ Public Class Main_Menu
 
     End Sub
 
+    Private Sub butResetPrices_Click(sender As Object, e As EventArgs) Handles butResetPrices.Click
 
+        advancedOperations.resetPrices()
+
+    End Sub
+
+    Private Sub butResetIngredientStock_Click(sender As Object, e As EventArgs) Handles butResetIngredientStock.Click
+
+        advancedOperations.resetIngredientStock()
+
+    End Sub
+
+    Private Sub butResetMealStock_Click(sender As Object, e As EventArgs) Handles butResetMealStock.Click
+
+        advancedOperations.resetMealStock()
+
+    End Sub
+
+    Private Sub butResetPendingStock_Click(sender As Object, e As EventArgs) Handles butResetPendingStock.Click
+
+        advancedOperations.resetPendingStock()
+
+    End Sub
 End Class

@@ -42,6 +42,9 @@ Partial Class Main_Menu
         Me.Stock = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Scan = New System.Windows.Forms.TabPage()
+        Me.lblQuestionMark = New System.Windows.Forms.Label()
+        Me.lblNoScanner = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.butReconcile = New System.Windows.Forms.Button()
         Me.pbCamera = New System.Windows.Forms.PictureBox()
         Me.lvIngredients = New System.Windows.Forms.ListView()
@@ -81,6 +84,13 @@ Partial Class Main_Menu
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.DatabaseOperations = New System.Windows.Forms.TabPage()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.butResetPendingStock = New System.Windows.Forms.Button()
+        Me.butResetMealStock = New System.Windows.Forms.Button()
+        Me.Ingredients = New System.Windows.Forms.GroupBox()
+        Me.butResetPrices = New System.Windows.Forms.Button()
+        Me.butResetIngredientStock = New System.Windows.Forms.Button()
         Me.EditMeals = New System.Windows.Forms.TabPage()
         Me.butNewMeal = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -122,9 +132,6 @@ Partial Class Main_Menu
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
         Me.cameraTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblNoScanner = New System.Windows.Forms.Label()
-        Me.lblQuestionMark = New System.Windows.Forms.Label()
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,6 +146,9 @@ Partial Class Main_Menu
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.DatabaseOperations.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.Ingredients.SuspendLayout()
         Me.EditMeals.SuspendLayout()
         Me.Home.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -418,6 +428,38 @@ Partial Class Main_Menu
         Me.Scan.Text = "Scan"
         Me.Scan.UseVisualStyleBackColor = True
         '
+        'lblQuestionMark
+        '
+        Me.lblQuestionMark.AutoSize = True
+        Me.lblQuestionMark.BackColor = System.Drawing.Color.Transparent
+        Me.lblQuestionMark.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblQuestionMark.Location = New System.Drawing.Point(193, 147)
+        Me.lblQuestionMark.Name = "lblQuestionMark"
+        Me.lblQuestionMark.Size = New System.Drawing.Size(83, 91)
+        Me.lblQuestionMark.TabIndex = 29
+        Me.lblQuestionMark.Text = "?"
+        Me.lblQuestionMark.Visible = False
+        '
+        'lblNoScanner
+        '
+        Me.lblNoScanner.AutoSize = True
+        Me.lblNoScanner.Location = New System.Drawing.Point(150, 267)
+        Me.lblNoScanner.Name = "lblNoScanner"
+        Me.lblNoScanner.Size = New System.Drawing.Size(166, 13)
+        Me.lblNoScanner.TabIndex = 28
+        Me.lblNoScanner.Text = "No camera or scanner connected"
+        Me.lblNoScanner.Visible = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(474, 57)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(144, 26)
+        Me.Label2.TabIndex = 27
+        Me.Label2.Text = "Shopping List"
+        '
         'butReconcile
         '
         Me.butReconcile.BackColor = System.Drawing.Color.SlateBlue
@@ -473,6 +515,7 @@ Partial Class Main_Menu
         Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.DatabaseOperations)
         Me.TabControl1.Location = New System.Drawing.Point(3, 5)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -829,6 +872,100 @@ Partial Class Main_Menu
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Personal Information"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'DatabaseOperations
+        '
+        Me.DatabaseOperations.Controls.Add(Me.GroupBox5)
+        Me.DatabaseOperations.Controls.Add(Me.Ingredients)
+        Me.DatabaseOperations.Location = New System.Drawing.Point(4, 25)
+        Me.DatabaseOperations.Name = "DatabaseOperations"
+        Me.DatabaseOperations.Padding = New System.Windows.Forms.Padding(3)
+        Me.DatabaseOperations.Size = New System.Drawing.Size(809, 390)
+        Me.DatabaseOperations.TabIndex = 2
+        Me.DatabaseOperations.Text = "Database Operations"
+        Me.DatabaseOperations.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.butResetPendingStock)
+        Me.GroupBox5.Controls.Add(Me.butResetMealStock)
+        Me.GroupBox5.Location = New System.Drawing.Point(239, 24)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(200, 106)
+        Me.GroupBox5.TabIndex = 13
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Meals"
+        '
+        'butResetPendingStock
+        '
+        Me.butResetPendingStock.BackColor = System.Drawing.Color.SlateBlue
+        Me.butResetPendingStock.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butResetPendingStock.FlatAppearance.BorderSize = 0
+        Me.butResetPendingStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butResetPendingStock.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butResetPendingStock.ForeColor = System.Drawing.Color.White
+        Me.butResetPendingStock.Location = New System.Drawing.Point(12, 61)
+        Me.butResetPendingStock.Name = "butResetPendingStock"
+        Me.butResetPendingStock.Size = New System.Drawing.Size(174, 27)
+        Me.butResetPendingStock.TabIndex = 12
+        Me.butResetPendingStock.Text = "Reset Pending Stock"
+        Me.butResetPendingStock.UseVisualStyleBackColor = False
+        '
+        'butResetMealStock
+        '
+        Me.butResetMealStock.BackColor = System.Drawing.Color.SlateBlue
+        Me.butResetMealStock.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butResetMealStock.FlatAppearance.BorderSize = 0
+        Me.butResetMealStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butResetMealStock.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butResetMealStock.ForeColor = System.Drawing.Color.White
+        Me.butResetMealStock.Location = New System.Drawing.Point(12, 28)
+        Me.butResetMealStock.Name = "butResetMealStock"
+        Me.butResetMealStock.Size = New System.Drawing.Size(174, 27)
+        Me.butResetMealStock.TabIndex = 11
+        Me.butResetMealStock.Text = "Reset Meal Stock"
+        Me.butResetMealStock.UseVisualStyleBackColor = False
+        '
+        'Ingredients
+        '
+        Me.Ingredients.Controls.Add(Me.butResetPrices)
+        Me.Ingredients.Controls.Add(Me.butResetIngredientStock)
+        Me.Ingredients.Location = New System.Drawing.Point(19, 24)
+        Me.Ingredients.Name = "Ingredients"
+        Me.Ingredients.Size = New System.Drawing.Size(200, 106)
+        Me.Ingredients.TabIndex = 12
+        Me.Ingredients.TabStop = False
+        Me.Ingredients.Text = "Ingredients"
+        '
+        'butResetPrices
+        '
+        Me.butResetPrices.BackColor = System.Drawing.Color.SlateBlue
+        Me.butResetPrices.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butResetPrices.FlatAppearance.BorderSize = 0
+        Me.butResetPrices.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butResetPrices.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butResetPrices.ForeColor = System.Drawing.Color.White
+        Me.butResetPrices.Location = New System.Drawing.Point(12, 28)
+        Me.butResetPrices.Name = "butResetPrices"
+        Me.butResetPrices.Size = New System.Drawing.Size(174, 27)
+        Me.butResetPrices.TabIndex = 9
+        Me.butResetPrices.Text = "Reset Prices"
+        Me.butResetPrices.UseVisualStyleBackColor = False
+        '
+        'butResetIngredientStock
+        '
+        Me.butResetIngredientStock.BackColor = System.Drawing.Color.SlateBlue
+        Me.butResetIngredientStock.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butResetIngredientStock.FlatAppearance.BorderSize = 0
+        Me.butResetIngredientStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butResetIngredientStock.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butResetIngredientStock.ForeColor = System.Drawing.Color.White
+        Me.butResetIngredientStock.Location = New System.Drawing.Point(12, 61)
+        Me.butResetIngredientStock.Name = "butResetIngredientStock"
+        Me.butResetIngredientStock.Size = New System.Drawing.Size(174, 27)
+        Me.butResetIngredientStock.TabIndex = 10
+        Me.butResetIngredientStock.Text = "Reset Ingredient Stock"
+        Me.butResetIngredientStock.UseVisualStyleBackColor = False
         '
         'EditMeals
         '
@@ -1242,38 +1379,6 @@ Partial Class Main_Menu
         '
         Me.cameraTimer.Interval = 10
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(474, 57)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(144, 26)
-        Me.Label2.TabIndex = 27
-        Me.Label2.Text = "Shopping List"
-        '
-        'lblNoScanner
-        '
-        Me.lblNoScanner.AutoSize = True
-        Me.lblNoScanner.Location = New System.Drawing.Point(150, 267)
-        Me.lblNoScanner.Name = "lblNoScanner"
-        Me.lblNoScanner.Size = New System.Drawing.Size(166, 13)
-        Me.lblNoScanner.TabIndex = 28
-        Me.lblNoScanner.Text = "No camera or scanner connected"
-        Me.lblNoScanner.Visible = False
-        '
-        'lblQuestionMark
-        '
-        Me.lblQuestionMark.AutoSize = True
-        Me.lblQuestionMark.BackColor = System.Drawing.Color.Transparent
-        Me.lblQuestionMark.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblQuestionMark.Location = New System.Drawing.Point(193, 147)
-        Me.lblQuestionMark.Name = "lblQuestionMark"
-        Me.lblQuestionMark.Size = New System.Drawing.Size(83, 91)
-        Me.lblQuestionMark.TabIndex = 29
-        Me.lblQuestionMark.Text = "?"
-        Me.lblQuestionMark.Visible = False
-        '
         'Main_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1308,6 +1413,9 @@ Partial Class Main_Menu
         Me.GroupBox1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.DatabaseOperations.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.Ingredients.ResumeLayout(False)
         Me.EditMeals.ResumeLayout(False)
         Me.EditMeals.PerformLayout()
         Me.Home.ResumeLayout(False)
@@ -1421,4 +1529,11 @@ Partial Class Main_Menu
     Friend WithEvents lblQuestionMark As Label
     Friend WithEvents lblNoScanner As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents DatabaseOperations As TabPage
+    Friend WithEvents butResetMealStock As Button
+    Friend WithEvents butResetIngredientStock As Button
+    Friend WithEvents butResetPrices As Button
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents Ingredients As GroupBox
+    Friend WithEvents butResetPendingStock As Button
 End Class

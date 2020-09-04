@@ -173,9 +173,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database Connection\Operations\AdvancedOperations.vb" />
     <Compile Include="Barcodes\AddIngredientBarcode.vb" />
     <Compile Include="Database Tables\Standard Table\IngredientBarcodes.vb" />
     <Compile Include="Dashboard\MealListviewFormatting.vb" />
+    <Compile Include="scanIngredientsIn.Designer.vb">
+      <DependentUpon>scanIngredientsIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="scanIngredientsIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ingredients\NewIngredient.Designer.vb">
       <DependentUpon>NewIngredient.vb</DependentUpon>
     </Compile>
@@ -278,8 +285,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Shopping List\ShoppingListGeneration.vb" />
+    <Compile Include="Stock.Designer.vb">
+      <DependentUpon>Stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="scanIngredientsIn.resx">
+      <DependentUpon>scanIngredientsIn.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ingredients\NewIngredient.resx">
       <DependentUpon>NewIngredient.vb</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +334,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock.resx">
+      <DependentUpon>Stock.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

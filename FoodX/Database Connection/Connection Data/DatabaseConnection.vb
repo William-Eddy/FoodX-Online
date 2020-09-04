@@ -10,11 +10,18 @@ Public Class DatabaseConnection
     Dim client As SshClient
 
     Public query As String = String.Empty
+
     Public columns As New List(Of String)()
     Public conditions As New List(Of String)()
     Public values As New List(Of String)()
+
+    Public override As Boolean = False
+
     Public updateValues As IngredientsRequired = New IngredientsRequired
     Public command As MySqlCommand = New MySqlCommand
+
+
+
     Public Sub establishConnection()
 
         establishPortForward()
@@ -157,8 +164,14 @@ Public Class DatabaseConnection
 
         checkForConditions()
 
-        setQueryToConnection()
-        executeCommand()
+        If Not (query.Contains("WHERE")) And (override = False) Then
+
+            MsgBox("This update statement is not bound to any conditions. Running this statement could result in every record being overridden. Check the code and try again.", , "IMPORTANT")
+
+        Else
+            setQueryToConnection()
+            executeCommand()
+        End If
 
         reset()
 
@@ -170,7 +183,7 @@ Public Class DatabaseConnection
 
         checkForConditions()
 
-        If Not (query.Contains("WHERE")) Then
+        If Not (query.Contains("WHERE")) And (override = False) Then
 
             MsgBox("This delete statement is not bound to any conditions. Running this statement could result in the entire table being dropped. Check the code and try again.", , "IMPORTANT")
 
@@ -318,6 +331,12 @@ Public Class DatabaseConnection
 
     End Sub
 
+    Public Sub activateOverride()
+
+        override = True
+
+    End Sub
+
     Public Sub reset()
 
         columns.Clear()
@@ -328,18 +347,7 @@ Public Class DatabaseConnection
         columns = New List(Of String)()
         conditions = New List(Of String)()
         values = New List(Of String)()
-
-    End Sub
-
-    Public Sub testCommand()
-
-        Dim adptr As New MySqlDataAdapter
-        Dim table As DataTable = New DataTable
-        Using cmd As New MySqlCommand("SELECT * from tblMeal WHERE category=@uname", conn)
-            cmd.Parameters.AddWithValue("@uname", "Pre-workout/Snack")
-            adptr = New MySqlDataAdapter(cmd)
-            adptr.Fill(table)
-        End Using
+        override = False
 
     End Sub
 

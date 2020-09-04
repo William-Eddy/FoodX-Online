@@ -33,11 +33,12 @@
 
     End Function
 
-    Function addNewBarcode()
+    Function getPrice()
 
-
+        Return IngredientBarcodes.getPrice
 
     End Function
+
 
 
 End Class

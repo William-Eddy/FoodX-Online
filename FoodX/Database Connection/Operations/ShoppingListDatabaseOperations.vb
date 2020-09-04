@@ -19,6 +19,7 @@
     Public Sub clearPending()
 
         MainConnectionAccess.conndb.addValues("pending", 0)
+        MainConnectionAccess.conndb.activateOverride()
         MainConnectionAccess.conndb.executeUpdate("tblMeal")
 
     End Sub
@@ -26,6 +27,7 @@
 
         MainConnectionAccess.conndb.addValues("pending", quantity)
         MainConnectionAccess.conndb.addConditions("mealID", mealID)
+        MainConnectionAccess.conndb.activateOverride()
         MainConnectionAccess.conndb.executeUpdate("tblMeal")
 
     End Sub

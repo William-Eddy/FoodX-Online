@@ -2,7 +2,7 @@
 
     Dim ingData As DataTable
     Dim inbarcode As String
-    Dim scanForm As Main_Menu
+    Dim scanForm As scanIngredientsIn
 
     Dim ingredientDropdown As IngredientDropDown = New IngredientDropDown
 

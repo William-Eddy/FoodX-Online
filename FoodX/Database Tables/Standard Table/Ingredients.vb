@@ -23,6 +23,11 @@
         Return getSingleSearchValue("ingredientID", ingredientID, "name")
 
     End Function
+    Function getQuantity(ingredientID)
+
+        Return getSingleSearchValue("ingredientID", ingredientID, "quantity")
+
+    End Function
 
     Function getUnit(ingredientID)
 

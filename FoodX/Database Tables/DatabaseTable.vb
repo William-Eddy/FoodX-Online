@@ -57,6 +57,7 @@
 
     End Function
 
+
     Public Function getValue(row, column)
 
         Return table.Rows(row).Item(column).ToString()
@@ -89,9 +90,15 @@
 
     End Function
 
-    Function getDataRow(searchColumn As String, searchValue As String)
+    Function getDataRow(searchColumn As String, searchValue As String, Optional mathOperator As String = Nothing)
 
-        Return table.Select(searchColumn + "= '" + searchValue + "'")
+        If mathOperator = Nothing Then
+            mathOperator = "="
+        End If
+
+        Return table.Select(searchColumn + mathOperator + " '" + searchValue + "'")
+
+        'Return table.Select(searchColumn + "= '" + searchValue + "'")
 
     End Function
 
@@ -109,9 +116,9 @@
 
     End Function
 
-    Function getNewTableWithConditions(searchColumn As String, searchValue As String)
+    Function getNewTableWithConditions(searchColumn As String, searchValue As String, Optional mathOperator As String = Nothing)
 
-        Return convertToDataTable(getDataRow(searchColumn, searchValue))
+        Return convertToDataTable(getDataRow(searchColumn, searchValue, mathOperator))
 
     End Function
 
@@ -156,6 +163,12 @@
     Public Sub addColumnsForReturn(columnName)
 
         MainConnectionAccess.conndb.addColumns(columnName, 0)
+
+    End Sub
+
+    Public Sub activateOverride()
+
+        MainConnectionAccess.conndb.activateOverride()
 
     End Sub
 
