@@ -7,6 +7,7 @@
         addColumnsForReturn("quantity")
         addColumnsForReturn("measurement")
         addColumnsForReturn("ingredientID")
+        addColumnsForReturn("price")
 
         executeSelect("tblIngredients")
 
@@ -32,6 +33,12 @@
     Function getUnit(ingredientID)
 
         Return getSingleSearchValue("ingredientID", ingredientID, "measurement")
+
+    End Function
+
+    Function getPrice(ingredientID)
+
+        Return getSingleSearchValue("ingredientID", ingredientID, "price")
 
     End Function
 

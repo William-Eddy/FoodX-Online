@@ -4,6 +4,7 @@
     Public mealsRequired As MealsRequired = New MealsRequired
     Public ingredientsRequired As IngredientsRequired = New IngredientsRequired
     Public databaseOperations As ShoppingListDatabaseOperations = New ShoppingListDatabaseOperations
+    Dim emailList As ShoppingListEmail = New ShoppingListEmail
 
     Public Sub generateList()
 
@@ -111,9 +112,14 @@
         Dim ingredientName As String
         Dim quantityInStock As Integer
         Dim quantityRequired As Integer
+        Dim price As Double
+        Dim totalPrice As Double
+        Dim unit As String
 
         Dim quantityRequiredToBuy As Integer
 
+        emailList.setEmailSetup()
+        emailList.setBodyPart1()
 
         ingredients.setContents()
         ingredientsRequired.setRowColumnIndexToZero()
@@ -123,7 +129,10 @@
             ingredientID = ingredientsRequired.getCurrentIngredientID
             ingredientName = ingredients.getIngredientName(ingredientID)
             quantityInStock = ingredients.getQuantityInStock(ingredientID)
+            price = ingredients.getPrice(ingredientID)
             quantityRequired = ingredientsRequired.getCurrentQuantity
+            unit = ingredients.getUnit(ingredientID)
+
 
             quantityRequiredToBuy = quantityRequired - quantityInStock
 
@@ -134,10 +143,20 @@
                 databaseOperations.addIngredientValue("name", ingredientName)
                 databaseOperations.executeInsertCommand()
 
+                emailList.addIngredient(ingredientName, Format(price, "0.00"), quantityRequiredToBuy, unit)
+
+                totalPrice = totalPrice + price
+
             End If
 
             ingredientsRequired.increaseRowCount()
         Next
+
+        emailList.setBodyPart2()
+        emailList.addTotal(Format(totalPrice, "0.00"))
+        emailList.setBodyPart3()
+        emailList.setToBody()
+        emailList.sendEmail()
 
     End Sub
 

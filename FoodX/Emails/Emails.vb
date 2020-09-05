@@ -44,7 +44,6 @@ Public Class Emails
     Public Sub sendEmail()
 
         Smtp_Server.Send(e_mail)
-        MsgBox("Mail Sent")
 
     End Sub
 
