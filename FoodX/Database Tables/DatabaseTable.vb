@@ -90,15 +90,9 @@
 
     End Function
 
-    Function getDataRow(searchColumn As String, searchValue As String, Optional mathOperator As String = Nothing)
+    Function getDataRow(searchColumn As String, searchValue As String)
 
-        If mathOperator = Nothing Then
-            mathOperator = "="
-        End If
-
-        Return table.Select(searchColumn + mathOperator + " '" + searchValue + "'")
-
-        'Return table.Select(searchColumn + "= '" + searchValue + "'")
+        Return table.Select(searchColumn + "= '" + searchValue + "'")
 
     End Function
 
@@ -118,7 +112,7 @@
 
     Function getNewTableWithConditions(searchColumn As String, searchValue As String, Optional mathOperator As String = Nothing)
 
-        Return convertToDataTable(getDataRow(searchColumn, searchValue, mathOperator))
+        Return convertToDataTable(getDataRow(searchColumn, searchValue))
 
     End Function
 
@@ -143,9 +137,9 @@
 
     End Sub
 
-    Public Sub addConditions(columnName, value)
+    Public Sub addConditions(columnName, value, Optional mathOperator = Nothing)
 
-        MainConnectionAccess.conndb.addConditions(columnName, value)
+        MainConnectionAccess.conndb.addConditions(columnName, value, mathOperator)
 
     End Sub
 

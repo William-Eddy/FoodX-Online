@@ -132,6 +132,7 @@ Partial Class Main_Menu
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
         Me.cameraTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -384,6 +385,7 @@ Partial Class Main_Menu
         'Dashboard
         '
         Me.Dashboard.BackColor = System.Drawing.Color.Transparent
+        Me.Dashboard.Controls.Add(Me.Button2)
         Me.Dashboard.Controls.Add(Me.txtTitle)
         Me.Dashboard.ForeColor = System.Drawing.Color.Transparent
         Me.Dashboard.Location = New System.Drawing.Point(4, 25)
@@ -1379,6 +1381,15 @@ Partial Class Main_Menu
         '
         Me.cameraTimer.Interval = 10
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(341, 189)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Main_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1536,4 +1547,5 @@ Partial Class Main_Menu
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Ingredients As GroupBox
     Friend WithEvents butResetPendingStock As Button
+    Friend WithEvents Button2 As Button
 End Class

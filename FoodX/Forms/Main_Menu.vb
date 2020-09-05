@@ -293,4 +293,12 @@ Public Class Main_Menu
         advancedOperations.resetPendingStock()
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        Dim email As ShoppingListEmail = New ShoppingListEmail
+
+        email.setEmailSetup()
+
+    End Sub
 End Class

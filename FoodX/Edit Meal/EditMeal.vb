@@ -16,6 +16,8 @@
         InitializeComponent()
         mealID = mealIDToEdit
 
+        mainMenu.GetType()
+
         mainMenuForm = mainMenu
 
     End Sub

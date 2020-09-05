@@ -12,15 +12,15 @@ Public Class DatabaseConnection
     Public query As String = String.Empty
 
     Public columns As New List(Of String)()
-    Public conditions As New List(Of String)()
+    'Public conditions As New List(Of String)()
     Public values As New List(Of String)()
+
+    Public conditions As SQLWhereConditions = New SQLWhereConditions
 
     Public override As Boolean = False
 
     Public updateValues As IngredientsRequired = New IngredientsRequired
     Public command As MySqlCommand = New MySqlCommand
-
-
 
     Public Sub establishConnection()
 
@@ -135,44 +135,12 @@ Public Class DatabaseConnection
 
     End Sub
 
-    Public Sub addNewProduct(barcode, ingredientID, quantity, price)
-
-        Dim query As String = String.Empty
-        query &= "INSERT INTO tblIngredientBarcodes (barcode, ingredientID, quantity, price)"
-        query &= "VALUES (@barcode,@ingredientID, @quantity, @price)"
-
-        Using command As New MySqlCommand
-            With command
-                .Connection = conn
-                .CommandType = CommandType.Text
-                .CommandText = query
-                .Parameters.AddWithValue("@barcode", barcode)
-                .Parameters.AddWithValue("@ingredientID", Int(ingredientID))
-                .Parameters.AddWithValue("@quantity", Int(quantity))
-                .Parameters.AddWithValue("@price", price)
-            End With
-            command.ExecuteNonQuery()
-            MsgBox("Insert successful")
-
-        End Using
-
-    End Sub
-
     Public Sub executeUpdate(tableName)
 
         query = "UPDATE " + tableName + " SET " + getEqualsQuery(values)
 
         checkForConditions()
-
-        If Not (query.Contains("WHERE")) And (override = False) Then
-
-            MsgBox("This update statement is not bound to any conditions. Running this statement could result in every record being overridden. Check the code and try again.", , "IMPORTANT")
-
-        Else
-            setQueryToConnection()
-            executeCommand()
-        End If
-
+        checkAndExecuteRequest()
         reset()
 
     End Sub
@@ -182,16 +150,7 @@ Public Class DatabaseConnection
         query = "DELETE FROM " + tableName
 
         checkForConditions()
-
-        If Not (query.Contains("WHERE")) And (override = False) Then
-
-            MsgBox("This delete statement is not bound to any conditions. Running this statement could result in the entire table being dropped. Check the code and try again.", , "IMPORTANT")
-
-        Else
-            setQueryToConnection()
-            executeCommand()
-        End If
-
+        checkAndExecuteRequest()
         reset()
 
     End Sub
@@ -227,10 +186,12 @@ Public Class DatabaseConnection
 
     End Function
 
-    Public Sub addConditions(columnName, value)
+    Public Sub addConditions(columnName, value, Optional mathOperator = Nothing)
 
-        command.Parameters.AddWithValue("@" + columnName, value)
-        conditions.Add(columnName)
+        If mathOperator = Nothing Then mathOperator = "="
+
+        command.Parameters.AddWithValue("@" + columnName + "Conditions", value)
+        conditions.addCondition(columnName, mathOperator)
 
     End Sub
 
@@ -304,6 +265,28 @@ Public Class DatabaseConnection
         Return query
 
     End Function
+
+    Function getConditionsWithOperators()
+
+        Dim columnName As String
+        Dim mathOperator As String
+        Dim query As String = String.Empty
+
+        For Each row As DataRow In conditions.table.Rows
+
+            columnName = conditions.getCurrentRowValue(0)
+            mathOperator = conditions.getCurrentRowValue(1)
+
+            query &= (columnName + mathOperator + "@" + columnName + "Conditions")
+
+            conditions.increaseRowCount()
+        Next
+
+        conditions.setRowColumnIndexToZero()
+
+        Return query
+
+    End Function
     Public Sub setQueryToConnection()
 
         With command
@@ -315,7 +298,7 @@ Public Class DatabaseConnection
     End Sub
     Public Sub checkForConditions()
 
-        Dim queryConditions As String = getEqualsQuery(conditions)
+        Dim queryConditions As String = getConditionsWithOperators()
 
         If Len(queryConditions) > 0 Then
 
@@ -340,14 +323,26 @@ Public Class DatabaseConnection
     Public Sub reset()
 
         columns.Clear()
-        conditions.Clear()
+        conditions.table.Clear()
         values.Clear()
         command = New MySqlCommand
         query = String.Empty
         columns = New List(Of String)()
-        conditions = New List(Of String)()
         values = New List(Of String)()
         override = False
+
+    End Sub
+
+    Public Sub checkAndExecuteRequest()
+
+        If Not (query.Contains("WHERE")) And (override = False) Then
+
+            MsgBox("The statement you attempted to run is not bound to any conditions. Running this statement could result in significant data loss. Override must be activated to perform this action. Check the code and try again.", , "IMPORTANT")
+
+        Else
+            setQueryToConnection()
+            executeCommand()
+        End If
 
     End Sub
 

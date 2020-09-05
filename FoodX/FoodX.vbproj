@@ -177,6 +177,8 @@
     <Compile Include="Barcodes\AddIngredientBarcode.vb" />
     <Compile Include="Database Tables\Standard Table\IngredientBarcodes.vb" />
     <Compile Include="Dashboard\MealListviewFormatting.vb" />
+    <Compile Include="Emails\Email Templates\ShoppingListEmail.vb" />
+    <Compile Include="Emails\Emails.vb" />
     <Compile Include="scanIngredientsIn.Designer.vb">
       <DependentUpon>scanIngredientsIn.vb</DependentUpon>
     </Compile>
@@ -285,12 +287,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Shopping List\ShoppingListGeneration.vb" />
+    <Compile Include="Database Tables\Special\SQLWhereConditions.vb" />
     <Compile Include="Stock.Designer.vb">
       <DependentUpon>Stock.vb</DependentUpon>
     </Compile>
     <Compile Include="Stock.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Stock\StockDisplay.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="scanIngredientsIn.resx">

@@ -40,6 +40,8 @@ Partial Class EditMeal
         Me.txtProtein = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.butAddNewIngredient = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -53,8 +55,6 @@ Partial Class EditMeal
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.butAddNewIngredient = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -235,6 +235,36 @@ Partial Class EditMeal
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Meal Details"
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Crimson
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(496, 61)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(21, 21)
+        Me.Button2.TabIndex = 75
+        Me.Button2.Text = "−"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'butAddNewIngredient
+        '
+        Me.butAddNewIngredient.BackColor = System.Drawing.Color.SlateBlue
+        Me.butAddNewIngredient.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butAddNewIngredient.FlatAppearance.BorderSize = 0
+        Me.butAddNewIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butAddNewIngredient.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butAddNewIngredient.ForeColor = System.Drawing.Color.White
+        Me.butAddNewIngredient.Location = New System.Drawing.Point(469, 61)
+        Me.butAddNewIngredient.Name = "butAddNewIngredient"
+        Me.butAddNewIngredient.Size = New System.Drawing.Size(21, 21)
+        Me.butAddNewIngredient.TabIndex = 74
+        Me.butAddNewIngredient.Text = "+"
+        Me.butAddNewIngredient.UseVisualStyleBackColor = False
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label10)
@@ -395,36 +425,6 @@ Partial Class EditMeal
         Me.ListView1.Size = New System.Drawing.Size(504, 92)
         Me.ListView1.TabIndex = 70
         Me.ListView1.UseCompatibleStateImageBehavior = False
-        '
-        'butAddNewIngredient
-        '
-        Me.butAddNewIngredient.BackColor = System.Drawing.Color.SlateBlue
-        Me.butAddNewIngredient.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.butAddNewIngredient.FlatAppearance.BorderSize = 0
-        Me.butAddNewIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.butAddNewIngredient.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.butAddNewIngredient.ForeColor = System.Drawing.Color.White
-        Me.butAddNewIngredient.Location = New System.Drawing.Point(469, 61)
-        Me.butAddNewIngredient.Name = "butAddNewIngredient"
-        Me.butAddNewIngredient.Size = New System.Drawing.Size(21, 21)
-        Me.butAddNewIngredient.TabIndex = 74
-        Me.butAddNewIngredient.Text = "+"
-        Me.butAddNewIngredient.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Crimson
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(496, 61)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(21, 21)
-        Me.Button2.TabIndex = 75
-        Me.Button2.Text = "−"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'EditMeal
         '
