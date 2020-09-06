@@ -4,6 +4,7 @@ Public Class Emails
     Dim Smtp_Server As New SmtpClient
     Dim e_mail As New MailMessage()
     Dim body As String
+    Public htmlFolderPath As String = My.Settings.emailHTMLFilePath
 
     Public Sub setEmailAccountSettings()
 

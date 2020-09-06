@@ -6,6 +6,7 @@
     Public meals As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
     Public mealIngredients As MealIngredients = New MealIngredients
     Public ingredients As Ingredients = New Ingredients
+    Dim methods As Methods = New Methods
 
     Dim mainMenuForm As Main_Menu
 
@@ -41,6 +42,13 @@
 
     End Sub
 
+    Public Sub setMethodStepsContent()
+
+        methods.addConditions("mealID", mealID)
+        methods.executeSelect()
+
+    End Sub
+
     Public Sub setIngredientsView()
 
         lvIngredients.Clear()
@@ -73,6 +81,27 @@
         Next
 
     End Sub
+
+    Public Sub setMethodStepsView()
+
+        lvMethodSteps.Clear()
+        Dim insertArray As String()
+
+        setMethodStepsContent()
+        setMethodStepsFormat()
+
+        For Each row As DataRow In methods.table.Rows
+
+            insertArray = {methods.getCurrentOrderID, methods.getCurrentInstruction}
+            Me.lvMethodSteps.Items.Add(methods.getCurrentStepID).SubItems.AddRange(insertArray)
+
+            methods.increaseRowCount()
+
+        Next
+
+        methods.setRowColumnIndexToZero()
+
+    End Sub
     Private Sub setCurrentMealData()
 
         setContentsForSelectedMeal()
@@ -80,6 +109,8 @@
         setCurrentMealDetails()
         setCurrentNutritionalData()
         setIngredientsView()
+
+        setMethodStepsView()
 
     End Sub
 
@@ -118,6 +149,23 @@
             .Columns.Add("mealIngredientID", 0)
             .Columns.Add("Ingredient", 180)
             .Columns.Add("Quantity")
+            .GridLines = True
+
+        End With
+
+    End Sub
+
+    Private Sub setMethodStepsFormat()
+
+        With Me.lvMethodSteps
+
+            .View = View.Details
+            .FullRowSelect = True
+            .HideSelection = False
+            .MultiSelect = False
+            .Columns.Add("stepID", 0)
+            .Columns.Add("Step No.", 65)
+            .Columns.Add("Instruction", 500)
             .GridLines = True
 
         End With
@@ -217,6 +265,32 @@
             Me.Close()
         End If
 
+
+    End Sub
+
+    Private Sub lvMethodSteps_DoubleClick(sender As Object, e As EventArgs) Handles lvMethodSteps.DoubleClick
+
+        Dim editStep As EditMethodSteps
+
+        Dim stepID As String = Me.lvMethodSteps.FocusedItem.Text
+
+        editStep = New EditMethodSteps(Me, mealID, stepID)
+
+        editStep.Show()
+
+    End Sub
+
+    Private Sub butAddStep_Click(sender As Object, e As EventArgs) Handles butAddStep.Click
+
+        Dim editStep As EditMethodSteps = New EditMethodSteps(Me, mealID)
+        editStep.Show()
+
+    End Sub
+
+    Private Sub butEmailMethod_Click(sender As Object, e As EventArgs) Handles butEmailMethod.Click
+
+        Dim methodEmail As MethodEmail = New MethodEmail(mealID)
+        methodEmail.sendMethodEmail()
 
     End Sub
 

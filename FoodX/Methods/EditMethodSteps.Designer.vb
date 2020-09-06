@@ -24,7 +24,6 @@ Partial Class EditMethodSteps
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EditMethodSteps))
         Me.butDelete = New System.Windows.Forms.Button()
-        Me.butAddNewIngredient = New System.Windows.Forms.Button()
         Me.butSave = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtOrderID = New System.Windows.Forms.TextBox()
@@ -46,21 +45,6 @@ Partial Class EditMethodSteps
         Me.butDelete.TabIndex = 30
         Me.butDelete.Text = "Delete"
         Me.butDelete.UseVisualStyleBackColor = False
-        '
-        'butAddNewIngredient
-        '
-        Me.butAddNewIngredient.BackColor = System.Drawing.Color.SlateBlue
-        Me.butAddNewIngredient.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.butAddNewIngredient.FlatAppearance.BorderSize = 0
-        Me.butAddNewIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.butAddNewIngredient.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.butAddNewIngredient.ForeColor = System.Drawing.Color.White
-        Me.butAddNewIngredient.Location = New System.Drawing.Point(144, 21)
-        Me.butAddNewIngredient.Name = "butAddNewIngredient"
-        Me.butAddNewIngredient.Size = New System.Drawing.Size(21, 20)
-        Me.butAddNewIngredient.TabIndex = 29
-        Me.butAddNewIngredient.Text = "+"
-        Me.butAddNewIngredient.UseVisualStyleBackColor = False
         '
         'butSave
         '
@@ -118,12 +102,12 @@ Partial Class EditMethodSteps
         Me.Controls.Add(Me.txtInstruction)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.butDelete)
-        Me.Controls.Add(Me.butAddNewIngredient)
         Me.Controls.Add(Me.butSave)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtOrderID)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "EditMethodSteps"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Edit Method Step"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -131,7 +115,6 @@ Partial Class EditMethodSteps
     End Sub
 
     Friend WithEvents butDelete As Button
-    Friend WithEvents butAddNewIngredient As Button
     Friend WithEvents butSave As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents txtOrderID As TextBox

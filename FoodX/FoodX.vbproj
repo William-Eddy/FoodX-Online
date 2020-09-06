@@ -178,6 +178,7 @@
     <Compile Include="Database Tables\Standard Table\IngredientBarcodes.vb" />
     <Compile Include="Dashboard\MealListviewFormatting.vb" />
     <Compile Include="Database Tables\Standard Table\Methods.vb" />
+    <Compile Include="Emails\Email Templates\MethodEmail.vb" />
     <Compile Include="Emails\Email Templates\ShoppingListEmail.vb" />
     <Compile Include="Emails\Emails.vb" />
     <Compile Include="Barcodes\scanIngredientsIn.Designer.vb">

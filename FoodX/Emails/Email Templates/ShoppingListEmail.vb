@@ -2,13 +2,18 @@
 
     Inherits Emails
 
-    Dim htmlFolderPath As String = "D:\FoodTrackV1\Emails\Shopping_List\"
+    Public Sub New()
+
+        htmlFolderPath &= "Shopping_List\"
+
+    End Sub
 
     Public Sub setEmailSetup()
 
+
         setEmailAccountSettings()
         createNewEmail()
-        setRecipient("philip.eddy1@ntlworld.com")
+        setRecipient(My.Settings.emailAddress)
         setSubject("Here's your shopping list")
 
     End Sub

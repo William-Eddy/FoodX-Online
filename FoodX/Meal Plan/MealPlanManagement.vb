@@ -27,7 +27,7 @@
 
     Public Sub setMealsContent()
 
-        meals.setContents()
+        meals.executeSelect()
 
     End Sub
 

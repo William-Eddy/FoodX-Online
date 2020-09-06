@@ -55,7 +55,7 @@
         Dim ingredientID As Integer
         Dim totalIngredientQuantity As Integer
 
-        meals.setContents()
+        meals.executeSelect()
         mealIngredients.setContents()
 
         mealsRequired.setRowColumnIndexToZero()

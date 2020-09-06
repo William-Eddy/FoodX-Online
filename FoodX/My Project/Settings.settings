@@ -41,5 +41,11 @@
     <Setting Name="scannerPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">COM4</Value>
     </Setting>
+    <Setting Name="emailAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">william-eddy@outlook.com</Value>
+    </Setting>
+    <Setting Name="emailHTMLFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\FoodTrackV1\Emails\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

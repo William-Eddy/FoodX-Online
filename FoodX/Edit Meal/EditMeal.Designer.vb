@@ -48,14 +48,14 @@ Partial Class EditMeal
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblUnit = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.butEmailMethod = New System.Windows.Forms.Button()
         Me.lvIngredients = New System.Windows.Forms.ListView()
         Me.butSave = New System.Windows.Forms.Button()
         Me.butSaveAndClose = New System.Windows.Forms.Button()
         Me.butDelete = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.butAddStep = New System.Windows.Forms.Button()
+        Me.lvMethodSteps = New System.Windows.Forms.ListView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -329,7 +329,6 @@ Partial Class EditMeal
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Button3)
         Me.GroupBox3.Controls.Add(Me.lvIngredients)
         Me.GroupBox3.Controls.Add(Me.butSave)
         Me.GroupBox3.Location = New System.Drawing.Point(259, 321)
@@ -337,7 +336,22 @@ Partial Class EditMeal
         Me.GroupBox3.Size = New System.Drawing.Size(318, 150)
         Me.GroupBox3.TabIndex = 70
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Method"
+        Me.GroupBox3.Text = "Ingredients"
+        '
+        'butEmailMethod
+        '
+        Me.butEmailMethod.BackColor = System.Drawing.Color.SlateBlue
+        Me.butEmailMethod.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butEmailMethod.FlatAppearance.BorderSize = 0
+        Me.butEmailMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butEmailMethod.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butEmailMethod.ForeColor = System.Drawing.Color.White
+        Me.butEmailMethod.Location = New System.Drawing.Point(146, 130)
+        Me.butEmailMethod.Name = "butEmailMethod"
+        Me.butEmailMethod.Size = New System.Drawing.Size(121, 22)
+        Me.butEmailMethod.TabIndex = 72
+        Me.butEmailMethod.Text = "Email Method"
+        Me.butEmailMethod.UseVisualStyleBackColor = False
         '
         'lvIngredients
         '
@@ -360,7 +374,7 @@ Partial Class EditMeal
         Me.butSave.Name = "butSave"
         Me.butSave.Size = New System.Drawing.Size(121, 22)
         Me.butSave.TabIndex = 71
-        Me.butSave.Text = "Add Step"
+        Me.butSave.Text = "Add Instruction"
         Me.butSave.UseVisualStyleBackColor = False
         '
         'butSaveAndClose
@@ -395,53 +409,39 @@ Partial Class EditMeal
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Button1)
-        Me.GroupBox4.Controls.Add(Me.ListView1)
+        Me.GroupBox4.Controls.Add(Me.butEmailMethod)
+        Me.GroupBox4.Controls.Add(Me.butAddStep)
+        Me.GroupBox4.Controls.Add(Me.lvMethodSteps)
         Me.GroupBox4.Location = New System.Drawing.Point(28, 139)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(549, 173)
         Me.GroupBox4.TabIndex = 71
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Instructions"
+        Me.GroupBox4.Text = "Method"
         '
-        'Button1
+        'butAddStep
         '
-        Me.Button1.BackColor = System.Drawing.Color.SlateBlue
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(19, 130)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(121, 22)
-        Me.Button1.TabIndex = 74
-        Me.Button1.Text = "Add Instruction"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.butAddStep.BackColor = System.Drawing.Color.SlateBlue
+        Me.butAddStep.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butAddStep.FlatAppearance.BorderSize = 0
+        Me.butAddStep.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butAddStep.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butAddStep.ForeColor = System.Drawing.Color.White
+        Me.butAddStep.Location = New System.Drawing.Point(19, 130)
+        Me.butAddStep.Name = "butAddStep"
+        Me.butAddStep.Size = New System.Drawing.Size(121, 22)
+        Me.butAddStep.TabIndex = 74
+        Me.butAddStep.Text = "Add Step"
+        Me.butAddStep.UseVisualStyleBackColor = False
         '
-        'ListView1
+        'lvMethodSteps
         '
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(19, 27)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(504, 92)
-        Me.ListView1.TabIndex = 70
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.SlateBlue
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(146, 110)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(121, 22)
-        Me.Button3.TabIndex = 72
-        Me.Button3.Text = "Email Method"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.lvMethodSteps.HideSelection = False
+        Me.lvMethodSteps.Location = New System.Drawing.Point(19, 27)
+        Me.lvMethodSteps.Name = "lvMethodSteps"
+        Me.lvMethodSteps.Size = New System.Drawing.Size(504, 92)
+        Me.lvMethodSteps.TabIndex = 70
+        Me.lvMethodSteps.UseCompatibleStateImageBehavior = False
         '
         'EditMeal
         '
@@ -496,9 +496,9 @@ Partial Class EditMeal
     Friend WithEvents Label8 As Label
     Friend WithEvents lblUnit As Label
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents ListView1 As ListView
+    Friend WithEvents butAddStep As Button
+    Friend WithEvents lvMethodSteps As ListView
     Friend WithEvents butAddNewIngredient As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents butEmailMethod As Button
 End Class

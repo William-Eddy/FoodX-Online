@@ -9,7 +9,7 @@
         addColumnsForReturn("ingredientID")
         addColumnsForReturn("price")
 
-        executeSelect("tblIngredients")
+        executeSelect()
 
     End Sub
 
@@ -41,6 +41,12 @@
         Return getSingleSearchValue("ingredientID", ingredientID, "price")
 
     End Function
+
+    Public Overloads Sub executeSelect()
+
+        executeSelect("tblIngredients")
+
+    End Sub
 
 
 End Class

@@ -1,9 +1,9 @@
 ﻿Public Class Meals
     Inherits DatabaseTable
 
-    Public Sub setContents()
+    Public Overloads Sub executeSelect()
 
-        executeSelect("tblMeal")
+        MyBase.executeSelect("tblMeal")
 
     End Sub
 
