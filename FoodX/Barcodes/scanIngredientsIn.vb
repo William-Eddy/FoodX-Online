@@ -4,10 +4,16 @@
     Dim Ingredients As Ingredients = New Ingredients
 
     Dim totalPrice As Double = 0
+    Dim connected As Boolean = False
+
+    Dim com As IO.Ports.SerialPort = My.Computer.Ports.OpenSerialPort(My.Settings.scannerPort)
 
     Private Sub scanIngredientsIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         formatListView()
+        StartScanner()
+
+        Me.txtScanIn.Select()
 
     End Sub
 
@@ -35,6 +41,8 @@
             Me.txtScanIn.Text = ""
 
         End If
+
+        Me.txtScanIn.Select()
 
     End Sub
 
@@ -120,5 +128,28 @@
         Return Ingredients.getIngredientName(ingredientID)
 
     End Function
+
+    Private Sub StartScanner()
+
+        com.ReadTimeout = 1000
+        com.WriteLine("a")
+        connected = True
+        Me.txtScanIn.Focus()
+
+
+    End Sub
+
+    Private Sub laserDisconnect_Tick(sender As Object, e As EventArgs) Handles laserDisconnect.Tick
+        laserDisconnect.Stop()
+    End Sub
+
+    Private Sub scanIngredientsFormClose(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+
+        com.WriteLine("b")
+        laserDisconnect.Start()
+        connected = False
+        com.Close()
+
+    End Sub
 
 End Class

@@ -55,6 +55,7 @@ Partial Class EditMeal
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -328,6 +329,7 @@ Partial Class EditMeal
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button3)
         Me.GroupBox3.Controls.Add(Me.lvIngredients)
         Me.GroupBox3.Controls.Add(Me.butSave)
         Me.GroupBox3.Location = New System.Drawing.Point(259, 321)
@@ -335,7 +337,7 @@ Partial Class EditMeal
         Me.GroupBox3.Size = New System.Drawing.Size(318, 150)
         Me.GroupBox3.TabIndex = 70
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Ingredients"
+        Me.GroupBox3.Text = "Method"
         '
         'lvIngredients
         '
@@ -358,7 +360,7 @@ Partial Class EditMeal
         Me.butSave.Name = "butSave"
         Me.butSave.Size = New System.Drawing.Size(121, 22)
         Me.butSave.TabIndex = 71
-        Me.butSave.Text = "Add Ingredient"
+        Me.butSave.Text = "Add Step"
         Me.butSave.UseVisualStyleBackColor = False
         '
         'butSaveAndClose
@@ -426,6 +428,21 @@ Partial Class EditMeal
         Me.ListView1.TabIndex = 70
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.SlateBlue
+        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.Location = New System.Drawing.Point(146, 110)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(121, 22)
+        Me.Button3.TabIndex = 72
+        Me.Button3.Text = "Email Method"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
         'EditMeal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -483,4 +500,5 @@ Partial Class EditMeal
     Friend WithEvents ListView1 As ListView
     Friend WithEvents butAddNewIngredient As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

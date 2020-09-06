@@ -22,6 +22,7 @@ Partial Class scanIngredientsIn
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(scanIngredientsIn))
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.txtTotalPrice = New System.Windows.Forms.TextBox()
@@ -31,6 +32,8 @@ Partial Class scanIngredientsIn
         Me.Button2 = New System.Windows.Forms.Button()
         Me.txtScanIn = New System.Windows.Forms.TextBox()
         Me.Label42 = New System.Windows.Forms.Label()
+        Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
+        Me.barcodeLaser = New System.IO.Ports.SerialPort(Me.components)
         Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -125,6 +128,10 @@ Partial Class scanIngredientsIn
         Me.Label42.TabIndex = 77
         Me.Label42.Text = "Barcode:"
         '
+        'laserDisconnect
+        '
+        Me.laserDisconnect.Interval = 8000
+        '
         'scanIngredientsIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -154,4 +161,6 @@ Partial Class scanIngredientsIn
     Friend WithEvents Label1 As Label
     Friend WithEvents txtScanIn As TextBox
     Friend WithEvents Label42 As Label
+    Friend WithEvents laserDisconnect As Timer
+    Friend WithEvents barcodeLaser As IO.Ports.SerialPort
 End Class

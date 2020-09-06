@@ -9,12 +9,12 @@
 
     Dim masterEditForm As EditMeal
 
-    Public Sub New(mealIngredientIDToEdit, relatedMealID, masterForm)
+    Public Sub New(mealIngredientID, mealID, masterForm)
 
         InitializeComponent()
 
-        mealIngredientID = mealIngredientIDToEdit
-        mealID = relatedMealID
+        Me.mealIngredientID = mealIngredientID
+        Me.mealID = mealID
 
         masterEditForm = masterForm
 
