@@ -61,7 +61,7 @@
         Catch err As System.IndexOutOfRangeException
 
             Dim oForm As NewBarcode
-            oForm = New NewBarcode(barcode, Me)
+            oForm = New NewBarcode(barcode, Me, True)
             oForm.Show()
 
             Exit Sub
@@ -152,4 +152,11 @@
 
     End Sub
 
+    Private Sub lvIngredients_DoubleClick(sender As Object, e As EventArgs) Handles lvIngredients.DoubleClick
+
+        Dim oForm As NewBarcode
+        oForm = New NewBarcode(Me.lvIngredients.FocusedItem, Me, False)
+        oForm.Show()
+
+    End Sub
 End Class

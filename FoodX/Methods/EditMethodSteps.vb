@@ -23,6 +23,8 @@
 
         changeSaveButtonText()
 
+        Me.txtInstruction.Select()
+
 
     End Sub
 

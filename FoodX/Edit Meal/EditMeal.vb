@@ -6,9 +6,11 @@
     Public meals As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
     Public mealIngredients As MealIngredients = New MealIngredients
     Public ingredients As Ingredients = New Ingredients
+    Public mealParts As MealParts = New MealParts
     Dim methods As Methods = New Methods
 
     Dim mainMenuForm As Main_Menu
+    Dim editMealPartsForm As EditMealParts
 
     Dim saved As Boolean = False
 
@@ -102,6 +104,28 @@
         methods.setRowColumnIndexToZero()
 
     End Sub
+
+    Public Sub setMealPartsView()
+
+        lvMealParts.Clear()
+        setMealPartsListViewFormat()
+
+        Dim insertArray As String()
+
+        mealParts.setPartsContentsForSpecificMeal(mealID)
+
+        For Each row As DataRow In mealParts.table.Rows
+
+            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerContainer, mealParts.getCurrentTotalContainers}
+            Me.lvMealParts.Items.Add(mealParts.getCurrentMealPartID).SubItems.AddRange(insertArray)
+
+            mealParts.increaseRowCount()
+
+        Next
+
+        mealParts.setRowColumnIndexToZero()
+
+    End Sub
     Private Sub setCurrentMealData()
 
         setContentsForSelectedMeal()
@@ -111,6 +135,7 @@
         setIngredientsView()
 
         setMethodStepsView()
+        setMealPartsView()
 
     End Sub
 
@@ -166,6 +191,23 @@
             .Columns.Add("stepID", 0)
             .Columns.Add("Step No.", 65)
             .Columns.Add("Instruction", 500)
+            .GridLines = True
+
+        End With
+
+    End Sub
+    Private Sub setMealPartsListViewFormat()
+
+        With Me.lvMealParts
+
+            .View = View.Details
+            .FullRowSelect = True
+            .HideSelection = False
+            .MultiSelect = False
+            .Columns.Add("mealPartID", 0)
+            .Columns.Add("Part", 160)
+            .Columns.Add("Per Container", 70)
+            .Columns.Add("Total Containers")
             .GridLines = True
 
         End With
@@ -294,4 +336,17 @@
 
     End Sub
 
+    Private Sub lvMealParts_DoubleClick(sender As Object, e As EventArgs) Handles lvMealParts.DoubleClick
+
+        editMealPartsForm = New EditMealParts(Me, mealID, lvMealParts.FocusedItem.Text)
+        editMealPartsForm.Show()
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        editMealPartsForm = New EditMealParts(Me, mealID)
+        editMealPartsForm.Show()
+
+    End Sub
 End Class

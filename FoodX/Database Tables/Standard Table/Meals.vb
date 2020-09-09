@@ -42,5 +42,4 @@
         Return getCurrentRowValue("stock")
     End Function
 
-
 End Class

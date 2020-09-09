@@ -48,18 +48,24 @@ Partial Class EditMeal
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblUnit = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.butEmailMethod = New System.Windows.Forms.Button()
         Me.lvIngredients = New System.Windows.Forms.ListView()
         Me.butSave = New System.Windows.Forms.Button()
+        Me.butEmailMethod = New System.Windows.Forms.Button()
         Me.butSaveAndClose = New System.Windows.Forms.Button()
         Me.butDelete = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.butAddStep = New System.Windows.Forms.Button()
         Me.lvMethodSteps = New System.Windows.Forms.ListView()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.lvMealParts = New System.Windows.Forms.ListView()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label42
@@ -338,21 +344,6 @@ Partial Class EditMeal
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ingredients"
         '
-        'butEmailMethod
-        '
-        Me.butEmailMethod.BackColor = System.Drawing.Color.SlateBlue
-        Me.butEmailMethod.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.butEmailMethod.FlatAppearance.BorderSize = 0
-        Me.butEmailMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.butEmailMethod.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.butEmailMethod.ForeColor = System.Drawing.Color.White
-        Me.butEmailMethod.Location = New System.Drawing.Point(146, 130)
-        Me.butEmailMethod.Name = "butEmailMethod"
-        Me.butEmailMethod.Size = New System.Drawing.Size(121, 22)
-        Me.butEmailMethod.TabIndex = 72
-        Me.butEmailMethod.Text = "Email Method"
-        Me.butEmailMethod.UseVisualStyleBackColor = False
-        '
         'lvIngredients
         '
         Me.lvIngredients.HideSelection = False
@@ -377,6 +368,21 @@ Partial Class EditMeal
         Me.butSave.Text = "Add Instruction"
         Me.butSave.UseVisualStyleBackColor = False
         '
+        'butEmailMethod
+        '
+        Me.butEmailMethod.BackColor = System.Drawing.Color.SlateBlue
+        Me.butEmailMethod.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butEmailMethod.FlatAppearance.BorderSize = 0
+        Me.butEmailMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butEmailMethod.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butEmailMethod.ForeColor = System.Drawing.Color.White
+        Me.butEmailMethod.Location = New System.Drawing.Point(146, 130)
+        Me.butEmailMethod.Name = "butEmailMethod"
+        Me.butEmailMethod.Size = New System.Drawing.Size(121, 22)
+        Me.butEmailMethod.TabIndex = 72
+        Me.butEmailMethod.Text = "Email Method"
+        Me.butEmailMethod.UseVisualStyleBackColor = False
+        '
         'butSaveAndClose
         '
         Me.butSaveAndClose.BackColor = System.Drawing.Color.SlateBlue
@@ -385,7 +391,7 @@ Partial Class EditMeal
         Me.butSaveAndClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butSaveAndClose.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butSaveAndClose.ForeColor = System.Drawing.Color.White
-        Me.butSaveAndClose.Location = New System.Drawing.Point(28, 486)
+        Me.butSaveAndClose.Location = New System.Drawing.Point(52, 81)
         Me.butSaveAndClose.Name = "butSaveAndClose"
         Me.butSaveAndClose.Size = New System.Drawing.Size(121, 22)
         Me.butSaveAndClose.TabIndex = 72
@@ -400,7 +406,7 @@ Partial Class EditMeal
         Me.butDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butDelete.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butDelete.ForeColor = System.Drawing.Color.White
-        Me.butDelete.Location = New System.Drawing.Point(456, 486)
+        Me.butDelete.Location = New System.Drawing.Point(52, 52)
         Me.butDelete.Name = "butDelete"
         Me.butDelete.Size = New System.Drawing.Size(121, 22)
         Me.butDelete.TabIndex = 73
@@ -443,14 +449,60 @@ Partial Class EditMeal
         Me.lvMethodSteps.TabIndex = 70
         Me.lvMethodSteps.UseCompatibleStateImageBehavior = False
         '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.lvMealParts)
+        Me.GroupBox5.Controls.Add(Me.Button1)
+        Me.GroupBox5.Location = New System.Drawing.Point(28, 485)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(318, 144)
+        Me.GroupBox5.TabIndex = 72
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Storage"
+        '
+        'lvMealParts
+        '
+        Me.lvMealParts.HideSelection = False
+        Me.lvMealParts.Location = New System.Drawing.Point(19, 27)
+        Me.lvMealParts.Name = "lvMealParts"
+        Me.lvMealParts.Size = New System.Drawing.Size(273, 71)
+        Me.lvMealParts.TabIndex = 70
+        Me.lvMealParts.UseCompatibleStateImageBehavior = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.SlateBlue
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(19, 109)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(121, 22)
+        Me.Button1.TabIndex = 71
+        Me.Button1.Text = "Add Part"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.butDelete)
+        Me.GroupBox6.Controls.Add(Me.butSaveAndClose)
+        Me.GroupBox6.Location = New System.Drawing.Point(352, 485)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(225, 144)
+        Me.GroupBox6.TabIndex = 74
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Operations"
+        '
         'EditMeal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(606, 527)
+        Me.ClientSize = New System.Drawing.Size(607, 643)
+        Me.Controls.Add(Me.GroupBox6)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.butDelete)
-        Me.Controls.Add(Me.butSaveAndClose)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -464,6 +516,8 @@ Partial Class EditMeal
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -501,4 +555,8 @@ Partial Class EditMeal
     Friend WithEvents butAddNewIngredient As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents butEmailMethod As Button
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents lvMealParts As ListView
+    Friend WithEvents Button1 As Button
+    Friend WithEvents GroupBox6 As GroupBox
 End Class

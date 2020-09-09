@@ -175,8 +175,10 @@
   <ItemGroup>
     <Compile Include="Database Connection\Operations\AdvancedOperations.vb" />
     <Compile Include="Barcodes\AddIngredientBarcode.vb" />
+    <Compile Include="Database Tables\Standard Table\FoodStorage.vb" />
     <Compile Include="Database Tables\Standard Table\IngredientBarcodes.vb" />
     <Compile Include="Dashboard\MealListviewFormatting.vb" />
+    <Compile Include="Database Tables\Standard Table\MealParts.vb" />
     <Compile Include="Database Tables\Standard Table\Methods.vb" />
     <Compile Include="Emails\Email Templates\MethodEmail.vb" />
     <Compile Include="Emails\Email Templates\ShoppingListEmail.vb" />
@@ -185,6 +187,12 @@
       <DependentUpon>scanIngredientsIn.vb</DependentUpon>
     </Compile>
     <Compile Include="Barcodes\scanIngredientsIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingredients\EditIngredient.Designer.vb">
+      <DependentUpon>EditIngredient.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ingredients\EditIngredient.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ingredients\NewIngredient.Designer.vb">
@@ -214,6 +222,12 @@
     </Compile>
     <Compile Include="Edit Meal\MealIngredientDisplay.vb" />
     <Compile Include="Dropdown Population\IngredientDropDown.vb" />
+    <Compile Include="Meal Parts\EditMealParts.Designer.vb">
+      <DependentUpon>EditMealParts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Meal Parts\EditMealParts.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Meal Plan\ChangeMealPlan.Designer.vb">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>
     </Compile>
@@ -308,6 +322,9 @@
     <EmbeddedResource Include="Barcodes\scanIngredientsIn.resx">
       <DependentUpon>scanIngredientsIn.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ingredients\EditIngredient.resx">
+      <DependentUpon>EditIngredient.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ingredients\NewIngredient.resx">
       <DependentUpon>NewIngredient.vb</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit Meal\EditMeal.resx">
       <DependentUpon>EditMeal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Meal Parts\EditMealParts.resx">
+      <DependentUpon>EditMealParts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Meal Plan\ChangeMealPlan.resx">
       <DependentUpon>ChangeMealPlan.vb</DependentUpon>

@@ -48,14 +48,14 @@ Partial Class NewBarcode
         Me.cbxIngredientList.Location = New System.Drawing.Point(79, 22)
         Me.cbxIngredientList.Name = "cbxIngredientList"
         Me.cbxIngredientList.Size = New System.Drawing.Size(179, 21)
-        Me.cbxIngredientList.TabIndex = 2
+        Me.cbxIngredientList.TabIndex = 0
         '
         'txtQuantity
         '
         Me.txtQuantity.Location = New System.Drawing.Point(79, 52)
         Me.txtQuantity.Name = "txtQuantity"
         Me.txtQuantity.Size = New System.Drawing.Size(51, 20)
-        Me.txtQuantity.TabIndex = 3
+        Me.txtQuantity.TabIndex = 1
         '
         'Label2
         '
@@ -86,7 +86,7 @@ Partial Class NewBarcode
         Me.butSave.Location = New System.Drawing.Point(19, 117)
         Me.butSave.Name = "butSave"
         Me.butSave.Size = New System.Drawing.Size(121, 22)
-        Me.butSave.TabIndex = 7
+        Me.butSave.TabIndex = 4
         Me.butSave.Text = "Save"
         Me.butSave.UseVisualStyleBackColor = False
         '
@@ -104,7 +104,7 @@ Partial Class NewBarcode
         Me.txtPrice.Location = New System.Drawing.Point(79, 80)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(77, 20)
-        Me.txtPrice.TabIndex = 8
+        Me.txtPrice.TabIndex = 3
         '
         'NewBarcode
         '

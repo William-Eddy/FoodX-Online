@@ -14,7 +14,6 @@
         Dim ingredients As Ingredients = New Ingredients
 
         ingredients.addValues("name", Me.txtName.Text)
-
         ingredients.executeInsert("tblIngredients")
 
         masterEditForm.setIngredientDropdown()
@@ -24,7 +23,4 @@
 
     End Sub
 
-    Private Sub NewIngredient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class

@@ -25,6 +25,7 @@
     Public Sub setMealData()
 
         meals.addColumnsForReturn("name")
+        meals.addColumnsForReturn("serves")
         meals.addConditions("mealID", mealID)
         meals.executeSelect()
 
@@ -50,13 +51,19 @@
 
     Public Sub addTitleToBody()
 
-        addToBody("Here's how to make " + getMealName())
+        addToBody("Here's how to make " + getMealName() + " (" + getServing() + " portions)")
 
     End Sub
 
     Function getMealName()
 
         Return meals.getCurrentMealName
+
+    End Function
+
+    Function getServing()
+
+        Return meals.getNumberOfServings
 
     End Function
 

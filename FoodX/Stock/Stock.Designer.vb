@@ -28,6 +28,7 @@ Partial Class Stock
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.lvPendingMeals = New System.Windows.Forms.ListView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.butAddIngredient = New System.Windows.Forms.Button()
         Me.lvIngredientStock = New System.Windows.Forms.ListView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -74,6 +75,7 @@ Partial Class Stock
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.butAddIngredient)
         Me.GroupBox3.Controls.Add(Me.lvIngredientStock)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 180)
         Me.GroupBox3.Name = "GroupBox3"
@@ -82,12 +84,27 @@ Partial Class Stock
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ingredient Stock"
         '
+        'butAddIngredient
+        '
+        Me.butAddIngredient.BackColor = System.Drawing.Color.SlateBlue
+        Me.butAddIngredient.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butAddIngredient.FlatAppearance.BorderSize = 0
+        Me.butAddIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butAddIngredient.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butAddIngredient.ForeColor = System.Drawing.Color.White
+        Me.butAddIngredient.Location = New System.Drawing.Point(15, 128)
+        Me.butAddIngredient.Name = "butAddIngredient"
+        Me.butAddIngredient.Size = New System.Drawing.Size(121, 22)
+        Me.butAddIngredient.TabIndex = 73
+        Me.butAddIngredient.Text = "Add"
+        Me.butAddIngredient.UseVisualStyleBackColor = False
+        '
         'lvIngredientStock
         '
         Me.lvIngredientStock.HideSelection = False
-        Me.lvIngredientStock.Location = New System.Drawing.Point(15, 36)
+        Me.lvIngredientStock.Location = New System.Drawing.Point(15, 31)
         Me.lvIngredientStock.Name = "lvIngredientStock"
-        Me.lvIngredientStock.Size = New System.Drawing.Size(507, 110)
+        Me.lvIngredientStock.Size = New System.Drawing.Size(507, 86)
         Me.lvIngredientStock.TabIndex = 72
         Me.lvIngredientStock.UseCompatibleStateImageBehavior = False
         '
@@ -115,4 +132,5 @@ Partial Class Stock
     Friend WithEvents lvMealStock As ListView
     Friend WithEvents lvPendingMeals As ListView
     Friend WithEvents lvIngredientStock As ListView
+    Friend WithEvents butAddIngredient As Button
 End Class

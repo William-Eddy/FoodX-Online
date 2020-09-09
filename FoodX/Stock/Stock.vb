@@ -3,6 +3,7 @@
     Dim mealStock As StockDisplay = New StockDisplay("tblMeal", "stock", "mealID")
     Dim mealsPending As StockDisplay = New StockDisplay("tblMeal", "pending", "mealID")
     Dim ingredientStock As StockDisplay = New StockDisplay("tblIngredients", "quantity", "ingredientID")
+    Dim editIngredientForm As EditIngredient
 
     Private Sub Stock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -89,8 +90,9 @@
 
     End Sub
 
-    Private Sub populateIngredientStock()
+    Public Sub populateIngredientStock()
 
+        lvIngredientStock.Clear()
         ingredientStock.setDataSource()
         formatIngredients()
 
@@ -149,4 +151,23 @@
 
     End Sub
 
+    Private Sub lvIngredientStock_DoubleClick(sender As Object, e As EventArgs) Handles lvIngredientStock.DoubleClick
+
+        editIngredientForm = New EditIngredient(Me, Me.lvIngredientStock.FocusedItem.Text)
+        showIngredientForm()
+
+    End Sub
+
+    Private Sub butAddIngredient_Click(sender As Object, e As EventArgs) Handles butAddIngredient.Click
+
+        editIngredientForm = New EditIngredient(Me)
+        showIngredientForm()
+
+    End Sub
+
+    Private Sub showIngredientForm()
+
+        editIngredientForm.Show()
+
+    End Sub
 End Class

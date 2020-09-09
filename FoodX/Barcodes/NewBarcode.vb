@@ -6,7 +6,7 @@
 
     Dim ingredientDropdown As IngredientDropDown = New IngredientDropDown
 
-    Public Sub New(barcode, masterForm)
+    Public Sub New(barcode, masterForm, newBarcode)
 
         InitializeComponent()
         inbarcode = barcode
@@ -23,19 +23,7 @@
 
     Private Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
 
-        Dim ingredients As Ingredients = New Ingredients
-
-        Me.cbxIngredientList.Select()
-
-        ingredients.addValues("barcode", inbarcode)
-        ingredients.addValues("ingredientID", Me.cbxIngredientList.SelectedValue)
-        ingredients.addValues("quantity", Me.txtQuantity.Text)
-        ingredients.addValues("price", Me.txtPrice.Text)
-        ingredients.executeInsert("tblIngredientBarcodes")
-
-        scanForm.addIngredientBarcode(inbarcode)
-
-        Me.Close()
+        saveAndExit()
 
     End Sub
 
@@ -62,6 +50,34 @@
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
 
         'Me.txtPrice.Text = FormatCurrency(Me.txtPrice.Text)
+
+    End Sub
+
+    Private Sub txtPrice_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPrice.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+
+            saveAndExit()
+
+        End If
+
+    End Sub
+
+    Private Sub saveAndExit()
+
+        Dim ingredients As Ingredients = New Ingredients
+
+        Me.cbxIngredientList.Select()
+
+        ingredients.addValues("barcode", inbarcode)
+        ingredients.addValues("ingredientID", Me.cbxIngredientList.SelectedValue)
+        ingredients.addValues("quantity", Me.txtQuantity.Text)
+        ingredients.addValues("price", Me.txtPrice.Text)
+        ingredients.executeInsert("tblIngredientBarcodes")
+
+        scanForm.addIngredientBarcode(inbarcode)
+
+        Me.Close()
 
     End Sub
 End Class

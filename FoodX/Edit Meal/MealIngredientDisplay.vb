@@ -32,19 +32,19 @@
 
     Function getIngredientID()
 
-        Return mealIngredients.getCurrentRowValue(0)
+        Return mealIngredients.getCurrentRowValue("ingredientID")
 
     End Function
 
     Function getMealIngredientID()
 
-        Return mealIngredients.getCurrentRowValue(2)
+        Return mealIngredients.getCurrentRowValue("mealIngredientsID")
 
     End Function
 
     Function getIngredientQuantity()
 
-        Return mealIngredients.getCurrentRowValue(1)
+        Return mealIngredients.getCurrentRowValue("quantity")
 
     End Function
     Function getIngredientName(ingredientID)
