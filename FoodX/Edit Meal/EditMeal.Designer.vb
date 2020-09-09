@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EditMeal
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class EditMeal
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EditMeal))
         Me.Label42 = New System.Windows.Forms.Label()
@@ -40,8 +40,6 @@ Partial Class EditMeal
         Me.txtProtein = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.butAddNewIngredient = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -73,7 +71,7 @@ Partial Class EditMeal
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label42.ForeColor = System.Drawing.Color.Black
-        Me.Label42.Location = New System.Drawing.Point(16, 37)
+        Me.Label42.Location = New System.Drawing.Point(16, 29)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(71, 15)
         Me.Label42.TabIndex = 51
@@ -81,14 +79,14 @@ Partial Class EditMeal
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(93, 35)
+        Me.txtName.Location = New System.Drawing.Point(93, 27)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(184, 20)
         Me.txtName.TabIndex = 52
         '
         'txtServes
         '
-        Me.txtServes.Location = New System.Drawing.Point(347, 35)
+        Me.txtServes.Location = New System.Drawing.Point(347, 27)
         Me.txtServes.Name = "txtServes"
         Me.txtServes.Size = New System.Drawing.Size(53, 20)
         Me.txtServes.TabIndex = 54
@@ -99,7 +97,7 @@ Partial Class EditMeal
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(293, 37)
+        Me.Label1.Location = New System.Drawing.Point(293, 29)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(48, 15)
         Me.Label1.TabIndex = 53
@@ -107,7 +105,7 @@ Partial Class EditMeal
         '
         'txtStock
         '
-        Me.txtStock.Location = New System.Drawing.Point(469, 35)
+        Me.txtStock.Location = New System.Drawing.Point(469, 27)
         Me.txtStock.Name = "txtStock"
         Me.txtStock.Size = New System.Drawing.Size(53, 20)
         Me.txtStock.TabIndex = 56
@@ -118,7 +116,7 @@ Partial Class EditMeal
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(423, 37)
+        Me.Label2.Location = New System.Drawing.Point(423, 29)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 15)
         Me.Label2.TabIndex = 55
@@ -127,7 +125,7 @@ Partial Class EditMeal
         'cmbCategory
         '
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(93, 61)
+        Me.cmbCategory.Location = New System.Drawing.Point(93, 53)
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.Size = New System.Drawing.Size(147, 21)
         Me.cmbCategory.TabIndex = 57
@@ -137,7 +135,7 @@ Partial Class EditMeal
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(28, 63)
+        Me.Label3.Location = New System.Drawing.Point(28, 55)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(59, 15)
         Me.Label3.TabIndex = 58
@@ -225,8 +223,6 @@ Partial Class EditMeal
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.butAddNewIngredient)
         Me.GroupBox1.Controls.Add(Me.txtName)
         Me.GroupBox1.Controls.Add(Me.Label42)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -237,40 +233,10 @@ Partial Class EditMeal
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(28, 21)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(549, 112)
+        Me.GroupBox1.Size = New System.Drawing.Size(549, 92)
         Me.GroupBox1.TabIndex = 68
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Meal Details"
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Crimson
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(496, 61)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(21, 21)
-        Me.Button2.TabIndex = 75
-        Me.Button2.Text = "−"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'butAddNewIngredient
-        '
-        Me.butAddNewIngredient.BackColor = System.Drawing.Color.SlateBlue
-        Me.butAddNewIngredient.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
-        Me.butAddNewIngredient.FlatAppearance.BorderSize = 0
-        Me.butAddNewIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.butAddNewIngredient.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.butAddNewIngredient.ForeColor = System.Drawing.Color.White
-        Me.butAddNewIngredient.Location = New System.Drawing.Point(469, 61)
-        Me.butAddNewIngredient.Name = "butAddNewIngredient"
-        Me.butAddNewIngredient.Size = New System.Drawing.Size(21, 21)
-        Me.butAddNewIngredient.TabIndex = 74
-        Me.butAddNewIngredient.Text = "+"
-        Me.butAddNewIngredient.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
@@ -286,7 +252,7 @@ Partial Class EditMeal
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.txtFat)
-        Me.GroupBox2.Location = New System.Drawing.Point(28, 321)
+        Me.GroupBox2.Location = New System.Drawing.Point(28, 298)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(225, 150)
         Me.GroupBox2.TabIndex = 69
@@ -337,7 +303,7 @@ Partial Class EditMeal
         '
         Me.GroupBox3.Controls.Add(Me.lvIngredients)
         Me.GroupBox3.Controls.Add(Me.butSave)
-        Me.GroupBox3.Location = New System.Drawing.Point(259, 321)
+        Me.GroupBox3.Location = New System.Drawing.Point(259, 298)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(318, 150)
         Me.GroupBox3.TabIndex = 70
@@ -391,7 +357,7 @@ Partial Class EditMeal
         Me.butSaveAndClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butSaveAndClose.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butSaveAndClose.ForeColor = System.Drawing.Color.White
-        Me.butSaveAndClose.Location = New System.Drawing.Point(52, 81)
+        Me.butSaveAndClose.Location = New System.Drawing.Point(52, 87)
         Me.butSaveAndClose.Name = "butSaveAndClose"
         Me.butSaveAndClose.Size = New System.Drawing.Size(121, 22)
         Me.butSaveAndClose.TabIndex = 72
@@ -406,7 +372,7 @@ Partial Class EditMeal
         Me.butDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butDelete.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butDelete.ForeColor = System.Drawing.Color.White
-        Me.butDelete.Location = New System.Drawing.Point(52, 52)
+        Me.butDelete.Location = New System.Drawing.Point(52, 58)
         Me.butDelete.Name = "butDelete"
         Me.butDelete.Size = New System.Drawing.Size(121, 22)
         Me.butDelete.TabIndex = 73
@@ -418,7 +384,7 @@ Partial Class EditMeal
         Me.GroupBox4.Controls.Add(Me.butEmailMethod)
         Me.GroupBox4.Controls.Add(Me.butAddStep)
         Me.GroupBox4.Controls.Add(Me.lvMethodSteps)
-        Me.GroupBox4.Location = New System.Drawing.Point(28, 139)
+        Me.GroupBox4.Location = New System.Drawing.Point(28, 119)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(549, 173)
         Me.GroupBox4.TabIndex = 71
@@ -453,9 +419,9 @@ Partial Class EditMeal
         '
         Me.GroupBox5.Controls.Add(Me.lvMealParts)
         Me.GroupBox5.Controls.Add(Me.Button1)
-        Me.GroupBox5.Location = New System.Drawing.Point(28, 485)
+        Me.GroupBox5.Location = New System.Drawing.Point(28, 454)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(318, 144)
+        Me.GroupBox5.Size = New System.Drawing.Size(318, 163)
         Me.GroupBox5.TabIndex = 72
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Storage"
@@ -465,7 +431,7 @@ Partial Class EditMeal
         Me.lvMealParts.HideSelection = False
         Me.lvMealParts.Location = New System.Drawing.Point(19, 27)
         Me.lvMealParts.Name = "lvMealParts"
-        Me.lvMealParts.Size = New System.Drawing.Size(273, 71)
+        Me.lvMealParts.Size = New System.Drawing.Size(273, 89)
         Me.lvMealParts.TabIndex = 70
         Me.lvMealParts.UseCompatibleStateImageBehavior = False
         '
@@ -477,7 +443,7 @@ Partial Class EditMeal
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(19, 109)
+        Me.Button1.Location = New System.Drawing.Point(19, 126)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(121, 22)
         Me.Button1.TabIndex = 71
@@ -488,9 +454,9 @@ Partial Class EditMeal
         '
         Me.GroupBox6.Controls.Add(Me.butDelete)
         Me.GroupBox6.Controls.Add(Me.butSaveAndClose)
-        Me.GroupBox6.Location = New System.Drawing.Point(352, 485)
+        Me.GroupBox6.Location = New System.Drawing.Point(352, 454)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(225, 144)
+        Me.GroupBox6.Size = New System.Drawing.Size(225, 163)
         Me.GroupBox6.TabIndex = 74
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Operations"
@@ -499,7 +465,7 @@ Partial Class EditMeal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(607, 643)
+        Me.ClientSize = New System.Drawing.Size(608, 633)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
@@ -552,8 +518,6 @@ Partial Class EditMeal
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents butAddStep As Button
     Friend WithEvents lvMethodSteps As ListView
-    Friend WithEvents butAddNewIngredient As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents butEmailMethod As Button
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents lvMealParts As ListView

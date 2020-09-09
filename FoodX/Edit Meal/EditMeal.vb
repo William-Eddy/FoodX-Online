@@ -112,11 +112,11 @@
 
         Dim insertArray As String()
 
-        mealParts.setPartsContentsForSpecificMeal(mealID)
+        mealParts.setPartsContentsForSpecificMealID(mealID)
 
         For Each row As DataRow In mealParts.table.Rows
 
-            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerContainer, mealParts.getCurrentTotalContainers}
+            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerContainer, mealParts.getCurrentPerContainer, mealParts.getCurrentTotalContainers}
             Me.lvMealParts.Items.Add(mealParts.getCurrentMealPartID).SubItems.AddRange(insertArray)
 
             mealParts.increaseRowCount()
@@ -205,9 +205,10 @@
             .HideSelection = False
             .MultiSelect = False
             .Columns.Add("mealPartID", 0)
-            .Columns.Add("Part", 160)
-            .Columns.Add("Per Container", 70)
-            .Columns.Add("Total Containers")
+            .Columns.Add("Part", 125)
+            .Columns.Add("Per serving", 70)
+            .Columns.Add("Per container", 80)
+            .Columns.Add("Total", 50)
             .GridLines = True
 
         End With

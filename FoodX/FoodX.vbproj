@@ -252,6 +252,12 @@
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Printing\printStorageLabels.Designer.vb">
+      <DependentUpon>printStorageLabels.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\printStorageLabels.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Shopping List\MakeList.Designer.vb">
       <DependentUpon>MakeList.vb</DependentUpon>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\printStorageLabels.resx">
+      <DependentUpon>printStorageLabels.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shopping List\MakeList.resx">
       <DependentUpon>MakeList.vb</DependentUpon>

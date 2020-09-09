@@ -2,9 +2,15 @@
 
     Inherits DatabaseTable
 
-    Public Sub setPartsContentsForSpecificMeal(mealID)
+    Public Sub setPartsContentsForSpecificMealID(mealID)
 
         addConditions("mealID", mealID)
+        executeSelect()
+
+    End Sub
+    Public Sub setPartsContentsForSpecificMealPartID(mealPartID)
+
+        addConditions("mealPartID", mealPartID)
         executeSelect()
 
     End Sub
@@ -47,6 +53,11 @@
     Function getCurrentPerContainer()
 
         Return getCurrentRowValue("perContainer")
+
+    End Function
+    Function getCurrentPerServing()
+
+        Return getCurrentRowValue("perServing")
 
     End Function
 
