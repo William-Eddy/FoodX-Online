@@ -252,6 +252,7 @@
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Printing\printLabels.vb" />
     <Compile Include="Printing\printStorageLabels.Designer.vb">
       <DependentUpon>printStorageLabels.vb</DependentUpon>
     </Compile>

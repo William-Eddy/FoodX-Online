@@ -55,6 +55,7 @@ Partial Class EditMeal
         Me.butAddStep = New System.Windows.Forms.Button()
         Me.lvMethodSteps = New System.Windows.Forms.ListView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.butPrintLabels = New System.Windows.Forms.Button()
         Me.lvMealParts = New System.Windows.Forms.ListView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
@@ -417,6 +418,7 @@ Partial Class EditMeal
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.butPrintLabels)
         Me.GroupBox5.Controls.Add(Me.lvMealParts)
         Me.GroupBox5.Controls.Add(Me.Button1)
         Me.GroupBox5.Location = New System.Drawing.Point(28, 454)
@@ -425,6 +427,21 @@ Partial Class EditMeal
         Me.GroupBox5.TabIndex = 72
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Storage"
+        '
+        'butPrintLabels
+        '
+        Me.butPrintLabels.BackColor = System.Drawing.Color.SlateBlue
+        Me.butPrintLabels.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butPrintLabels.FlatAppearance.BorderSize = 0
+        Me.butPrintLabels.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butPrintLabels.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butPrintLabels.ForeColor = System.Drawing.Color.White
+        Me.butPrintLabels.Location = New System.Drawing.Point(146, 126)
+        Me.butPrintLabels.Name = "butPrintLabels"
+        Me.butPrintLabels.Size = New System.Drawing.Size(121, 22)
+        Me.butPrintLabels.TabIndex = 75
+        Me.butPrintLabels.Text = "Print Labels"
+        Me.butPrintLabels.UseVisualStyleBackColor = False
         '
         'lvMealParts
         '
@@ -523,4 +540,5 @@ Partial Class EditMeal
     Friend WithEvents lvMealParts As ListView
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents butPrintLabels As Button
 End Class

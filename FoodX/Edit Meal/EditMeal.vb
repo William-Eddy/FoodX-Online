@@ -350,4 +350,11 @@
         editMealPartsForm.Show()
 
     End Sub
+
+    Private Sub butPrintLabels_Click(sender As Object, e As EventArgs) Handles butPrintLabels.Click
+
+        Dim printLabelsForm As printStorageLabels = New printStorageLabels(mealID)
+        printLabelsForm.Show()
+
+    End Sub
 End Class

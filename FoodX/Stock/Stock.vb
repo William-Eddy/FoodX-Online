@@ -131,6 +131,15 @@
             resetListViews()
             populateListViews()
 
+            message = MsgBox("Would you like to print storage labels for these meal parts?", vbYesNo, "Stock Management")
+
+            If message = vbYes Then
+
+                Dim printLabelsForm As printStorageLabels = New printStorageLabels(mealID)
+                printLabelsForm.Show()
+
+            End If
+
         End If
 
     End Sub
