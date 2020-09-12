@@ -3,13 +3,15 @@ Public Class printStorageLabels
 
     Dim mealID As String
     Dim mealName As String
+    Dim mealQuantity As Integer
     Dim mealParts As MealParts = New MealParts
     Dim linesForPrint As New ArrayList
 
-    Public Sub New(mealID)
+    Public Sub New(mealID, quantity)
 
         InitializeComponent()
         Me.mealID = mealID
+        Me.mealQuantity = quantity
 
     End Sub
 
@@ -45,16 +47,25 @@ Public Class printStorageLabels
 
         For Each row In mealParts.table.Rows
 
-            totalContainers = mealParts.getCurrentTotalContainers
+            totalContainers = mealParts.getCurrentTotalContainers(mealQuantity)
 
             For i = 0 To totalContainers - 1
 
-                partName = mealParts.getCurrentPartName
                 perContainer = mealParts.getCurrentPerContainer
                 perServing = mealParts.getCurrentPerServing
 
-                linesForPrint.Add(perContainer + " " + partName + " for")
-                linesForPrint.Add(mealName + "     PS: " + perServing)
+                If mealParts.getCurrentCompleteMealStatus = True Then
+
+                    linesForPrint.Add(mealName)
+                    linesForPrint.Add("Made: " + String.Format("{0:dd/MM/yyyy}", DateTime.Now))
+
+                Else
+
+                    partName = mealParts.getCurrentPartName
+                    linesForPrint.Add(perContainer + " " + partName + " for")
+                    linesForPrint.Add(mealName + "     Serves: " + perServing)
+
+                End If
 
                 setPrintSettings()
                 PrintDoc.Print()
@@ -64,8 +75,6 @@ Public Class printStorageLabels
             mealParts.increaseRowCount()
 
         Next
-
-        MsgBox("Printing complete!", vbOKOnly, "Labels")
 
     End Sub
 
@@ -120,7 +129,7 @@ Public Class printStorageLabels
 
         For Each row As DataRow In MealParts.table.Rows
 
-            insertArray = {MealParts.getCurrentPartName, MealParts.getCurrentPerContainer, MealParts.getCurrentPerContainer, MealParts.getCurrentTotalContainers}
+            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerServing, mealParts.getCurrentPerContainer, mealParts.getCurrentTotalContainers(mealQuantity)}
             Me.lvMealParts.Items.Add(MealParts.getCurrentMealPartID).SubItems.AddRange(insertArray)
 
             MealParts.increaseRowCount()

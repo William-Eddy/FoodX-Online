@@ -116,7 +116,7 @@
 
         For Each row As DataRow In mealParts.table.Rows
 
-            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerContainer, mealParts.getCurrentPerContainer}
+            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerServing, mealParts.getCurrentPerContainer}
             Me.lvMealParts.Items.Add(mealParts.getCurrentMealPartID).SubItems.AddRange(insertArray)
 
             mealParts.increaseRowCount()
@@ -352,7 +352,7 @@
 
     Private Sub butPrintLabels_Click(sender As Object, e As EventArgs) Handles butPrintLabels.Click
 
-        Dim printLabelsForm As printStorageLabels = New printStorageLabels(mealID)
+        Dim printLabelsForm As printStorageLabels = New printStorageLabels(mealID, Me.txtServes.Text)
         printLabelsForm.Show()
 
     End Sub

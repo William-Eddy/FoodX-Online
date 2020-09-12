@@ -135,7 +135,7 @@
 
             If message = vbYes Then
 
-                Dim printLabelsForm As printStorageLabels = New printStorageLabels(mealID)
+                Dim printLabelsForm As printStorageLabels = New printStorageLabels(mealID, pendingMeals)
                 printLabelsForm.Show()
 
             End If

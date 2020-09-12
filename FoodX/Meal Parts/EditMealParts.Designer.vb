@@ -31,6 +31,7 @@ Partial Class EditMealParts
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtPerServing = New System.Windows.Forms.TextBox()
+        Me.cbCompleteMeal = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'butDelete
@@ -112,11 +113,22 @@ Partial Class EditMealParts
         Me.txtPerServing.Size = New System.Drawing.Size(49, 20)
         Me.txtPerServing.TabIndex = 36
         '
+        'cbCompleteMeal
+        '
+        Me.cbCompleteMeal.AutoSize = True
+        Me.cbCompleteMeal.Location = New System.Drawing.Point(197, 53)
+        Me.cbCompleteMeal.Name = "cbCompleteMeal"
+        Me.cbCompleteMeal.Size = New System.Drawing.Size(96, 17)
+        Me.cbCompleteMeal.TabIndex = 38
+        Me.cbCompleteMeal.Text = "Complete Meal"
+        Me.cbCompleteMeal.UseVisualStyleBackColor = True
+        '
         'EditMealParts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(328, 153)
+        Me.Controls.Add(Me.cbCompleteMeal)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtPerServing)
         Me.Controls.Add(Me.txtName)
@@ -142,4 +154,5 @@ Partial Class EditMealParts
     Friend WithEvents txtName As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtPerServing As TextBox
+    Friend WithEvents cbCompleteMeal As CheckBox
 End Class

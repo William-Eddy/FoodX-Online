@@ -34,6 +34,8 @@
         Me.txtPerContainer.Text = mealParts.getCurrentPerContainer
         Me.txtPerServing.Text = mealParts.getCurrentPerServing
 
+        Me.cbCompleteMeal.Checked = mealParts.getCurrentCompleteMealStatus
+
     End Sub
 
     Private Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
@@ -73,6 +75,7 @@
         mealParts.addValues("name", Me.txtName.Text)
         mealParts.addValues("perContainer", Me.txtPerContainer.Text)
         mealParts.addValues("perServing", Me.txtPerServing.Text)
+        mealParts.addValues("completeMeal", Me.cbCompleteMeal.Checked)
 
     End Sub
 
@@ -94,6 +97,19 @@
 
             closeAndUpdate()
 
+        End If
+
+    End Sub
+
+    Private Sub cbCompleteMeal_CheckStateChanged(sender As Object, e As EventArgs) Handles cbCompleteMeal.CheckStateChanged
+
+        If Me.cbCompleteMeal.Checked = True Then
+
+            Me.txtName.Text = ""
+            Me.txtName.Enabled = False
+
+        Else
+            Me.txtName.Enabled = True
         End If
 
     End Sub

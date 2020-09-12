@@ -72,9 +72,15 @@
 
     End Function
 
-    Function getCurrentTotalContainers()
+    Function getCurrentTotalContainers(mealQuantity)
 
-        Return getCurrentRowValue("totalContainers")
+        Return Math.Ceiling(mealQuantity / getCurrentPortionsPerContainer())
+
+    End Function
+
+    Function getCurrentCompleteMealStatus()
+
+        Return getCurrentRowValue("completeMeal")
 
     End Function
 
