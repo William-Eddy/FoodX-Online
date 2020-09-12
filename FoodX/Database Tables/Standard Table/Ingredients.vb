@@ -59,6 +59,18 @@
 
     End Function
 
+    Function getCurrentStartData()
+
+        Return getCurrentRowValue("startData")
+
+    End Function
+
+    Function getCurrentIngredientID()
+
+        Return getCurrentRowValue("ingredientID")
+
+    End Function
+
     Function getCurrentUnit()
 
         Return getCurrentRowValue("measurement")

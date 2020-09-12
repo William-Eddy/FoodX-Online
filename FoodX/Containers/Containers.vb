@@ -77,7 +77,7 @@
         Dim portionsPerContainer As Integer = mealParts.getCurrentPortionsPerContainer
         Dim subTotalOfContainers As Integer = Math.Ceiling(mealStock / portionsPerContainer)
 
-        Me.totalNumberOfContainers = +subTotalOfContainers
+        Me.totalNumberOfContainers += subTotalOfContainers
 
     End Sub
 

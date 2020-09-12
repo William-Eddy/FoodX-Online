@@ -7,8 +7,20 @@
 
         If confirmMessage() = vbYes Then
 
-            ingredients.addValues("price", 0)
-            runIngredientUpdate()
+            ingredients.addColumnsForReturn("ingredientID")
+            ingredients.addColumnsForReturn("startData")
+            ingredients.executeSelect()
+
+            ingredients.setRowColumnIndexToZero()
+
+            For Each row In ingredients.table.Rows
+
+                ingredients.addValues("price", ingredients.getCurrentStartData)
+                ingredients.addConditions("ingredientID", ingredients.getcurrentIngredientID)
+                ingredients.executeUpdate()
+
+                ingredients.increaseRowCount()
+            Next
 
             completeMessage()
 

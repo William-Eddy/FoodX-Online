@@ -27,6 +27,12 @@
 
     End Sub
 
+    Public Overloads Sub executeDelete()
+
+        executeDelete("tblMealParts")
+
+    End Sub
+
     Public Overloads Sub executeInsert()
 
         executeInsert("tblMealParts")

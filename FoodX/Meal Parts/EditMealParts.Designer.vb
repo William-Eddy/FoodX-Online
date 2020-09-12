@@ -47,6 +47,7 @@ Partial Class EditMealParts
         Me.butDelete.TabIndex = 4
         Me.butDelete.Text = "Delete"
         Me.butDelete.UseVisualStyleBackColor = False
+        Me.butDelete.Visible = False
         '
         'butSave
         '

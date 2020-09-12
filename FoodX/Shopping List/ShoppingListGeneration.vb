@@ -159,20 +159,16 @@
                 databaseOperations.addIngredientValue("name", ingredientName)
                 databaseOperations.executeInsertCommand()
 
-                emailList.addIngredient(ingredientName, Format(price, "0.00"), quantityRequiredToBuy, unit)
+                emailList.addIngredient(ingredientName, price, quantityRequiredToBuy, unit)
 
-                totalPrice = totalPrice + price
+                totalPrice += price
 
             End If
 
             ingredientsRequired.increaseRowCount()
         Next
 
-        emailList.setBodyPart2()
-        emailList.addTotal(Format(totalPrice, "0.00"))
-        emailList.setBodyPart3()
-        emailList.setToBody()
-        emailList.sendEmail()
+        sendEmail()
 
     End Sub
 
@@ -215,6 +211,16 @@
     Private Sub setContainersInUse()
 
         containersInUse = containers.getTotalNumberOfContainersInUse
+
+    End Sub
+
+    Private Sub sendEmail()
+
+        emailList.setBodyPart2()
+        emailList.addTotal()
+        emailList.setBodyPart3()
+        emailList.setToBody()
+        emailList.sendEmail()
 
     End Sub
 

@@ -7,7 +7,7 @@
         Dim rows() As DataRow = getDataRow("id", Str(ID))
 
         If rows.Count > 0 Then
-            rows(0).Item("quantity") = rows(0).Item("quantity") + 1
+            rows(0).Item("quantity") = rows(0).Item("quantity") + quantity
         Else
             table.Rows.Add(Str(ID), Int(quantity))
         End If

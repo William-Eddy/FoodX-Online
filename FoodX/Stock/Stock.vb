@@ -121,12 +121,15 @@
             meals.executeSelect("tblMeal")
 
             Dim currentStock As Integer = meals.getCurrentRowValue(0)
-            Dim newStock As Integer = currentStock + mealsPending.getSingleSearchValue("mealID", mealID, "pending")
+            Dim pendingMeals As Integer = mealsPending.getSingleSearchValue("mealID", mealID, "pending")
+            Dim newStock As Integer = currentStock + pendingMeals
 
             mealStock.addValues("pending", 0)
             mealStock.addValues("stock", newStock)
             mealStock.addConditions("mealID", mealID)
             mealStock.executeUpdate("tblMeal")
+
+            updateIngredientStock(mealID, pendingMeals)
 
             message = MsgBox("Would you like to print storage labels for these meal parts?", vbYesNo, "Stock Management")
 
@@ -180,5 +183,56 @@
         editIngredientForm.Show()
 
     End Sub
+
+    Public Sub updateIngredientStock(mealID, numberOfMeals)
+
+        Dim ingredients As Ingredients = New Ingredients
+        Dim mealIngredients As MealIngredients = New MealIngredients
+        Dim meals As Meals = New Meals
+
+        Dim quantityForMeal As Integer
+        Dim currentIngredientStock As Integer
+        Dim newIngredientStock As Integer
+        Dim ingredientID As String
+        Dim numberOfBatches As Integer
+
+        ingredients.executeSelect()
+        mealIngredients.addConditions("mealID", mealID)
+        mealIngredients.executeSelect()
+
+
+        numberOfBatches = numberOfMeals / getServes(mealID)
+
+
+        mealIngredients.setRowColumnIndexToZero()
+
+        For Each row In mealIngredients.table.Rows
+
+            quantityForMeal = mealIngredients.getCurrentQuantity()
+            ingredientID = mealIngredients.getCurrentIngredientID
+
+            currentIngredientStock = ingredients.getSingleSearchValue("ingredientID", ingredientID, "quantity")
+            newIngredientStock = (currentIngredientStock - quantityForMeal) * numberOfBatches
+
+            ingredients.addValues("quantity", newIngredientStock)
+            ingredients.addConditions("ingredientID", ingredientID)
+            ingredients.executeUpdate()
+            mealIngredients.increaseRowCount()
+        Next
+
+    End Sub
+
+    Function getServes(mealID)
+
+
+        Dim meals As Meals = New Meals
+        meals.addColumnsForReturn("mealID")
+        meals.addColumnsForReturn("serves")
+        meals.addConditions("mealID", mealID)
+        meals.executeSelect()
+
+        Return meals.getCurrentServings
+
+    End Function
 
 End Class
