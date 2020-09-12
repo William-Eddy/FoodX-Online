@@ -39,6 +39,7 @@ Partial Class Main_Menu
         Me.txtTitle = New System.Windows.Forms.Label()
         Me.mainTabControl = New System.Windows.Forms.TabControl()
         Me.Dashboard = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Stock = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Scan = New System.Windows.Forms.TabPage()
@@ -132,7 +133,6 @@ Partial Class Main_Menu
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
         Me.cameraTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.panNav.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -394,6 +394,15 @@ Partial Class Main_Menu
         Me.Dashboard.Size = New System.Drawing.Size(841, 471)
         Me.Dashboard.TabIndex = 0
         Me.Dashboard.Text = "Dashboard"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(341, 189)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Stock
         '
@@ -1380,15 +1389,6 @@ Partial Class Main_Menu
         'cameraTimer
         '
         Me.cameraTimer.Interval = 10
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(341, 189)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Main_Menu
         '

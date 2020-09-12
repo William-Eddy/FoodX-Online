@@ -173,6 +173,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Containers\Containers.vb" />
     <Compile Include="Database Connection\Operations\AdvancedOperations.vb" />
     <Compile Include="Barcodes\AddIngredientBarcode.vb" />
     <Compile Include="Database Tables\Standard Table\FoodStorage.vb" />
@@ -180,6 +181,7 @@
     <Compile Include="Dashboard\MealListviewFormatting.vb" />
     <Compile Include="Database Tables\Standard Table\MealParts.vb" />
     <Compile Include="Database Tables\Standard Table\Methods.vb" />
+    <Compile Include="Edit Meal\Servings\changeServing.vb" />
     <Compile Include="Emails\Email Templates\MethodEmail.vb" />
     <Compile Include="Emails\Email Templates\ShoppingListEmail.vb" />
     <Compile Include="Emails\Emails.vb" />

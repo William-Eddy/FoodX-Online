@@ -63,7 +63,7 @@
 
     Function getServing()
 
-        Return meals.getNumberOfServings
+        Return meals.getCurrentServings
 
     End Function
 

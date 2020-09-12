@@ -3,13 +3,29 @@
 
     Dim tableName As String = "tblFoodStorage"
 
-    Public Overloads Sub executeUpdate()
+    Public Overloads Sub executeSelect()
 
-        executeUpdate(tableName)
+        executeSelect(tableName)
 
     End Sub
 
+    Function getFreezerCapacity()
 
+        setContents()
+        Return getCurrentRowValue("freezerCapacity")
 
+    End Function
+    Function getFreezerCurrentStock()
+
+        setContents()
+        Return getCurrentRowValue("freezerCurrentStock")
+
+    End Function
+
+    Private Sub setContents()
+
+        executeSelect()
+
+    End Sub
 
 End Class

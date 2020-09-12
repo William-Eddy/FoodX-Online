@@ -29,8 +29,6 @@ Partial Class EditMealParts
         Me.txtPerContainer = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtTotalContainers = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtPerServing = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
@@ -43,7 +41,7 @@ Partial Class EditMealParts
         Me.butDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butDelete.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butDelete.ForeColor = System.Drawing.Color.White
-        Me.butDelete.Location = New System.Drawing.Point(172, 141)
+        Me.butDelete.Location = New System.Drawing.Point(172, 111)
         Me.butDelete.Name = "butDelete"
         Me.butDelete.Size = New System.Drawing.Size(121, 22)
         Me.butDelete.TabIndex = 4
@@ -58,7 +56,7 @@ Partial Class EditMealParts
         Me.butSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butSave.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butSave.ForeColor = System.Drawing.Color.White
-        Me.butSave.Location = New System.Drawing.Point(25, 141)
+        Me.butSave.Location = New System.Drawing.Point(25, 111)
         Me.butSave.Name = "butSave"
         Me.butSave.Size = New System.Drawing.Size(121, 22)
         Me.butSave.TabIndex = 3
@@ -97,22 +95,6 @@ Partial Class EditMealParts
         Me.txtName.Size = New System.Drawing.Size(236, 20)
         Me.txtName.TabIndex = 0
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(22, 106)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 13)
-        Me.Label3.TabIndex = 35
-        Me.Label3.Text = "Total Containers:"
-        '
-        'txtTotalContainers
-        '
-        Me.txtTotalContainers.Location = New System.Drawing.Point(112, 103)
-        Me.txtTotalContainers.Name = "txtTotalContainers"
-        Me.txtTotalContainers.Size = New System.Drawing.Size(49, 20)
-        Me.txtTotalContainers.TabIndex = 2
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -133,11 +115,9 @@ Partial Class EditMealParts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(328, 180)
+        Me.ClientSize = New System.Drawing.Size(328, 153)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtPerServing)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtTotalContainers)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.butDelete)
         Me.Controls.Add(Me.butSave)
@@ -159,8 +139,6 @@ Partial Class EditMealParts
     Friend WithEvents txtPerContainer As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtName As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txtTotalContainers As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtPerServing As TextBox
 End Class

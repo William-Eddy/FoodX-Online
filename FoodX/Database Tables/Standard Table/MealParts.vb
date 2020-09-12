@@ -44,6 +44,11 @@
         Return getCurrentRowValue("mealPartID")
 
     End Function
+    Function getCurrentMealID()
+
+        Return getCurrentRowValue("mealID")
+
+    End Function
     Function getCurrentPartName()
 
         Return getCurrentRowValue("name")
@@ -64,6 +69,12 @@
     Function getCurrentTotalContainers()
 
         Return getCurrentRowValue("totalContainers")
+
+    End Function
+
+    Function getCurrentPortionsPerContainer()
+
+        Return (getCurrentPerContainer() / getCurrentPerServing())
 
     End Function
 

@@ -5,11 +5,21 @@
     Public ingredientsRequired As IngredientsRequired = New IngredientsRequired
     Public databaseOperations As ShoppingListDatabaseOperations = New ShoppingListDatabaseOperations
     Dim emailList As ShoppingListEmail = New ShoppingListEmail
+    Dim containers As Containers = New Containers
+    Dim foodStorage As FoodStorage = New FoodStorage
+
+    Dim containerTotal As Integer
+    Dim freezerCapacity As Integer
+    Dim containersInUse As Integer
 
     Public Sub generateList()
 
         databaseOperations.clearShoppingList()
         databaseOperations.clearPending()
+
+        setFreezerCapacity()
+        setContainersInUse()
+        containers.setMealsContents()
 
         getMealsFromPlan()
         calculateIngredientsRequired()
@@ -31,7 +41,13 @@
                 mealID = mealPlan.getCurrentValue
 
                 If Not (mealID = "0") Then
-                    mealsRequired.addMeal(mealID)
+
+                    If checkForCapacity(mealID) = True Then
+                        mealsRequired.addMeal(mealID)
+                    Else
+                        Exit Sub
+                    End If
+
                 End If
 
                 mealPlan.increaseColumnCount()
@@ -175,5 +191,31 @@
         Return Math.Ceiling(batchesRequired)
 
     End Function
+
+    Function checkForCapacity(mealID)
+
+        containerTotal = +containers.getNumberOfContainersForMeal(mealID)
+
+        If containerTotal > (freezerCapacity - containersInUse) Then
+
+            MsgBox("The freezer capacity has been reached!")
+            Return False
+        Else
+            Return True
+        End If
+
+    End Function
+
+    Private Sub setFreezerCapacity()
+
+        freezerCapacity = foodStorage.getFreezerCapacity()
+
+    End Sub
+
+    Private Sub setContainersInUse()
+
+        containersInUse = containers.getTotalNumberOfContainersInUse
+
+    End Sub
 
 End Class

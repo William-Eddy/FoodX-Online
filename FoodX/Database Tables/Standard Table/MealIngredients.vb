@@ -29,6 +29,11 @@
         Return getCurrentRowValue("mealID")
 
     End Function
+    Function getCurrentMealIngredientID()
+
+        Return getCurrentRowValue("mealIngredientsID")
+
+    End Function
 
     Function getCurrentQuantity()
 
@@ -44,6 +49,12 @@
     Public Overloads Sub executeSelect()
 
         executeSelect("tblMealIngredients")
+
+    End Sub
+
+    Public Overloads Sub executeUpdate()
+
+        executeUpdate("tblMealIngredients")
 
     End Sub
 

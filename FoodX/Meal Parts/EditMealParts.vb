@@ -31,7 +31,6 @@
 
         Me.txtName.Text = mealParts.getCurrentPartName
         Me.txtPerContainer.Text = mealParts.getCurrentPerContainer
-        Me.txtTotalContainers.Text = mealParts.getCurrentTotalContainers
         Me.txtPerServing.Text = mealParts.getCurrentPerServing
 
     End Sub
@@ -73,7 +72,6 @@
         mealParts.addValues("name", Me.txtName.Text)
         mealParts.addValues("perContainer", Me.txtPerContainer.Text)
         mealParts.addValues("perServing", Me.txtPerServing.Text)
-        mealParts.addValues("totalContainers", Me.txtTotalContainers.Text)
 
     End Sub
 

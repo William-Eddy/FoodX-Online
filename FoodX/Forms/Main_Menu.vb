@@ -294,4 +294,11 @@ Public Class Main_Menu
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        Dim containers As Containers = New Containers
+
+        MsgBox(containers.getTotalNumberOfContainersInUse)
+
+    End Sub
 End Class

@@ -116,7 +116,7 @@
 
         For Each row As DataRow In mealParts.table.Rows
 
-            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerContainer, mealParts.getCurrentPerContainer, mealParts.getCurrentTotalContainers}
+            insertArray = {mealParts.getCurrentPartName, mealParts.getCurrentPerContainer, mealParts.getCurrentPerContainer}
             Me.lvMealParts.Items.Add(mealParts.getCurrentMealPartID).SubItems.AddRange(insertArray)
 
             mealParts.increaseRowCount()
@@ -148,7 +148,7 @@
     Private Sub setCurrentMealDetails()
 
         Me.txtName.Text = meals.getCurrentMealName()
-        Me.txtServes.Text = meals.getNumberOfServings()
+        Me.txtServes.Text = meals.getCurrentServings()
         Me.txtStock.Text = meals.getStock()
         Me.cmbCategory.Text = meals.getCategory()
 
@@ -208,7 +208,6 @@
             .Columns.Add("Part", 125)
             .Columns.Add("Per serving", 70)
             .Columns.Add("Per container", 80)
-            .Columns.Add("Total", 50)
             .GridLines = True
 
         End With
@@ -242,7 +241,6 @@
 
         saved = True
 
-        updateMealListviews()
         Me.Close()
 
     End Sub
@@ -251,13 +249,14 @@
 
         If saved = False Then
 
-            If (MessageBox.Show("Are you sure you want to exit without saving? Any changes will be lost.", "Exit", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.No) Then
-                e.Cancel = True
-            Else
-                updateMealListviews()
+            If (MessageBox.Show("Do you want to save before exiting?", "Exit", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
+                saved = True
+                updateMeal()
             End If
 
         End If
+
+        updateMealListviews()
 
     End Sub
 
@@ -357,4 +356,33 @@
         printLabelsForm.Show()
 
     End Sub
+
+    Private Sub txtServes_Leave(sender As Object, e As EventArgs) Handles txtServes.Leave
+
+        Dim message As MsgBoxResult = MsgBox("Would you like to update the ingredient quantities and nutritional information?", vbYesNo, "Change serving")
+
+        If message = vbYes Then
+
+            Dim changeServing As changeServing = New changeServing(mealID, Me.txtServes.Text)
+
+            changeServing.executeChange()
+
+            updateMealServes()
+            setCurrentMealData()
+        Else
+
+            updateMealServes()
+
+        End If
+
+    End Sub
+
+    Private Sub updateMealServes()
+
+        meals.addValues("serves", Me.txtServes.Text)
+        meals.addConditions("mealID", mealID)
+        meals.executeUpdate()
+
+    End Sub
+
 End Class

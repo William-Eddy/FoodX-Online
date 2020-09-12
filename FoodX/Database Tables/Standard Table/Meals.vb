@@ -6,6 +6,11 @@
         MyBase.executeSelect("tblMeal")
 
     End Sub
+    Public Overloads Sub executeUpdate()
+
+        MyBase.executeUpdate("tblMeal")
+
+    End Sub
 
     Function getServing(mealID)
 
@@ -35,7 +40,7 @@
     Function getCurrentMealName()
         Return getCurrentRowValue("name")
     End Function
-    Function getNumberOfServings()
+    Function getCurrentServings()
         Return getCurrentRowValue("serves")
     End Function
     Function getStock()

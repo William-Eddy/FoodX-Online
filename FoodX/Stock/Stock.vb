@@ -128,9 +128,6 @@
             mealStock.addConditions("mealID", mealID)
             mealStock.executeUpdate("tblMeal")
 
-            resetListViews()
-            populateListViews()
-
             message = MsgBox("Would you like to print storage labels for these meal parts?", vbYesNo, "Stock Management")
 
             If message = vbYes Then
@@ -139,6 +136,10 @@
                 printLabelsForm.Show()
 
             End If
+
+            resetListViews()
+            populateListViews()
+
 
         End If
 
@@ -179,4 +180,5 @@
         editIngredientForm.Show()
 
     End Sub
+
 End Class
