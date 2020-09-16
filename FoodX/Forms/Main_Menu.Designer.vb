@@ -39,16 +39,16 @@ Partial Class Main_Menu
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.mainTabControl = New System.Windows.Forms.TabControl()
         Me.Dashboard = New System.Windows.Forms.TabPage()
+        Me.lblCarbs = New System.Windows.Forms.TextBox()
+        Me.lblFat = New System.Windows.Forms.TextBox()
+        Me.lblProtein = New System.Windows.Forms.TextBox()
+        Me.lblCalories = New System.Windows.Forms.TextBox()
         Me.txtContainersInUse = New System.Windows.Forms.TextBox()
         Me.txtContainersFree = New System.Windows.Forms.TextBox()
         Me.txtCarbs = New System.Windows.Forms.TextBox()
-        Me.asfdedfs = New System.Windows.Forms.Label()
         Me.txtFat = New System.Windows.Forms.TextBox()
-        Me.fsdfds = New System.Windows.Forms.Label()
         Me.txtProtein = New System.Windows.Forms.TextBox()
-        Me.Label37 = New System.Windows.Forms.Label()
         Me.txtCalories = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -141,8 +141,25 @@ Partial Class Main_Menu
         Me.panelMonday = New System.Windows.Forms.Panel()
         Me.panelTuesday = New System.Windows.Forms.Panel()
         Me.Progress = New System.Windows.Forms.TabPage()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.txtCarbsGoal = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.txtFatGoal = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.txtProteinGoal = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.txtCalorieGoal = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.Label39 = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.lvMeasurements = New System.Windows.Forms.ListView()
         Me.butSave = New System.Windows.Forms.Button()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
@@ -181,6 +198,7 @@ Partial Class Main_Menu
         Me.EditMealPlan.SuspendLayout()
         Me.scrollPanel.SuspendLayout()
         Me.Progress.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -420,16 +438,16 @@ Partial Class Main_Menu
         'Dashboard
         '
         Me.Dashboard.BackColor = System.Drawing.Color.Transparent
+        Me.Dashboard.Controls.Add(Me.lblCarbs)
+        Me.Dashboard.Controls.Add(Me.lblFat)
+        Me.Dashboard.Controls.Add(Me.lblProtein)
+        Me.Dashboard.Controls.Add(Me.lblCalories)
         Me.Dashboard.Controls.Add(Me.txtContainersInUse)
         Me.Dashboard.Controls.Add(Me.txtContainersFree)
         Me.Dashboard.Controls.Add(Me.txtCarbs)
-        Me.Dashboard.Controls.Add(Me.asfdedfs)
         Me.Dashboard.Controls.Add(Me.txtFat)
-        Me.Dashboard.Controls.Add(Me.fsdfds)
         Me.Dashboard.Controls.Add(Me.txtProtein)
-        Me.Dashboard.Controls.Add(Me.Label37)
         Me.Dashboard.Controls.Add(Me.txtCalories)
-        Me.Dashboard.Controls.Add(Me.Label23)
         Me.Dashboard.Controls.Add(Me.Label3)
         Me.Dashboard.Controls.Add(Me.PictureBox2)
         Me.Dashboard.Controls.Add(Me.Label21)
@@ -443,6 +461,55 @@ Partial Class Main_Menu
         Me.Dashboard.Size = New System.Drawing.Size(841, 477)
         Me.Dashboard.TabIndex = 0
         Me.Dashboard.Text = "Dashboard"
+        '
+        'lblCarbs
+        '
+        Me.lblCarbs.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lblCarbs.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCarbs.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCarbs.Location = New System.Drawing.Point(478, 430)
+        Me.lblCarbs.MaxLength = 50000
+        Me.lblCarbs.Name = "lblCarbs"
+        Me.lblCarbs.Size = New System.Drawing.Size(152, 13)
+        Me.lblCarbs.TabIndex = 34
+        Me.lblCarbs.Text = "Carbohydrates"
+        Me.lblCarbs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblFat
+        '
+        Me.lblFat.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lblFat.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblFat.Location = New System.Drawing.Point(376, 428)
+        Me.lblFat.Name = "lblFat"
+        Me.lblFat.Size = New System.Drawing.Size(96, 13)
+        Me.lblFat.TabIndex = 33
+        Me.lblFat.Text = "Fat"
+        Me.lblFat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblProtein
+        '
+        Me.lblProtein.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lblProtein.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProtein.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblProtein.Location = New System.Drawing.Point(504, 374)
+        Me.lblProtein.Name = "lblProtein"
+        Me.lblProtein.Size = New System.Drawing.Size(96, 13)
+        Me.lblProtein.TabIndex = 32
+        Me.lblProtein.Text = "Protein"
+        Me.lblProtein.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblCalories
+        '
+        Me.lblCalories.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lblCalories.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCalories.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblCalories.Location = New System.Drawing.Point(376, 374)
+        Me.lblCalories.Name = "lblCalories"
+        Me.lblCalories.Size = New System.Drawing.Size(96, 13)
+        Me.lblCalories.TabIndex = 31
+        Me.lblCalories.Text = "Calories"
+        Me.lblCalories.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtContainersInUse
         '
@@ -480,20 +547,6 @@ Partial Class Main_Menu
         Me.txtCarbs.Text = "0"
         Me.txtCarbs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'asfdedfs
-        '
-        Me.asfdedfs.AutoSize = True
-        Me.asfdedfs.BackColor = System.Drawing.Color.White
-        Me.asfdedfs.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.asfdedfs.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.asfdedfs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.asfdedfs.Location = New System.Drawing.Point(508, 427)
-        Me.asfdedfs.Name = "asfdedfs"
-        Me.asfdedfs.Size = New System.Drawing.Size(92, 14)
-        Me.asfdedfs.TabIndex = 27
-        Me.asfdedfs.Text = "Carbohydrates "
-        Me.asfdedfs.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'txtFat
         '
         Me.txtFat.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -505,20 +558,6 @@ Partial Class Main_Menu
         Me.txtFat.TabIndex = 26
         Me.txtFat.Text = "0"
         Me.txtFat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'fsdfds
-        '
-        Me.fsdfds.AutoSize = True
-        Me.fsdfds.BackColor = System.Drawing.Color.White
-        Me.fsdfds.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fsdfds.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.fsdfds.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.fsdfds.Location = New System.Drawing.Point(412, 427)
-        Me.fsdfds.Name = "fsdfds"
-        Me.fsdfds.Size = New System.Drawing.Size(23, 14)
-        Me.fsdfds.TabIndex = 25
-        Me.fsdfds.Text = "Fat"
-        Me.fsdfds.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtProtein
         '
@@ -532,20 +571,6 @@ Partial Class Main_Menu
         Me.txtProtein.Text = "0"
         Me.txtProtein.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.BackColor = System.Drawing.Color.White
-        Me.Label37.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label37.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label37.Location = New System.Drawing.Point(529, 374)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(47, 14)
-        Me.Label37.TabIndex = 23
-        Me.Label37.Text = "Protein"
-        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'txtCalories
         '
         Me.txtCalories.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -557,20 +582,6 @@ Partial Class Main_Menu
         Me.txtCalories.TabIndex = 22
         Me.txtCalories.Text = "0"
         Me.txtCalories.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.BackColor = System.Drawing.Color.White
-        Me.Label23.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label23.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label23.Location = New System.Drawing.Point(397, 374)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(53, 14)
-        Me.Label23.TabIndex = 21
-        Me.Label23.Text = "Calories"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label3
         '
@@ -1590,6 +1601,15 @@ Partial Class Main_Menu
         '
         'Progress
         '
+        Me.Progress.Controls.Add(Me.Label46)
+        Me.Progress.Controls.Add(Me.txtCarbsGoal)
+        Me.Progress.Controls.Add(Me.Label42)
+        Me.Progress.Controls.Add(Me.txtFatGoal)
+        Me.Progress.Controls.Add(Me.Label43)
+        Me.Progress.Controls.Add(Me.txtProteinGoal)
+        Me.Progress.Controls.Add(Me.Label44)
+        Me.Progress.Controls.Add(Me.txtCalorieGoal)
+        Me.Progress.Controls.Add(Me.Label45)
         Me.Progress.Controls.Add(Me.GroupBox7)
         Me.Progress.Controls.Add(Me.GroupBox6)
         Me.Progress.Controls.Add(Me.PictureBox7)
@@ -1601,32 +1621,240 @@ Partial Class Main_Menu
         Me.Progress.Text = "Progress"
         Me.Progress.UseVisualStyleBackColor = True
         '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label46.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label46.ForeColor = System.Drawing.Color.White
+        Me.Label46.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label46.Location = New System.Drawing.Point(42, 53)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(53, 19)
+        Me.Label46.TabIndex = 85
+        Me.Label46.Text = "Goals"
+        Me.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtCarbsGoal
+        '
+        Me.txtCarbsGoal.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCarbsGoal.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCarbsGoal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtCarbsGoal.Location = New System.Drawing.Point(189, 138)
+        Me.txtCarbsGoal.Name = "txtCarbsGoal"
+        Me.txtCarbsGoal.Size = New System.Drawing.Size(96, 28)
+        Me.txtCarbsGoal.TabIndex = 83
+        Me.txtCarbsGoal.Text = "0"
+        Me.txtCarbsGoal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.BackColor = System.Drawing.Color.White
+        Me.Label42.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label42.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label42.Location = New System.Drawing.Point(192, 169)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(92, 14)
+        Me.Label42.TabIndex = 82
+        Me.Label42.Text = "Carbohydrates "
+        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtFatGoal
+        '
+        Me.txtFatGoal.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtFatGoal.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFatGoal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtFatGoal.Location = New System.Drawing.Point(60, 138)
+        Me.txtFatGoal.Name = "txtFatGoal"
+        Me.txtFatGoal.Size = New System.Drawing.Size(96, 28)
+        Me.txtFatGoal.TabIndex = 81
+        Me.txtFatGoal.Text = "0"
+        Me.txtFatGoal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.BackColor = System.Drawing.Color.White
+        Me.Label43.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label43.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label43.Location = New System.Drawing.Point(96, 169)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(23, 14)
+        Me.Label43.TabIndex = 80
+        Me.Label43.Text = "Fat"
+        Me.Label43.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtProteinGoal
+        '
+        Me.txtProteinGoal.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProteinGoal.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProteinGoal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtProteinGoal.Location = New System.Drawing.Point(189, 86)
+        Me.txtProteinGoal.Name = "txtProteinGoal"
+        Me.txtProteinGoal.Size = New System.Drawing.Size(96, 28)
+        Me.txtProteinGoal.TabIndex = 79
+        Me.txtProteinGoal.Text = "0"
+        Me.txtProteinGoal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.BackColor = System.Drawing.Color.White
+        Me.Label44.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label44.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label44.Location = New System.Drawing.Point(213, 116)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(47, 14)
+        Me.Label44.TabIndex = 78
+        Me.Label44.Text = "Protein"
+        Me.Label44.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtCalorieGoal
+        '
+        Me.txtCalorieGoal.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCalorieGoal.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCalorieGoal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtCalorieGoal.Location = New System.Drawing.Point(60, 86)
+        Me.txtCalorieGoal.Name = "txtCalorieGoal"
+        Me.txtCalorieGoal.Size = New System.Drawing.Size(96, 28)
+        Me.txtCalorieGoal.TabIndex = 77
+        Me.txtCalorieGoal.Text = "0"
+        Me.txtCalorieGoal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.BackColor = System.Drawing.Color.White
+        Me.Label45.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label45.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label45.Location = New System.Drawing.Point(81, 116)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(53, 14)
+        Me.Label45.TabIndex = 76
+        Me.Label45.Text = "Calories"
+        Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'GroupBox7
         '
-        Me.GroupBox7.Location = New System.Drawing.Point(21, 241)
+        Me.GroupBox7.Controls.Add(Me.Label41)
+        Me.GroupBox7.Controls.Add(Me.Label40)
+        Me.GroupBox7.Controls.Add(Me.TextBox15)
+        Me.GroupBox7.Controls.Add(Me.TextBox13)
+        Me.GroupBox7.Controls.Add(Me.Label38)
+        Me.GroupBox7.Controls.Add(Me.TextBox14)
+        Me.GroupBox7.Controls.Add(Me.Label39)
+        Me.GroupBox7.Location = New System.Drawing.Point(28, 221)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(343, 135)
+        Me.GroupBox7.Size = New System.Drawing.Size(299, 72)
         Me.GroupBox7.TabIndex = 75
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Personal Details"
         '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(248, 32)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(15, 13)
+        Me.Label41.TabIndex = 24
+        Me.Label41.Text = "in"
+        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(198, 32)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(13, 13)
+        Me.Label40.TabIndex = 23
+        Me.Label40.Text = "ft"
+        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'TextBox15
+        '
+        Me.TextBox15.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.FoodX.My.MySettings.Default, "heightInches", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox15.Location = New System.Drawing.Point(220, 29)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(23, 20)
+        Me.TextBox15.TabIndex = 22
+        Me.TextBox15.Text = Global.FoodX.My.MySettings.Default.heightInches
+        '
+        'TextBox13
+        '
+        Me.TextBox13.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.FoodX.My.MySettings.Default, "heightFeet", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox13.Location = New System.Drawing.Point(172, 29)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(23, 20)
+        Me.TextBox13.TabIndex = 21
+        Me.TextBox13.Text = Global.FoodX.My.MySettings.Default.heightFeet
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(125, 32)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(41, 13)
+        Me.Label38.TabIndex = 20
+        Me.Label38.Text = "Height:"
+        Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'TextBox14
+        '
+        Me.TextBox14.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.FoodX.My.MySettings.Default, "age", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox14.Location = New System.Drawing.Point(47, 29)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(35, 20)
+        Me.TextBox14.TabIndex = 19
+        Me.TextBox14.Text = Global.FoodX.My.MySettings.Default.age
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(12, 32)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(29, 13)
+        Me.Label39.TabIndex = 18
+        Me.Label39.Text = "Age:"
+        Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.Button2)
         Me.GroupBox6.Controls.Add(Me.lvMeasurements)
         Me.GroupBox6.Controls.Add(Me.butSave)
-        Me.GroupBox6.Location = New System.Drawing.Point(21, 37)
+        Me.GroupBox6.Location = New System.Drawing.Point(369, 35)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(343, 183)
+        Me.GroupBox6.Size = New System.Drawing.Size(426, 171)
         Me.GroupBox6.TabIndex = 74
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Measurement Records"
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.SlateBlue
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(143, 136)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(121, 22)
+        Me.Button2.TabIndex = 74
+        Me.Button2.Text = "Update Goals"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'lvMeasurements
         '
         Me.lvMeasurements.HideSelection = False
-        Me.lvMeasurements.Location = New System.Drawing.Point(16, 31)
+        Me.lvMeasurements.Location = New System.Drawing.Point(16, 28)
         Me.lvMeasurements.Name = "lvMeasurements"
-        Me.lvMeasurements.Size = New System.Drawing.Size(304, 97)
+        Me.lvMeasurements.Size = New System.Drawing.Size(391, 97)
         Me.lvMeasurements.TabIndex = 72
         Me.lvMeasurements.UseCompatibleStateImageBehavior = False
         '
@@ -1638,7 +1866,7 @@ Partial Class Main_Menu
         Me.butSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butSave.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butSave.ForeColor = System.Drawing.Color.White
-        Me.butSave.Location = New System.Drawing.Point(16, 143)
+        Me.butSave.Location = New System.Drawing.Point(16, 136)
         Me.butSave.Name = "butSave"
         Me.butSave.Size = New System.Drawing.Size(121, 22)
         Me.butSave.TabIndex = 73
@@ -1648,11 +1876,11 @@ Partial Class Main_Menu
         'PictureBox7
         '
         Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(402, 37)
+        Me.PictureBox7.Location = New System.Drawing.Point(28, 36)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(397, 394)
+        Me.PictureBox7.Size = New System.Drawing.Size(299, 170)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox7.TabIndex = 0
+        Me.PictureBox7.TabIndex = 84
         Me.PictureBox7.TabStop = False
         '
         'Panel1
@@ -1767,6 +1995,9 @@ Partial Class Main_Menu
         Me.EditMealPlan.ResumeLayout(False)
         Me.scrollPanel.ResumeLayout(False)
         Me.Progress.ResumeLayout(False)
+        Me.Progress.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -1891,21 +2122,38 @@ Partial Class Main_Menu
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents txtCarbs As TextBox
-    Friend WithEvents asfdedfs As Label
     Friend WithEvents txtFat As TextBox
-    Friend WithEvents fsdfds As Label
     Friend WithEvents txtProtein As TextBox
-    Friend WithEvents Label37 As Label
     Friend WithEvents txtCalories As TextBox
-    Friend WithEvents Label23 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txtContainersInUse As TextBox
     Friend WithEvents txtContainersFree As TextBox
     Friend WithEvents butProgress As Button
     Friend WithEvents Progress As TabPage
-    Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents lvMeasurements As ListView
     Friend WithEvents butSave As Button
     Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents TextBox15 As TextBox
+    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label46 As Label
+    Friend WithEvents txtCarbsGoal As TextBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents txtFatGoal As TextBox
+    Friend WithEvents Label43 As Label
+    Friend WithEvents txtProteinGoal As TextBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents txtCalorieGoal As TextBox
+    Friend WithEvents Label45 As Label
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents lblCalories As TextBox
+    Friend WithEvents lblCarbs As TextBox
+    Friend WithEvents lblFat As TextBox
+    Friend WithEvents lblProtein As TextBox
 End Class

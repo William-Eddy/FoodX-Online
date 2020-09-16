@@ -320,13 +320,73 @@ Public Class Main_Menu
     Private Sub loadAverageNutritionalInfo()
 
         Dim nutritionalInfo As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
+        Dim nutritionGoals As NutritionCalculation = New NutritionCalculation
 
         nutritionalInfo.setNutritionalAverages()
 
-        Me.txtCalories.Text = getAverage(nutritionalInfo.getTotalCalories)
-        Me.txtProtein.Text = getAverage(nutritionalInfo.getTotalProtein) + "g"
-        Me.txtCarbs.Text = getAverage(nutritionalInfo.getTotalCarbs) + "g"
-        Me.txtFat.Text = getAverage(nutritionalInfo.getTotalFat) + "g"
+
+        Dim caloriesGoal As Integer = Int(nutritionGoals.getCalorieGoal)
+        Dim caloriesActual As Integer = Int(getAverage(nutritionalInfo.getTotalCalories))
+        Dim caloriesDifference As Double = caloriesActual - caloriesGoal
+
+        If caloriesActual > caloriesGoal Then
+            Me.txtCalories.ForeColor = Color.LightGreen
+        Else
+            Me.txtCalories.ForeColor = Color.Red
+        End If
+
+        lblCalories.Text += " (" + Str(caloriesDifference) + ")"
+        Me.txtCalories.Text = caloriesActual
+
+
+
+
+        Dim proteinGoal As Integer = Int(nutritionGoals.getProteinGoal)
+        Dim proteinActual As Integer = Int(getAverage(nutritionalInfo.getTotalProtein))
+        Dim proteinDifference As Double = proteinActual - proteinGoal
+
+        If proteinActual > proteinGoal Then
+            Me.txtProtein.ForeColor = Color.LightGreen
+        Else
+            Me.txtProtein.ForeColor = Color.Red
+        End If
+
+        lblprotein.Text += " (" + Str(proteinDifference) + ")"
+        Me.txtProtein.Text = Str(proteinActual) + "g"
+
+
+
+
+        Dim carbsGoal As Integer = Int(nutritionGoals.getCarbsGoal)
+        Dim carbsActual As Integer = Int(getAverage(nutritionalInfo.getTotalCarbs))
+        Dim carbsDifference As Double = carbsActual - carbsGoal
+
+        If carbsActual > carbsGoal Then
+            Me.txtCarbs.ForeColor = Color.LightGreen
+        Else
+            Me.txtCarbs.ForeColor = Color.Red
+        End If
+
+        lblCarbs.Text += " (" + Str(carbsDifference) + ")"
+        Me.txtCarbs.Text = Str(carbsActual) + "g"
+
+
+
+
+        Dim fatGoal As Integer = Int(nutritionGoals.getFatGoal)
+        Dim fatActual As Integer = Int(getAverage(nutritionalInfo.getTotalFat))
+        Dim fatDifference As Double = fatActual - fatGoal
+
+        If fatActual > fatGoal Then
+            Me.txtFat.ForeColor = Color.LightGreen
+        Else
+            Me.txtFat.ForeColor = Color.Red
+        End If
+
+        lblFat.Text += " (" + Str(fatDifference) + ")"
+        Me.txtFat.Text = Str(fatActual) + "g"
+
+
 
     End Sub
 
@@ -341,6 +401,7 @@ Public Class Main_Menu
         setCurrentTab(8)
         setTabTitle()
         updateMeasurementsListview()
+        updateGoals()
 
     End Sub
 
@@ -399,4 +460,20 @@ Public Class Main_Menu
 
     End Sub
 
+    Private Sub updateGoals()
+
+        Dim nutritionGoals As NutritionCalculation = New NutritionCalculation
+
+        Me.txtCalorieGoal.Text = nutritionGoals.getCalorieGoal()
+        Me.txtProteinGoal.Text = nutritionGoals.getProteinGoal()
+        Me.txtFatGoal.Text = nutritionGoals.getFatGoal()
+        Me.txtCarbsGoal.Text = nutritionGoals.getCarbsGoal()
+
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+        updateGoals()
+
+    End Sub
 End Class

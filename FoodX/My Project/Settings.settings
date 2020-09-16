@@ -47,5 +47,14 @@
     <Setting Name="emailHTMLFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">D:\FoodTrackV1\Emails\</Value>
     </Setting>
+    <Setting Name="age" Type="System.String" Scope="User">
+      <Value Profile="(Default)">19</Value>
+    </Setting>
+    <Setting Name="heightFeet" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="heightInches" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

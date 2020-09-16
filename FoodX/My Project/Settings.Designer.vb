@@ -233,6 +233,42 @@ Namespace My
                 Me("emailHTMLFilePath") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("19")>  _
+        Public Property age() As String
+            Get
+                Return CType(Me("age"),String)
+            End Get
+            Set
+                Me("age") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property heightFeet() As String
+            Get
+                Return CType(Me("heightFeet"),String)
+            End Get
+            Set
+                Me("heightFeet") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("8")>  _
+        Public Property heightInches() As String
+            Get
+                Return CType(Me("heightInches"),String)
+            End Get
+            Set
+                Me("heightInches") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
