@@ -26,5 +26,11 @@
 
     End Function
 
+    Public Overloads Sub executeSelect()
+
+        executeSelect("tblMealPlan")
+
+    End Sub
+
 
 End Class

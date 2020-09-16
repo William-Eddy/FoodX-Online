@@ -25,8 +25,8 @@ Partial Class Main_Menu
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main_Menu))
         Me.panNav = New System.Windows.Forms.Panel()
+        Me.butProgress = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -36,10 +36,25 @@ Partial Class Main_Menu
         Me.butStock = New System.Windows.Forms.Button()
         Me.butMeals = New System.Windows.Forms.Button()
         Me.butDashboard = New System.Windows.Forms.Button()
-        Me.txtTitle = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.mainTabControl = New System.Windows.Forms.TabControl()
         Me.Dashboard = New System.Windows.Forms.TabPage()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.txtContainersInUse = New System.Windows.Forms.TextBox()
+        Me.txtContainersFree = New System.Windows.Forms.TextBox()
+        Me.txtCarbs = New System.Windows.Forms.TextBox()
+        Me.asfdedfs = New System.Windows.Forms.Label()
+        Me.txtFat = New System.Windows.Forms.TextBox()
+        Me.fsdfds = New System.Windows.Forms.Label()
+        Me.txtProtein = New System.Windows.Forms.TextBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.txtCalories = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Stock = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Scan = New System.Windows.Forms.TabPage()
@@ -125,19 +140,29 @@ Partial Class Main_Menu
         Me.panelWednesday = New System.Windows.Forms.Panel()
         Me.panelMonday = New System.Windows.Forms.Panel()
         Me.panelTuesday = New System.Windows.Forms.Panel()
+        Me.Progress = New System.Windows.Forms.TabPage()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.lvMeasurements = New System.Windows.Forms.ListView()
+        Me.butSave = New System.Windows.Forms.Button()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.txtTabTitle = New System.Windows.Forms.Label()
         Me.checkStatus = New System.Windows.Forms.Timer(Me.components)
         Me.barcodeLaser = New System.IO.Ports.SerialPort(Me.components)
         Me.laserDisconnect = New System.Windows.Forms.Timer(Me.components)
         Me.shoppingGenWorker = New System.ComponentModel.BackgroundWorker()
         Me.cameraTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.panNav.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mainTabControl.SuspendLayout()
         Me.Dashboard.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Scan.SuspendLayout()
         CType(Me.pbCamera, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Settings.SuspendLayout()
@@ -155,14 +180,19 @@ Partial Class Main_Menu
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.EditMealPlan.SuspendLayout()
         Me.scrollPanel.SuspendLayout()
+        Me.Progress.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panNav
         '
-        Me.panNav.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.panNav.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.panNav.Controls.Add(Me.butProgress)
         Me.panNav.Controls.Add(Me.Button3)
-        Me.panNav.Controls.Add(Me.PictureBox1)
         Me.panNav.Controls.Add(Me.Label24)
         Me.panNav.Controls.Add(Me.PictureBox3)
         Me.panNav.Controls.Add(Me.Button1)
@@ -172,22 +202,40 @@ Partial Class Main_Menu
         Me.panNav.Controls.Add(Me.butStock)
         Me.panNav.Controls.Add(Me.butMeals)
         Me.panNav.Controls.Add(Me.butDashboard)
-        Me.panNav.Location = New System.Drawing.Point(-1, -1)
+        Me.panNav.Location = New System.Drawing.Point(-1, 44)
         Me.panNav.Name = "panNav"
-        Me.panNav.Size = New System.Drawing.Size(185, 615)
+        Me.panNav.Size = New System.Drawing.Size(185, 533)
         Me.panNav.TabIndex = 1
+        '
+        'butProgress
+        '
+        Me.butProgress.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.butProgress.FlatAppearance.BorderColor = System.Drawing.Color.Teal
+        Me.butProgress.FlatAppearance.BorderSize = 0
+        Me.butProgress.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.butProgress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
+        Me.butProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butProgress.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butProgress.ForeColor = System.Drawing.Color.White
+        Me.butProgress.Location = New System.Drawing.Point(3, 420)
+        Me.butProgress.Name = "butProgress"
+        Me.butProgress.Size = New System.Drawing.Size(185, 44)
+        Me.butProgress.TabIndex = 11
+        Me.butProgress.Text = "    📈 Progress"
+        Me.butProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.butProgress.UseVisualStyleBackColor = False
         '
         'Button3
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.Teal
         Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(3, 279)
+        Me.Button3.Location = New System.Drawing.Point(4, 255)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(185, 33)
         Me.Button3.TabIndex = 10
@@ -195,23 +243,13 @@ Partial Class Main_Menu
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.UseVisualStyleBackColor = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(13, 544)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(153, 37)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
-        '
         'Label24
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.White
         Me.Label24.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label24.Location = New System.Drawing.Point(48, 131)
+        Me.Label24.Location = New System.Drawing.Point(46, 116)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(95, 16)
         Me.Label24.TabIndex = 4
@@ -221,24 +259,24 @@ Partial Class Main_Menu
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(28, 27)
+        Me.PictureBox3.Location = New System.Drawing.Point(45, 40)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(136, 95)
+        Me.PictureBox3.Size = New System.Drawing.Size(96, 67)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox3.TabIndex = 8
         Me.PictureBox3.TabStop = False
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Teal
         Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(0, 321)
+        Me.Button1.Location = New System.Drawing.Point(1, 297)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(185, 34)
         Me.Button1.TabIndex = 7
@@ -253,7 +291,7 @@ Partial Class Main_Menu
         Me.txtOnline.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtOnline.ForeColor = System.Drawing.Color.White
         Me.txtOnline.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.txtOnline.Location = New System.Drawing.Point(62, 158)
+        Me.txtOnline.Location = New System.Drawing.Point(60, 139)
         Me.txtOnline.Name = "txtOnline"
         Me.txtOnline.Size = New System.Drawing.Size(62, 16)
         Me.txtOnline.TabIndex = 6
@@ -262,15 +300,15 @@ Partial Class Main_Menu
         '
         'butScan
         '
-        Me.butScan.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.butScan.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butScan.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.butScan.FlatAppearance.BorderColor = System.Drawing.Color.Teal
         Me.butScan.FlatAppearance.BorderSize = 0
-        Me.butScan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue
-        Me.butScan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue
+        Me.butScan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.butScan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
         Me.butScan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butScan.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butScan.ForeColor = System.Drawing.Color.White
-        Me.butScan.Location = New System.Drawing.Point(4, 240)
+        Me.butScan.Location = New System.Drawing.Point(5, 216)
         Me.butScan.Name = "butScan"
         Me.butScan.Size = New System.Drawing.Size(178, 33)
         Me.butScan.TabIndex = 5
@@ -280,17 +318,17 @@ Partial Class Main_Menu
         '
         'butSettings
         '
-        Me.butSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.butSettings.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.butSettings.FlatAppearance.BorderColor = System.Drawing.Color.Teal
         Me.butSettings.FlatAppearance.BorderSize = 0
-        Me.butSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue
-        Me.butSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue
+        Me.butSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.butSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
         Me.butSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butSettings.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butSettings.ForeColor = System.Drawing.Color.White
-        Me.butSettings.Location = New System.Drawing.Point(0, 444)
+        Me.butSettings.Location = New System.Drawing.Point(1, 466)
         Me.butSettings.Name = "butSettings"
-        Me.butSettings.Size = New System.Drawing.Size(185, 32)
+        Me.butSettings.Size = New System.Drawing.Size(185, 44)
         Me.butSettings.TabIndex = 4
         Me.butSettings.Text = "    ⚙ Settings    "
         Me.butSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -298,15 +336,15 @@ Partial Class Main_Menu
         '
         'butStock
         '
-        Me.butStock.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.butStock.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butStock.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.butStock.FlatAppearance.BorderColor = System.Drawing.Color.Teal
         Me.butStock.FlatAppearance.BorderSize = 0
-        Me.butStock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue
-        Me.butStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue
+        Me.butStock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.butStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
         Me.butStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butStock.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butStock.ForeColor = System.Drawing.Color.White
-        Me.butStock.Location = New System.Drawing.Point(0, 404)
+        Me.butStock.Location = New System.Drawing.Point(1, 380)
         Me.butStock.Name = "butStock"
         Me.butStock.Size = New System.Drawing.Size(185, 36)
         Me.butStock.TabIndex = 3
@@ -316,15 +354,15 @@ Partial Class Main_Menu
         '
         'butMeals
         '
-        Me.butMeals.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.butMeals.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butMeals.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.butMeals.FlatAppearance.BorderColor = System.Drawing.Color.Teal
         Me.butMeals.FlatAppearance.BorderSize = 0
-        Me.butMeals.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue
-        Me.butMeals.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue
+        Me.butMeals.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.butMeals.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
         Me.butMeals.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butMeals.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butMeals.ForeColor = System.Drawing.Color.White
-        Me.butMeals.Location = New System.Drawing.Point(3, 360)
+        Me.butMeals.Location = New System.Drawing.Point(4, 336)
         Me.butMeals.Name = "butMeals"
         Me.butMeals.Size = New System.Drawing.Size(182, 40)
         Me.butMeals.TabIndex = 2
@@ -334,15 +372,15 @@ Partial Class Main_Menu
         '
         'butDashboard
         '
-        Me.butDashboard.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.butDashboard.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butDashboard.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.butDashboard.FlatAppearance.BorderColor = System.Drawing.Color.Teal
         Me.butDashboard.FlatAppearance.BorderSize = 0
-        Me.butDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue
-        Me.butDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue
+        Me.butDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
+        Me.butDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal
         Me.butDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butDashboard.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butDashboard.ForeColor = System.Drawing.Color.White
-        Me.butDashboard.Location = New System.Drawing.Point(3, 199)
+        Me.butDashboard.Location = New System.Drawing.Point(4, 175)
         Me.butDashboard.Name = "butDashboard"
         Me.butDashboard.Size = New System.Drawing.Size(179, 35)
         Me.butDashboard.TabIndex = 1
@@ -350,18 +388,15 @@ Partial Class Main_Menu
         Me.butDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.butDashboard.UseVisualStyleBackColor = False
         '
-        'txtTitle
+        'PictureBox1
         '
-        Me.txtTitle.AutoSize = True
-        Me.txtTitle.Font = New System.Drawing.Font("Arial", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(92, Byte), Integer))
-        Me.txtTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.txtTitle.Location = New System.Drawing.Point(426, 37)
-        Me.txtTitle.Name = "txtTitle"
-        Me.txtTitle.Size = New System.Drawing.Size(358, 46)
-        Me.txtTitle.TabIndex = 2
-        Me.txtTitle.Text = "Welcome, William"
-        Me.txtTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(182, 39)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
         '
         'mainTabControl
         '
@@ -374,41 +409,250 @@ Partial Class Main_Menu
         Me.mainTabControl.Controls.Add(Me.EditMeals)
         Me.mainTabControl.Controls.Add(Me.Home)
         Me.mainTabControl.Controls.Add(Me.EditMealPlan)
+        Me.mainTabControl.Controls.Add(Me.Progress)
         Me.mainTabControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mainTabControl.Location = New System.Drawing.Point(180, 106)
+        Me.mainTabControl.Location = New System.Drawing.Point(184, 75)
         Me.mainTabControl.Name = "mainTabControl"
         Me.mainTabControl.SelectedIndex = 0
-        Me.mainTabControl.Size = New System.Drawing.Size(849, 500)
-        Me.mainTabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
+        Me.mainTabControl.Size = New System.Drawing.Size(849, 506)
         Me.mainTabControl.TabIndex = 5
         '
         'Dashboard
         '
         Me.Dashboard.BackColor = System.Drawing.Color.Transparent
-        Me.Dashboard.Controls.Add(Me.Button2)
-        Me.Dashboard.Controls.Add(Me.txtTitle)
+        Me.Dashboard.Controls.Add(Me.txtContainersInUse)
+        Me.Dashboard.Controls.Add(Me.txtContainersFree)
+        Me.Dashboard.Controls.Add(Me.txtCarbs)
+        Me.Dashboard.Controls.Add(Me.asfdedfs)
+        Me.Dashboard.Controls.Add(Me.txtFat)
+        Me.Dashboard.Controls.Add(Me.fsdfds)
+        Me.Dashboard.Controls.Add(Me.txtProtein)
+        Me.Dashboard.Controls.Add(Me.Label37)
+        Me.Dashboard.Controls.Add(Me.txtCalories)
+        Me.Dashboard.Controls.Add(Me.Label23)
+        Me.Dashboard.Controls.Add(Me.Label3)
+        Me.Dashboard.Controls.Add(Me.PictureBox2)
+        Me.Dashboard.Controls.Add(Me.Label21)
+        Me.Dashboard.Controls.Add(Me.Label19)
+        Me.Dashboard.Controls.Add(Me.Label1)
+        Me.Dashboard.Controls.Add(Me.PictureBox6)
         Me.Dashboard.ForeColor = System.Drawing.Color.Transparent
         Me.Dashboard.Location = New System.Drawing.Point(4, 25)
         Me.Dashboard.Name = "Dashboard"
         Me.Dashboard.Padding = New System.Windows.Forms.Padding(3)
-        Me.Dashboard.Size = New System.Drawing.Size(841, 471)
+        Me.Dashboard.Size = New System.Drawing.Size(841, 477)
         Me.Dashboard.TabIndex = 0
         Me.Dashboard.Text = "Dashboard"
         '
-        'Button2
+        'txtContainersInUse
         '
-        Me.Button2.Location = New System.Drawing.Point(341, 189)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.txtContainersInUse.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtContainersInUse.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContainersInUse.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtContainersInUse.Location = New System.Drawing.Point(55, 371)
+        Me.txtContainersInUse.Name = "txtContainersInUse"
+        Me.txtContainersInUse.Size = New System.Drawing.Size(96, 28)
+        Me.txtContainersInUse.TabIndex = 30
+        Me.txtContainersInUse.Text = "0"
+        Me.txtContainersInUse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtContainersFree
+        '
+        Me.txtContainersFree.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtContainersFree.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContainersFree.ForeColor = System.Drawing.Color.LimeGreen
+        Me.txtContainersFree.Location = New System.Drawing.Point(185, 369)
+        Me.txtContainersFree.Name = "txtContainersFree"
+        Me.txtContainersFree.Size = New System.Drawing.Size(96, 28)
+        Me.txtContainersFree.TabIndex = 29
+        Me.txtContainersFree.Text = "0"
+        Me.txtContainersFree.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtCarbs
+        '
+        Me.txtCarbs.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCarbs.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCarbs.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtCarbs.Location = New System.Drawing.Point(505, 396)
+        Me.txtCarbs.Name = "txtCarbs"
+        Me.txtCarbs.Size = New System.Drawing.Size(96, 28)
+        Me.txtCarbs.TabIndex = 28
+        Me.txtCarbs.Text = "0"
+        Me.txtCarbs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'asfdedfs
+        '
+        Me.asfdedfs.AutoSize = True
+        Me.asfdedfs.BackColor = System.Drawing.Color.White
+        Me.asfdedfs.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.asfdedfs.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.asfdedfs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.asfdedfs.Location = New System.Drawing.Point(508, 427)
+        Me.asfdedfs.Name = "asfdedfs"
+        Me.asfdedfs.Size = New System.Drawing.Size(92, 14)
+        Me.asfdedfs.TabIndex = 27
+        Me.asfdedfs.Text = "Carbohydrates "
+        Me.asfdedfs.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtFat
+        '
+        Me.txtFat.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtFat.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtFat.Location = New System.Drawing.Point(376, 396)
+        Me.txtFat.Name = "txtFat"
+        Me.txtFat.Size = New System.Drawing.Size(96, 28)
+        Me.txtFat.TabIndex = 26
+        Me.txtFat.Text = "0"
+        Me.txtFat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'fsdfds
+        '
+        Me.fsdfds.AutoSize = True
+        Me.fsdfds.BackColor = System.Drawing.Color.White
+        Me.fsdfds.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fsdfds.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.fsdfds.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.fsdfds.Location = New System.Drawing.Point(412, 427)
+        Me.fsdfds.Name = "fsdfds"
+        Me.fsdfds.Size = New System.Drawing.Size(23, 14)
+        Me.fsdfds.TabIndex = 25
+        Me.fsdfds.Text = "Fat"
+        Me.fsdfds.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtProtein
+        '
+        Me.txtProtein.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtProtein.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProtein.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtProtein.Location = New System.Drawing.Point(505, 344)
+        Me.txtProtein.Name = "txtProtein"
+        Me.txtProtein.Size = New System.Drawing.Size(96, 28)
+        Me.txtProtein.TabIndex = 24
+        Me.txtProtein.Text = "0"
+        Me.txtProtein.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.BackColor = System.Drawing.Color.White
+        Me.Label37.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label37.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label37.Location = New System.Drawing.Point(529, 374)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(47, 14)
+        Me.Label37.TabIndex = 23
+        Me.Label37.Text = "Protein"
+        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtCalories
+        '
+        Me.txtCalories.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtCalories.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCalories.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtCalories.Location = New System.Drawing.Point(376, 344)
+        Me.txtCalories.Name = "txtCalories"
+        Me.txtCalories.Size = New System.Drawing.Size(96, 28)
+        Me.txtCalories.TabIndex = 22
+        Me.txtCalories.Text = "0"
+        Me.txtCalories.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.BackColor = System.Drawing.Color.White
+        Me.Label23.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label23.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label23.Location = New System.Drawing.Point(397, 374)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(53, 14)
+        Me.Label23.TabIndex = 21
+        Me.Label23.Text = "Calories"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label3.Location = New System.Drawing.Point(352, 309)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(75, 19)
+        Me.Label3.TabIndex = 19
+        Me.Label3.Text = "Nutrition"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(340, 293)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(299, 170)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 18
+        Me.PictureBox2.TabStop = False
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.BackColor = System.Drawing.Color.White
+        Me.Label21.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.LimeGreen
+        Me.Label21.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label21.Location = New System.Drawing.Point(186, 402)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(94, 14)
+        Me.Label21.TabIndex = 17
+        Me.Label21.Text = "Containers free"
+        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.BackColor = System.Drawing.Color.White
+        Me.Label19.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label19.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label19.Location = New System.Drawing.Point(52, 402)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(105, 14)
+        Me.Label19.TabIndex = 15
+        Me.Label19.Text = "Containers in use"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label1.Location = New System.Drawing.Point(31, 309)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(69, 19)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Storage"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
+        Me.PictureBox6.Location = New System.Drawing.Point(21, 293)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(299, 170)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox6.TabIndex = 12
+        Me.PictureBox6.TabStop = False
         '
         'Stock
         '
         Me.Stock.Location = New System.Drawing.Point(4, 25)
         Me.Stock.Name = "Stock"
-        Me.Stock.Size = New System.Drawing.Size(841, 471)
+        Me.Stock.Size = New System.Drawing.Size(841, 477)
         Me.Stock.TabIndex = 2
         Me.Stock.Text = "Stock"
         Me.Stock.UseVisualStyleBackColor = True
@@ -418,7 +662,7 @@ Partial Class Main_Menu
         Me.TabPage3.Location = New System.Drawing.Point(4, 25)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(841, 471)
+        Me.TabPage3.Size = New System.Drawing.Size(841, 477)
         Me.TabPage3.TabIndex = 8
         Me.TabPage3.Text = "Old Meal Plan"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -434,7 +678,7 @@ Partial Class Main_Menu
         Me.Scan.Controls.Add(Me.txtScanIn)
         Me.Scan.Location = New System.Drawing.Point(4, 25)
         Me.Scan.Name = "Scan"
-        Me.Scan.Size = New System.Drawing.Size(841, 471)
+        Me.Scan.Size = New System.Drawing.Size(841, 477)
         Me.Scan.TabIndex = 3
         Me.Scan.Text = "Scan"
         Me.Scan.UseVisualStyleBackColor = True
@@ -516,7 +760,7 @@ Partial Class Main_Menu
         Me.Settings.Controls.Add(Me.TabControl1)
         Me.Settings.Location = New System.Drawing.Point(4, 25)
         Me.Settings.Name = "Settings"
-        Me.Settings.Size = New System.Drawing.Size(841, 471)
+        Me.Settings.Size = New System.Drawing.Size(841, 477)
         Me.Settings.TabIndex = 4
         Me.Settings.Text = "Settings"
         Me.Settings.UseVisualStyleBackColor = True
@@ -991,7 +1235,7 @@ Partial Class Main_Menu
         Me.EditMeals.Controls.Add(Me.Label17)
         Me.EditMeals.Location = New System.Drawing.Point(4, 25)
         Me.EditMeals.Name = "EditMeals"
-        Me.EditMeals.Size = New System.Drawing.Size(841, 471)
+        Me.EditMeals.Size = New System.Drawing.Size(841, 477)
         Me.EditMeals.TabIndex = 5
         Me.EditMeals.Text = "Edit Meals"
         Me.EditMeals.UseVisualStyleBackColor = True
@@ -1122,7 +1366,7 @@ Partial Class Main_Menu
         Me.Home.Location = New System.Drawing.Point(4, 25)
         Me.Home.Name = "Home"
         Me.Home.Padding = New System.Windows.Forms.Padding(3)
-        Me.Home.Size = New System.Drawing.Size(841, 471)
+        Me.Home.Size = New System.Drawing.Size(841, 477)
         Me.Home.TabIndex = 6
         Me.Home.Text = "Home"
         '
@@ -1275,7 +1519,7 @@ Partial Class Main_Menu
         Me.EditMealPlan.Location = New System.Drawing.Point(4, 25)
         Me.EditMealPlan.Name = "EditMealPlan"
         Me.EditMealPlan.Padding = New System.Windows.Forms.Padding(3)
-        Me.EditMealPlan.Size = New System.Drawing.Size(841, 471)
+        Me.EditMealPlan.Size = New System.Drawing.Size(841, 477)
         Me.EditMealPlan.TabIndex = 7
         Me.EditMealPlan.Text = "Edit Meal Plan"
         Me.EditMealPlan.UseVisualStyleBackColor = True
@@ -1344,36 +1588,101 @@ Partial Class Main_Menu
         Me.panelTuesday.Size = New System.Drawing.Size(190, 430)
         Me.panelTuesday.TabIndex = 54
         '
+        'Progress
+        '
+        Me.Progress.Controls.Add(Me.GroupBox7)
+        Me.Progress.Controls.Add(Me.GroupBox6)
+        Me.Progress.Controls.Add(Me.PictureBox7)
+        Me.Progress.Location = New System.Drawing.Point(4, 25)
+        Me.Progress.Name = "Progress"
+        Me.Progress.Padding = New System.Windows.Forms.Padding(3)
+        Me.Progress.Size = New System.Drawing.Size(841, 477)
+        Me.Progress.TabIndex = 9
+        Me.Progress.Text = "Progress"
+        Me.Progress.UseVisualStyleBackColor = True
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Location = New System.Drawing.Point(21, 241)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(343, 135)
+        Me.GroupBox7.TabIndex = 75
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Personal Details"
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.lvMeasurements)
+        Me.GroupBox6.Controls.Add(Me.butSave)
+        Me.GroupBox6.Location = New System.Drawing.Point(21, 37)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(343, 183)
+        Me.GroupBox6.TabIndex = 74
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Measurement Records"
+        '
+        'lvMeasurements
+        '
+        Me.lvMeasurements.HideSelection = False
+        Me.lvMeasurements.Location = New System.Drawing.Point(16, 31)
+        Me.lvMeasurements.Name = "lvMeasurements"
+        Me.lvMeasurements.Size = New System.Drawing.Size(304, 97)
+        Me.lvMeasurements.TabIndex = 72
+        Me.lvMeasurements.UseCompatibleStateImageBehavior = False
+        '
+        'butSave
+        '
+        Me.butSave.BackColor = System.Drawing.Color.SlateBlue
+        Me.butSave.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue
+        Me.butSave.FlatAppearance.BorderSize = 0
+        Me.butSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.butSave.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.butSave.ForeColor = System.Drawing.Color.White
+        Me.butSave.Location = New System.Drawing.Point(16, 143)
+        Me.butSave.Name = "butSave"
+        Me.butSave.Size = New System.Drawing.Size(121, 22)
+        Me.butSave.TabIndex = 73
+        Me.butSave.Text = "Add Measurements"
+        Me.butSave.UseVisualStyleBackColor = False
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
+        Me.PictureBox7.Location = New System.Drawing.Point(402, 37)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(397, 394)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox7.TabIndex = 0
+        Me.PictureBox7.TabStop = False
+        '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.txtTabTitle)
+        Me.Panel1.ForeColor = System.Drawing.Color.Gainsboro
         Me.Panel1.Location = New System.Drawing.Point(181, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(853, 100)
+        Me.Panel1.Size = New System.Drawing.Size(853, 61)
         Me.Panel1.TabIndex = 4
         '
-        'Label1
+        'Panel3
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(109, 127)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(739, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "_________________________________________________________________________________" &
-    "_________________________________________"
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Panel3.Location = New System.Drawing.Point(0, -8)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(853, 10)
+        Me.Panel3.TabIndex = 12
         '
         'txtTabTitle
         '
         Me.txtTabTitle.AutoSize = True
-        Me.txtTabTitle.Font = New System.Drawing.Font("Arial", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTabTitle.ForeColor = System.Drawing.Color.White
+        Me.txtTabTitle.Font = New System.Drawing.Font("Arial", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTabTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtTabTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.txtTabTitle.Location = New System.Drawing.Point(40, 49)
+        Me.txtTabTitle.Location = New System.Drawing.Point(22, 15)
         Me.txtTabTitle.Name = "txtTabTitle"
-        Me.txtTabTitle.Size = New System.Drawing.Size(226, 46)
+        Me.txtTabTitle.Size = New System.Drawing.Size(159, 32)
         Me.txtTabTitle.TabIndex = 3
         Me.txtTabTitle.Text = "Dashboard"
         Me.txtTabTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1390,13 +1699,34 @@ Partial Class Main_Menu
         '
         Me.cameraTimer.Interval = 10
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(26, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.PictureBox1)
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(184, 61)
+        Me.Panel2.TabIndex = 12
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(184, -344)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(857, 413)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox4.TabIndex = 12
+        Me.PictureBox4.TabStop = False
+        '
         'Main_Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1034, 598)
-        Me.Controls.Add(Me.panNav)
+        Me.ClientSize = New System.Drawing.Size(1034, 575)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PictureBox4)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.panNav)
         Me.Controls.Add(Me.mainTabControl)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1405,11 +1735,13 @@ Partial Class Main_Menu
         Me.Text = "Dashboard"
         Me.panNav.ResumeLayout(False)
         Me.panNav.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mainTabControl.ResumeLayout(False)
         Me.Dashboard.ResumeLayout(False)
         Me.Dashboard.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Scan.ResumeLayout(False)
         Me.Scan.PerformLayout()
         CType(Me.pbCamera, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1434,13 +1766,17 @@ Partial Class Main_Menu
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.EditMealPlan.ResumeLayout(False)
         Me.scrollPanel.ResumeLayout(False)
+        Me.Progress.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents panNav As Panel
-    Friend WithEvents txtTitle As Label
     Friend WithEvents mainTabControl As TabControl
     Friend WithEvents Dashboard As TabPage
     Friend WithEvents butDashboard As Button
@@ -1507,7 +1843,6 @@ Partial Class Main_Menu
     Friend WithEvents shoppingGenWorker As System.ComponentModel.BackgroundWorker
     Friend WithEvents Label24 As Label
     Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents Home As TabPage
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label25 As Label
@@ -1547,5 +1882,30 @@ Partial Class Main_Menu
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Ingredients As GroupBox
     Friend WithEvents butResetPendingStock As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents txtCarbs As TextBox
+    Friend WithEvents asfdedfs As Label
+    Friend WithEvents txtFat As TextBox
+    Friend WithEvents fsdfds As Label
+    Friend WithEvents txtProtein As TextBox
+    Friend WithEvents Label37 As Label
+    Friend WithEvents txtCalories As TextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtContainersInUse As TextBox
+    Friend WithEvents txtContainersFree As TextBox
+    Friend WithEvents butProgress As Button
+    Friend WithEvents Progress As TabPage
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents lvMeasurements As ListView
+    Friend WithEvents butSave As Button
+    Friend WithEvents GroupBox7 As GroupBox
 End Class

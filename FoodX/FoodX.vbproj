@@ -180,6 +180,7 @@
     <Compile Include="Database Tables\Standard Table\IngredientBarcodes.vb" />
     <Compile Include="Dashboard\MealListviewFormatting.vb" />
     <Compile Include="Database Tables\Standard Table\MealParts.vb" />
+    <Compile Include="Database Tables\Standard Table\BodyMeasurements.vb" />
     <Compile Include="Database Tables\Standard Table\Methods.vb" />
     <Compile Include="Edit Meal\Servings\changeServing.vb" />
     <Compile Include="Emails\Email Templates\MethodEmail.vb" />
@@ -254,6 +255,13 @@
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Measurements\EditMeasurement.Designer.vb">
+      <DependentUpon>EditMeasurement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Measurements\EditMeasurement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Measurements\NutritionCalculation.vb" />
     <Compile Include="Printing\printLabels.vb" />
     <Compile Include="Printing\printStorageLabels.Designer.vb">
       <DependentUpon>printStorageLabels.vb</DependentUpon>
@@ -355,6 +363,9 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Measurements\EditMeasurement.resx">
+      <DependentUpon>EditMeasurement.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Printing\printStorageLabels.resx">
       <DependentUpon>printStorageLabels.vb</DependentUpon>
     </EmbeddedResource>
@@ -402,6 +413,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="My Project\Untitled-2.ico" />
     <Content Include="Untitled-2.ico" />
   </ItemGroup>
   <ItemGroup>

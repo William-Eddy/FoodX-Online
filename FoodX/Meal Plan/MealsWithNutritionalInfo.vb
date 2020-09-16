@@ -64,15 +64,40 @@
         Return getCurrentRowValue("protein")
     End Function
 
+    Public Sub setNutritionalAverages()
 
+        Dim mealPlan As MealPlan = New MealPlan
+        Dim mealID As String
 
+        executeSelect()
+        mealPlan.setContents()
 
+        mealPlan.setRowColumnIndexToZero()
+        setRowColumnIndexToZero()
 
+        resetNutritionalCounts()
 
+        For Each row In mealPlan.table.Rows
 
+            mealPlan.setColumnIndexToZero()
 
+            For Each column In mealPlan.table.Columns
 
+                mealID = mealPlan.getCurrentValue
 
+                If Not (mealID = "0") Then
+
+                    addNutritonalInfo(mealID)
+
+                End If
+
+                mealPlan.increaseColumnCount()
+            Next
+
+            mealPlan.increaseRowCount()
+        Next
+
+    End Sub
 
 End Class
 

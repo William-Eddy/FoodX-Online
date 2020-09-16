@@ -20,7 +20,6 @@
 
         setMultiplier()
 
-        updateNutritionalInfo()
         updateIngredientQuantities()
 
     End Sub

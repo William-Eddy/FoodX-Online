@@ -9,13 +9,13 @@ Public Class Main_Menu
     Dim advancedOperations As AdvancedOperations = New AdvancedOperations
 
     Private Sub ButDashboard_Click(sender As Object, e As EventArgs) Handles butDashboard.Click
-        SetCurrentTab(0)
-        SetTabTitle()
+        setCurrentTab(0)
+        setTabTitle()
     End Sub
 
     Private Sub ButMeals_Click(sender As Object, e As EventArgs) Handles butMeals.Click
-        SetCurrentTab(5)
-        SetTabTitle()
+        setCurrentTab(5)
+        setTabTitle()
 
         populateMealListviews()
 
@@ -47,15 +47,15 @@ Public Class Main_Menu
     End Sub
 
     Private Sub ButSettings_Click(sender As Object, e As EventArgs) Handles butSettings.Click
-        SetCurrentTab(4)
-        SetTabTitle()
+        setCurrentTab(4)
+        setTabTitle()
     End Sub
 
-    Private Sub SetTabTitle()
+    Private Sub setTabTitle()
         Me.txtTabTitle.Text = mainTabControl.SelectedTab.Text
     End Sub
 
-    Private Sub SetCurrentTab(index)
+    Private Sub setCurrentTab(index)
         mainTabControl.SelectTab(index)
     End Sub
 
@@ -136,6 +136,9 @@ Public Class Main_Menu
             MainConnectionAccess.conndb.establishConnection()
         End If
 
+        loadContainersInUse()
+        loadAverageNutritionalInfo()
+
     End Sub
 
     Private Sub laserDisconnect_Tick(sender As Object, e As EventArgs) Handles laserDisconnect.Tick
@@ -143,8 +146,8 @@ Public Class Main_Menu
     End Sub
 
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
-        SetCurrentTab(7)
-        SetTabTitle()
+        setCurrentTab(7)
+        setTabTitle()
 
         displayMealEditDays()
 
@@ -294,11 +297,106 @@ Public Class Main_Menu
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
 
         Dim containers As Containers = New Containers
 
         MsgBox(containers.getTotalNumberOfContainersInUse)
 
     End Sub
+
+    Private Sub loadContainersInUse()
+
+        Dim containers As Containers = New Containers
+        Dim foodStorage As FoodStorage = New FoodStorage
+
+        Dim containersInUse As Integer = containers.getTotalNumberOfContainersInUse
+
+        Me.txtContainersInUse.Text = containersInUse
+        Me.txtContainersFree.Text = foodStorage.getFreezerCapacity()
+
+    End Sub
+
+    Private Sub loadAverageNutritionalInfo()
+
+        Dim nutritionalInfo As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
+
+        nutritionalInfo.setNutritionalAverages()
+
+        Me.txtCalories.Text = getAverage(nutritionalInfo.getTotalCalories)
+        Me.txtProtein.Text = getAverage(nutritionalInfo.getTotalProtein) + "g"
+        Me.txtCarbs.Text = getAverage(nutritionalInfo.getTotalCarbs) + "g"
+        Me.txtFat.Text = getAverage(nutritionalInfo.getTotalFat) + "g"
+
+    End Sub
+
+    Function getAverage(value)
+
+        Return Str(Math.Ceiling(value / 7))
+
+    End Function
+
+    Private Sub butProgress_Click(sender As Object, e As EventArgs) Handles butProgress.Click
+
+        setCurrentTab(8)
+        setTabTitle()
+        updateMeasurementsListview()
+
+    End Sub
+
+    Private Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
+
+        Dim editMeasurement As EditMeasurement = New EditMeasurement(Me)
+        editMeasurement.Show()
+
+    End Sub
+
+    Private Sub lvMeasurements_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles lvMeasurements.MouseDoubleClick
+
+        Dim editMeasurement As EditMeasurement = New EditMeasurement(Me, lvMeasurements.FocusedItem.Text)
+        editMeasurement.Show()
+
+    End Sub
+
+    Public Sub updateMeasurementsListview()
+
+        lvMeasurements.Clear()
+
+        setMeasurementListViewFormat()
+
+        Dim measurements As BodyMeasurements = New BodyMeasurements
+        Dim insertArray As String()
+        measurements.setContents()
+
+        measurements.setRowColumnIndexToZero()
+
+        For Each row In measurements.table.Rows
+
+            insertArray = {measurements.getCurrentDate, measurements.getCurrentWeight + "kg", measurements.getCurrentBodyFat + "%", measurements.getCurrentBicep + "cm"}
+            Me.lvMeasurements.Items.Add(measurements.getCurrentMeasurementID).SubItems.AddRange(insertArray)
+
+            measurements.increaseRowCount()
+        Next
+
+    End Sub
+
+    Private Sub setMeasurementListViewFormat()
+
+        With Me.lvMeasurements
+
+            .View = View.Details
+            .FullRowSelect = True
+            .HideSelection = False
+            .MultiSelect = False
+            .Columns.Add("measurementID", 0)
+            .Columns.Add("Date", 80)
+            .Columns.Add("Weight", 80)
+            .Columns.Add("Body Fat", 80)
+            .Columns.Add("Bicep", 80)
+            .GridLines = True
+
+        End With
+
+    End Sub
+
 End Class
