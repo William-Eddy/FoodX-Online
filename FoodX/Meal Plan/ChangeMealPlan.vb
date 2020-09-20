@@ -42,10 +42,63 @@
 
     Private Sub getNutritionalInfoTotals()
 
-        Me.Calories.Text = "Calories: " + Str(mealPlanManagement.meals.getTotalCalories)
-        Me.Fat.Text = "Fat: " + Str(mealPlanManagement.meals.getTotalFat) + "g"
-        Me.Protein.Text = "Protein: " + Str(mealPlanManagement.meals.getTotalProtein) + "g"
-        Me.Carbs.Text = "Carbs: " + Str(mealPlanManagement.meals.getTotalCarbs) + "g"
+        Dim nutritionalInfo As MealsWithNutritionalInfo = New MealsWithNutritionalInfo
+        Dim nutritionGoals As NutritionCalculation = New NutritionCalculation
+
+        nutritionalInfo.setNutritionalAverages()
+
+
+        Dim caloriesGoal As Integer = Int(nutritionGoals.getCalorieGoal)
+        Dim caloriesActual As Integer = Int(mealPlanManagement.meals.getTotalCalories)
+        Dim caloriesDifference As Double = caloriesActual - caloriesGoal
+
+        If caloriesActual >= caloriesGoal Then
+            Me.txtCalories.ForeColor = Color.Green
+        Else
+            Me.txtCalories.ForeColor = Color.Red
+        End If
+
+        Me.txtCalories.Text = "Calories: " + Str(caloriesActual) + " (" + Str(caloriesDifference) + ")"
+
+
+        Dim proteinGoal As Integer = Int(nutritionGoals.getProteinGoal)
+        Dim proteinActual As Integer = Int(mealPlanManagement.meals.getTotalProtein)
+        Dim proteinDifference As Double = proteinActual - proteinGoal
+
+        If proteinActual >= proteinGoal Then
+            Me.txtProtein.ForeColor = Color.Green
+        Else
+            Me.txtProtein.ForeColor = Color.Red
+        End If
+
+        Me.txtProtein.Text = "Protein: " + Str(proteinActual) + "g" + " (" + Str(proteinDifference) + ")"
+
+
+        Dim carbsGoal As Integer = Int(nutritionGoals.getCarbsGoal)
+        Dim carbsActual As Integer = Int(mealPlanManagement.meals.getTotalCarbs)
+        Dim carbsDifference As Double = carbsActual - carbsGoal
+
+        If carbsActual >= carbsGoal Then
+            Me.txtCarbs.ForeColor = Color.Green
+        Else
+            Me.txtCarbs.ForeColor = Color.Red
+        End If
+
+        Me.txtCarbs.Text = "Carbs: " + Str(carbsActual) + "g" + " (" + Str(carbsDifference) + ")"
+
+
+        Dim fatGoal As Integer = Int(nutritionGoals.getFatGoal)
+        Dim fatActual As Integer = Int(mealPlanManagement.meals.getTotalFat)
+        Dim fatDifference As Double = fatActual - fatGoal
+
+        If fatActual >= fatGoal Then
+            Me.txtFat.ForeColor = Color.Green
+        Else
+            Me.txtFat.ForeColor = Color.Red
+        End If
+
+        Me.txtFat.Text = "Fat: " + Str(fatActual) + "g" + " (" + Str(fatDifference) + ")"
+
 
     End Sub
 
@@ -232,4 +285,5 @@
         Me.butDinnerMealOut.Enabled = False
 
     End Sub
+
 End Class

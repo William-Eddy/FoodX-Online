@@ -1,6 +1,25 @@
 ﻿Public Class IngredientBarcodes
     Inherits DatabaseTable
 
+    Dim tableName As String = "tblIngredientBarcodes"
+
+    Public Overloads Sub executeInsert()
+
+        executeInsert(tableName)
+
+    End Sub
+
+    Public Overloads Sub executeUpdate()
+
+        executeUpdate(tableName)
+
+    End Sub
+
+    Public Overloads Sub executeSelect()
+
+        executeSelect(tableName)
+
+    End Sub
     Public Sub setContents(barcode)
 
         addColumnsForReturn("ingredientID")
@@ -11,21 +30,21 @@
 
     End Sub
 
-    Function getIngredientID()
+    Function getCurrentIngredientID()
 
-        Return table.Rows(0).Item(0).ToString()
-
-    End Function
-
-    Function getQuantity()
-
-        Return table.Rows(0).Item(1).ToString()
+        Return getCurrentRowValue("ingredientID")
 
     End Function
 
-    Function getPrice()
+    Function getCurrentQuantity()
 
-        Return table.Rows(0).Item(2).ToString()
+        Return getCurrentRowValue("quantity")
+
+    End Function
+
+    Function getCurrentPrice()
+
+        Return getCurrentRowValue("price")
 
     End Function
 

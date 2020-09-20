@@ -14,6 +14,7 @@
         Dim ingredients As Ingredients = New Ingredients
 
         ingredients.addValues("name", Me.txtName.Text)
+        ingredients.addValues("measurement", Me.cmoUnit.Text)
         ingredients.executeInsert("tblIngredients")
 
         masterEditForm.setIngredientDropdown()

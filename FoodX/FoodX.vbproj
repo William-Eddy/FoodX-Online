@@ -182,6 +182,7 @@
     <Compile Include="Database Tables\Standard Table\MealParts.vb" />
     <Compile Include="Database Tables\Standard Table\BodyMeasurements.vb" />
     <Compile Include="Database Tables\Standard Table\Methods.vb" />
+    <Compile Include="Database Tables\Standard Table\Transactions.vb" />
     <Compile Include="Edit Meal\Servings\changeServing.vb" />
     <Compile Include="Emails\Email Templates\MethodEmail.vb" />
     <Compile Include="Emails\Email Templates\ShoppingListEmail.vb" />
@@ -275,10 +276,10 @@
     <Compile Include="Shopping List\MakeList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Barcodes\NewBarcode.Designer.vb">
-      <DependentUpon>NewBarcode.vb</DependentUpon>
+    <Compile Include="Barcodes\EditBarcode.Designer.vb">
+      <DependentUpon>EditBarcode.vb</DependentUpon>
     </Compile>
-    <Compile Include="Barcodes\NewBarcode.vb">
+    <Compile Include="Barcodes\EditBarcode.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Shopping List\ShoppingList.Designer.vb">
@@ -372,8 +373,8 @@
     <EmbeddedResource Include="Shopping List\MakeList.resx">
       <DependentUpon>MakeList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Barcodes\NewBarcode.resx">
-      <DependentUpon>NewBarcode.vb</DependentUpon>
+    <EmbeddedResource Include="Barcodes\EditBarcode.resx">
+      <DependentUpon>EditBarcode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shopping List\ShoppingList.resx">
       <DependentUpon>ShoppingList.vb</DependentUpon>

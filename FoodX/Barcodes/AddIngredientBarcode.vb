@@ -23,11 +23,11 @@
 
         Ingredients.setContents()
 
-        ingredientID = IngredientBarcodes.getIngredientID
+        ingredientID = IngredientBarcodes.getCurrentIngredientID
 
         name = Ingredients.getIngredientName(ingredientID)
 
-        insertArray = {ingredientID, name, IngredientBarcodes.getQuantity, FormatCurrency(IngredientBarcodes.getPrice)}
+        insertArray = {ingredientID, name, IngredientBarcodes.getCurrentQuantity, FormatCurrency(IngredientBarcodes.getCurrentPrice)}
 
         Return insertArray
 
@@ -35,7 +35,7 @@
 
     Function getPrice()
 
-        Return IngredientBarcodes.getPrice
+        Return IngredientBarcodes.getCurrentPrice
 
     End Function
 

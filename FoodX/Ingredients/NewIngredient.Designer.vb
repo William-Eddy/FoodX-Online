@@ -26,6 +26,8 @@ Partial Class NewIngredient
         Me.butSave = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
+        Me.cmoUnit = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'butSave
@@ -36,7 +38,7 @@ Partial Class NewIngredient
         Me.butSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.butSave.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.butSave.ForeColor = System.Drawing.Color.White
-        Me.butSave.Location = New System.Drawing.Point(27, 58)
+        Me.butSave.Location = New System.Drawing.Point(27, 89)
         Me.butSave.Name = "butSave"
         Me.butSave.Size = New System.Drawing.Size(121, 22)
         Me.butSave.TabIndex = 25
@@ -59,11 +61,31 @@ Partial Class NewIngredient
         Me.txtName.Size = New System.Drawing.Size(168, 20)
         Me.txtName.TabIndex = 23
         '
+        'cmoUnit
+        '
+        Me.cmoUnit.FormattingEnabled = True
+        Me.cmoUnit.Items.AddRange(New Object() {"Unit", "g", "ml"})
+        Me.cmoUnit.Location = New System.Drawing.Point(87, 49)
+        Me.cmoUnit.Name = "cmoUnit"
+        Me.cmoUnit.Size = New System.Drawing.Size(51, 21)
+        Me.cmoUnit.TabIndex = 26
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(24, 52)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(29, 13)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "Unit:"
+        '
         'NewIngredient
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(329, 102)
+        Me.ClientSize = New System.Drawing.Size(329, 133)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cmoUnit)
         Me.Controls.Add(Me.butSave)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtName)
@@ -80,4 +102,6 @@ Partial Class NewIngredient
     Friend WithEvents butSave As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents txtName As TextBox
+    Friend WithEvents cmoUnit As ComboBox
+    Friend WithEvents Label1 As Label
 End Class

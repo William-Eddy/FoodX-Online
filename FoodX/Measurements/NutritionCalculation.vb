@@ -58,9 +58,9 @@
         calorieGoal = (tdee) * percentageForWeightGain
 
 
-        proteinGoal = (tdee * 0.4) / 4
-        carbsGoal = (tdee * 0.4) / 4
-        fatGoal = (tdee * 0.2) / 9
+        proteinGoal = (tdee * 0.3) / 4
+        carbsGoal = (tdee * 0.35) / 4
+        fatGoal = (tdee * 0.35) / 9
 
     End Sub
 

@@ -56,12 +56,12 @@
 
             totalPrice = totalPrice + addIngredientBarcode.getPrice()
 
-            Me.txtTotalPrice.Text = "£" + Format(totalPrice, "0.00")
+            'Me.txtTotalPrice.Text = "£" + Format(totalPrice, "0.00")
 
         Catch err As System.IndexOutOfRangeException
 
-            Dim oForm As NewBarcode
-            oForm = New NewBarcode(barcode, Me, True)
+            Dim oForm As EditBarcode
+            oForm = New EditBarcode(Me, barcode, True)
             oForm.Show()
 
             Exit Sub
@@ -154,9 +154,24 @@
 
     Private Sub lvIngredients_DoubleClick(sender As Object, e As EventArgs) Handles lvIngredients.DoubleClick
 
-        Dim oForm As NewBarcode
-        oForm = New NewBarcode(Me.lvIngredients.FocusedItem, Me, False)
+        Dim oForm As EditBarcode
+        oForm = New EditBarcode(Me, Me.lvIngredients.FocusedItem.Text, False)
+
+        Me.lvIngredients.FocusedItem.Remove()
+        removeIngredient()
         oForm.Show()
+
+    End Sub
+
+    Private Sub butDelete_Click(sender As Object, e As EventArgs) Handles butDelete.Click
+
+        removeIngredient()
+
+    End Sub
+
+    Private Sub removeIngredient()
+
+        Me.lvIngredients.FocusedItem.Remove()
 
     End Sub
 End Class

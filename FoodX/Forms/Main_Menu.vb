@@ -329,7 +329,7 @@ Public Class Main_Menu
         Dim caloriesActual As Integer = Int(getAverage(nutritionalInfo.getTotalCalories))
         Dim caloriesDifference As Double = caloriesActual - caloriesGoal
 
-        If caloriesActual > caloriesGoal Then
+        If caloriesActual >= caloriesGoal Then
             Me.txtCalories.ForeColor = Color.LightGreen
         Else
             Me.txtCalories.ForeColor = Color.Red
@@ -345,7 +345,7 @@ Public Class Main_Menu
         Dim proteinActual As Integer = Int(getAverage(nutritionalInfo.getTotalProtein))
         Dim proteinDifference As Double = proteinActual - proteinGoal
 
-        If proteinActual > proteinGoal Then
+        If proteinActual >= proteinGoal Then
             Me.txtProtein.ForeColor = Color.LightGreen
         Else
             Me.txtProtein.ForeColor = Color.Red
@@ -361,7 +361,7 @@ Public Class Main_Menu
         Dim carbsActual As Integer = Int(getAverage(nutritionalInfo.getTotalCarbs))
         Dim carbsDifference As Double = carbsActual - carbsGoal
 
-        If carbsActual > carbsGoal Then
+        If carbsActual >= carbsGoal Then
             Me.txtCarbs.ForeColor = Color.LightGreen
         Else
             Me.txtCarbs.ForeColor = Color.Red
@@ -372,12 +372,11 @@ Public Class Main_Menu
 
 
 
-
         Dim fatGoal As Integer = Int(nutritionGoals.getFatGoal)
         Dim fatActual As Integer = Int(getAverage(nutritionalInfo.getTotalFat))
         Dim fatDifference As Double = fatActual - fatGoal
 
-        If fatActual > fatGoal Then
+        If fatActual >= fatGoal Then
             Me.txtFat.ForeColor = Color.LightGreen
         Else
             Me.txtFat.ForeColor = Color.Red
